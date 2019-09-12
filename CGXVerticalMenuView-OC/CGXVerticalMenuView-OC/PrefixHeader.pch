@@ -1,0 +1,43 @@
+//
+//  PrefixHeader.pch
+//  CGXCategoryListView-OC
+//
+//  Created by MacMini-1 on 2019/9/5.
+//  Copyright © 2019 曹贵鑫. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#define RGBColor(r,g,b)     [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define RGBColorA(r,g,b,a)   [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+///颜色随机
+#define APPRandomColor    [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:1.0]
+
+/*!
+ * 屏幕宽度
+ */
+#define SCREEN_WIDTH ([[UIScreen mainScreen]bounds].size.width)
+
+/*!
+ * 屏幕高度
+ */
+#define SCREEN_HEIGHT ([[UIScreen mainScreen]bounds].size.height)
+
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kNavBarHeight 44.0
+
+#define kTopHeight (kStatusBarHeight + kNavBarHeight)
+#define kSafeHeight (kStatusBarHeight>20?34:0)
+#define kTabBarHeight (kStatusBarHeight>20?83:49)
+#define kVCHeight (SCREEN_HEIGHT-kTopHeight-kTabBarHeight)
+#define kSafeVCHeight (kStatusBarHeight>20?(SCREEN_HEIGHT-kTopHeight-34):(SCREEN_HEIGHT-kTopHeight))
+
+
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
