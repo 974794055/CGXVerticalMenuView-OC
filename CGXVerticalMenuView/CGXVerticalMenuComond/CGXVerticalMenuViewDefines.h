@@ -25,5 +25,3 @@ typedef NS_ENUM(NSUInteger, CGXCategoryListCellSelectedType) {
     CGXCategoryListCellSelectedTypeClick,            //点击选中
     CGXCategoryListCellSelectedTypeScroll            //滚动选中
 };
-
-#define CGXCategoryViewDeprecated(instead) NS_DEPRECATED(2_0, 2_0, 2_0, 2_0, instead)
