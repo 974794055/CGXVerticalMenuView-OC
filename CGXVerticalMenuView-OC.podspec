@@ -11,8 +11,7 @@ s.source       = { :git => "https://github.com/974794055/CGXVerticalMenuView-OC.
 s.requires_arc = true #是否支持ARC
 s.frameworks = 'UIKit'
 
-s.source_files = "CGXVerticalMenuView", "CGXVerticalMenuView/*" #需要托管的源代码路径
-
+s.source_files = "CGXVerticalMenuView", "CGXVerticalMenuView/**/*.{h,m}" #需要托管的源代码路径
 
 end
 
