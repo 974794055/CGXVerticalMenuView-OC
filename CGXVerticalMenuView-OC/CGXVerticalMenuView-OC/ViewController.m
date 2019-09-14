@@ -24,6 +24,8 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     
+    
+    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"上一个" style:UIBarButtonItemStyleDone target:self action:@selector(topText)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一个" style:UIBarButtonItemStyleDone target:self action:@selector(bottomText)];
     

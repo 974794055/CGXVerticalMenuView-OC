@@ -14,25 +14,6 @@ s.frameworks = 'UIKit'
 s.source_files = "CGXVerticalMenuView", "CGXVerticalMenuView/**/*.{h,m}" #需要托管的源代码路径
 
 
-  s.subspec 'CGXVerticalMenuIndicatorView' do |ss|
-
-  end
-
-  s.subspec 'CGXVerticalMenuTitleView' do |ss|
-
-  end
-
-  s.subspec 'CGXVerticalMenuComond' do |ss|
-
-  end
-
-  s.subspec 'CGXVerticalMenuBaseView' do |ss|
-
-  end
-
-
-
-
 end
 
 
