@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "CGXVerticalMenuView-OC"    #存储库名称
-s.version      = "0.1"      #版本号，与tag值一致
+s.version      = "0.2"      #版本号，与tag值一致
 s.summary      = "a CGXVerticalMenuView-OC 菜单封装"  #简介
 s.description  = "所有主流APP分类切换滚动视图  封装"  #描述
 s.homepage     = "https://github.com/974794055/CGXVerticalMenuView-OC"      #项目主页，不是git地址
@@ -11,7 +11,27 @@ s.source       = { :git => "https://github.com/974794055/CGXVerticalMenuView-OC.
 s.requires_arc = true #是否支持ARC
 s.frameworks = 'UIKit'
 
-s.source_files = "CGXVerticalMenuView", "CGXVerticalMenuView/**/*.{h,m}" #需要托管的源代码路径
+#需要托管的源代码路径
+s.source_files = "CGXVerticalMenuView", "CGXVerticalMenuView/**/*.{h,m}"
+ #源码头文件配置
+s.public_header_files = 'CGXVerticalMenuView/*.h'
+
+
+s.subspec "CGXVerticalMenuTitleView" do |ss|
+ 
+end
+
+s.subspec "CGXVerticalMenuComond" do |ss|
+ 
+end
+
+s.subspec "CGXVerticalMenuBaseView" do |ss|
+ 
+end
+
+s.subspec "CGXVerticalMenuIndicatorView" do |ss|
+ 
+end
 
 end
 
