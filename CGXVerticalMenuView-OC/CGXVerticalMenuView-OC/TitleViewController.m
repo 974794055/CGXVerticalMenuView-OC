@@ -1,19 +1,21 @@
 //
-//  ViewController.m
-//  CGXCategoryListView-OC
+//  TitleViewController.m
+//  CGXVerticalMenuView-OC
 //
-//  Created by 曹贵鑫 on 2019/9/4.
-//  Copyright © 2019 曹贵鑫. All rights reserved.
+//  Created by 曹贵鑫 on 2019/9/14.
+//  Copyright © 2019 CGX. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TitleViewController.h"
 #import "CGXVerticalMenuTitleView.h"
 #import "CGXVerticalMenuIndicatorLineView.h"
 #import "CGXVerticalMenuIndicatorBackgroundView.h"
-@interface ViewController ()<CGXVerticalMenuTitleViewDelegate>
+
+@interface TitleViewController ()<CGXVerticalMenuTitleViewDelegate>
+
 @end
 
-@implementation ViewController
+@implementation TitleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -112,4 +114,14 @@
 {
     NSLog(@"点击或者滚动选中 %@--%ld",categoryView,index);
 }
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
 @end

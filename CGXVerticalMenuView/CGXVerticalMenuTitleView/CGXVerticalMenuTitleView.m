@@ -13,7 +13,8 @@
 
 @property (nonatomic, assign) CGFloat isFirstClick;//是否第一次点击
 
-@property (nonatomic, assign) NSInteger  selectedIndex;
+@property (nonatomic, assign,readwrite) NSInteger  selectedIndex;
+
 @end
 
 @implementation CGXVerticalMenuTitleView

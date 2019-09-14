@@ -52,6 +52,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) NSTimeInterval timeDuration;//指示器动画时间 默认0
 
+
+@property (nonatomic, assign,readonly) NSInteger  selectedIndex;
+
 /**
  选中目标index的item
  @param index 目标index
