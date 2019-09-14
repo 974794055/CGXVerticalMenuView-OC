@@ -12,24 +12,27 @@ s.requires_arc = true #是否支持ARC
 s.frameworks = 'UIKit'
 
 #需要托管的源代码路径
-s.source_files = "CGXVerticalMenuView","CGXVerticalMenuView/**/*.{h,m}"
- 
+#s.source_files = "CGXVerticalMenuView","CGXVerticalMenuView/**/*.{h,m}"
+#s.public_header_files = "CGXVerticalMenuView","CGXVerticalMenuView/**/*.{h,m}"
+
+s.source_files = "CGXVerticalMenuView","CGXVerticalMenuView/CGXVerticalMenu.h"
+s.public_header_files = "CGXVerticalMenuView","CGXVerticalMenuView/CGXVerticalMenu.h"
 
 s.subspec "TitleView" do |ss|
-
+ss.source_files = 'CGXVerticalMenuView/CGXVerticalMenuTitleView/**/*.{h,m}'
 end
 
 s.subspec "Comond" do |ss|
-
+ss.source_files = 'CGXVerticalMenuView/CGXVerticalMenuComond/**/*.{h,m}'
 end
 
 s.subspec "BaseView" do |ss|
-
+ss.source_files = 'CGXVerticalMenuView/CGXVerticalMenuBaseView/**/*.{h,m}'
 
 end
 
 s.subspec "IndicatorView" do |ss|
-
+ss.source_files = 'CGXVerticalMenuView/CGXVerticalMenuIndicatorView/**/*.{h,m}'
 end
 
 end
