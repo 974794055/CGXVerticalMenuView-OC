@@ -21,7 +21,6 @@
 #import "CGXVerticalMenuIndicatorBackgroundView.h"
 #import "CGXVerticalMenuIndicatorComponentView.h"
 
-
 #import "CGXVerticalMenuIndicatorParamsModel.h"
 
 #import "CGXVerticalMenuIndicatoCollectionView.h"
