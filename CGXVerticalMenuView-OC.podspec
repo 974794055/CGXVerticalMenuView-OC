@@ -12,32 +12,32 @@ s.requires_arc = true #是否支持ARC
 s.frameworks = 'UIKit'
 
 #需要托管的源代码路径
-#s.source_files = "CGXVerticalMenuView", "CGXVerticalMenuView/**/*.{h,m}"
+#s.source_files = "CGXVerticalMenuView/**/*.{h,m}"
 
 #需要托管的源代码路径
-s.source_files = "CGXVerticalMenuView/CGXVerticalMenu.h"
+s.source_files = "CGXVerticalMenuView/**/*.{h,m}"
  #源码头文件配置
-s.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
+s.public_header_files = 'CGXVerticalMenuView/**/*.{h,m}'
 
 
 s.subspec "CGXVerticalMenuTitleView" do |ss|
-  ss.source_files = "CGXVerticalMenuView/CGXVerticalMenuTitleView/CGXVerticalMenuTitle.{h,m}"
-  ss.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
+  ss.source_files = "CGXVerticalMenuView/CGXVerticalMenuTitleView/*.{h,m}"
+  ss.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenuTitleView/*.{h,m}'
 end
 
 s.subspec "CGXVerticalMenuComond" do |ss|
-  ss.source_files = "CGXVerticalMenuView/CGXVerticalMenuComond/**/*.{h,m}"
-  ss.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
+  ss.source_files = "CGXVerticalMenuView/Cgxverticalbmenucomond/*.{h,m}"
+  ss.public_header_files = 'CGXVerticalMenuView/Cgxverticalbmenucomond/*.{h,m}'
 end
 
 s.subspec "CGXVerticalMenuBaseView" do |ss|
-   ss.source_files = "CGXVerticalMenuView/CGXVerticalMenuBaseView/CGXVerticalMenuBase.{h,m}"
-  ss.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
+   ss.source_files = "CGXVerticalMenuView/CGXVerticalMenuBaseView/*.{h,m}"
+  ss.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenuBaseView/*.{h,m}'
 end
 
 s.subspec "CGXVerticalMenuIndicatorView" do |ss|
-   ss.source_files = "CGXVerticalMenuView/CGXVerticalMenuIndicatorView/CGXVerticalMenuIndicator.{h,m}"
-  ss.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
+   ss.source_files = "CGXVerticalMenuView/CGXVerticalMenuIndicatorView/*.{h,m}"
+  ss.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenuIndicatorView/*.{h,m}'
 end
 
 end
