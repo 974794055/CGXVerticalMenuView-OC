@@ -13,29 +13,9 @@ s.frameworks = 'UIKit'
 
 #s.source_files = "CGXVerticalMenuView", "CGXVerticalMenuView/**/*.{h,m}" #需要托管的源代码路径
 
-  s.public_header_files = 'CGXVerticalMenuView-OC/CGXVerticalMenuView.h'
-  s.source_files = 'CGXVerticalMenuView-OC/CGXVerticalMenuView.h'
+  s.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenuView.h'
+  s.source_files = "CGXVerticalMenuView", "CGXVerticalMenuView/**/*.{h,m}" #需要托管的源代码路径
 
-
-  s.subspec 'CGXVerticalMenuBaseView' do |ss|
-    ss.source_files = 'GXVerticalMenuView-OC/CGXVerticalMenuBase.{h,m}'
-    ss.public_header_files = 'CGXVerticalMenuView-OC/CGXVerticalMenuView.h'
-  end
-
- s.subspec 'CGXVerticalMenuTitleView' do |ss|
-    ss.source_files = 'CGXVerticalMenuView-OC/CGXVerticalMenuTitle.{h,m}'
-    ss.public_header_files = 'GXVerticalMenuView-OC/CGXVerticalMenuView.h'
-  end
-
- s.subspec 'CGXVerticalMenuIndicatorView' do |ss|
-    ss.source_files = 'GXVerticalMenuView-OC/CGXVerticalMenuIndicator.{h,m}View'
-    ss.public_header_files = 'GXVerticalMenuView-OC/CGXVerticalMenuView.h'
-  end
-
- s.subspec 'CGXVerticalMenuComond' do |ss|
-    ss.source_files = 'GXVerticalMenuView-OC/CGXVerticalMenuComond/**/*.{h,m}'
-    ss.public_header_files = 'GXVerticalMenuView-OC/GXVerticalMenuView.h'
-  end
 
 
 
