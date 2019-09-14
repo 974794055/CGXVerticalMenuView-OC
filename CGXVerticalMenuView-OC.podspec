@@ -13,27 +13,30 @@ s.frameworks = 'UIKit'
 
 #需要托管的源代码路径
 #s.source_files = "CGXVerticalMenuView","CGXVerticalMenuView/**/*.{h,m}"
-#s.public_header_files = "CGXVerticalMenuView","CGXVerticalMenuView/**/*.{h,m}"
+#s.public_header_files = "CGXVerticalMenuView/CGXVerticalMenu.h"
 
-s.source_files = "CGXVerticalMenuView","CGXVerticalMenuView/CGXVerticalMenu.h"
-s.public_header_files = "CGXVerticalMenuView","CGXVerticalMenuView/CGXVerticalMenu.h"
-
-s.subspec "TitleView" do |ss|
-ss.source_files = 'CGXVerticalMenuView/CGXVerticalMenuTitleView/**/*.{h,m}'
-end
+s.source_files = "CGXVerticalMenuView/CGXVerticalMenu.h"
+s.public_header_files = "CGXVerticalMenuView/CGXVerticalMenu.h"
 
 s.subspec "Comond" do |ss|
-ss.source_files = 'CGXVerticalMenuView/CGXVerticalMenuComond/**/*.{h,m}'
+ss.source_files = 'CGXVerticalMenuView/CGXVerticalMenuComond/*.{h,m}'
 end
 
+
 s.subspec "BaseView" do |ss|
-ss.source_files = 'CGXVerticalMenuView/CGXVerticalMenuBaseView/**/*.{h,m}'
+ss.source_files = 'CGXVerticalMenuView/CGXVerticalMenuBaseView/*.{h,m}'
 
 end
 
 s.subspec "IndicatorView" do |ss|
-ss.source_files = 'CGXVerticalMenuView/CGXVerticalMenuIndicatorView/**/*.{h,m}'
+ss.source_files = 'CGXVerticalMenuView/CGXVerticalMenuIndicatorView/*.{h,m}'
 end
+
+s.subspec "TitleView" do |ss|
+ss.source_files = 'CGXVerticalMenuView/CGXVerticalMenuTitleView/*.{h,m}'
+end
+
+
 
 end
 
