@@ -16,7 +16,8 @@ s.frameworks = 'UIKit'
  
 #s.source_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
 
-s.source_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
+s.source_files = 'CGXVerticalMenuView/CGXVerticalMenu.h','CGXVerticalMenuView/CGXVerticalMenuCategoryView.{h,m}','CGXVerticalMenuView/CGXVerticalMenuCategoryListModel.{h,m}'
+
 #开源库头文件
 s.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h' 
 
@@ -26,7 +27,7 @@ s.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
   end
 
  s.subspec 'MenuCollectionView' do |ss|
-    ss.source_files = 'CGXVerticalMenuView/MenuCollectionView/**/*.{h,m}'
+   #ss.source_files = 'CGXVerticalMenuView/MenuCollectionView/**/*.{h,m}'
    
   end
 
