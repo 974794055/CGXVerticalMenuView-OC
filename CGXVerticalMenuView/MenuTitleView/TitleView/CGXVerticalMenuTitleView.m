@@ -9,6 +9,7 @@
 #import "CGXVerticalMenuTitleView.h"
 #import "CGXVerticalMenuTitleCell.h"
 #import "CGXVerticalMenuIndicatorBackgroundView.h"
+#import "CGXVerticalMenuIndicatorLineView.h"
 @interface CGXVerticalMenuTitleView()
 
 @property (nonatomic, assign) CGFloat isFirstClick;//是否第一次点击
@@ -32,6 +33,14 @@
 - (void)initializeViews
 {
     [super initializeViews];
+    
+    CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
+    backgroundView.backgroundViewColor = [UIColor orangeColor];
+    backgroundView.backgroundViewCornerRadius = 0;
+    CGXVerticalMenuIndicatorLineView *lineView = [[CGXVerticalMenuIndicatorLineView alloc] init];
+    lineView.backgroundColor = [UIColor redColor];
+    lineView.positionType = CGXVerticalMenuIndicatorLinePosition_Left;
+    self.indicators = @[lineView,backgroundView];
     
 }
 - (Class)preferredCellClass

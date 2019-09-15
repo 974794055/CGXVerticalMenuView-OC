@@ -7,10 +7,13 @@
 //
 
 #import "ViewController.h"
-#import "CGXVerticalMenuTitleView.h"
-#import "CGXVerticalMenuIndicatorLineView.h"
-#import "CGXVerticalMenuIndicatorBackgroundView.h"
-@interface ViewController ()<CGXVerticalMenuTitleViewDelegate>
+
+#import "CGXVerticalMenu.h"
+#import "TitleHeaderView.h"
+@interface ViewController ()<CGXVerticalMenuCategoryViewDelegate>
+
+
+@property (nonatomic , strong) CGXVerticalMenuCategoryView *menuView;
 @end
 
 @implementation ViewController
@@ -18,102 +21,111 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.view.backgroundColor = [UIColor whiteColor];
+//    if (@available(iOS 11.0, *)) {
+//        [UIScrollView ].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//    } else {
+//        self.automaticallyAdjustsScrollViewInsets = NO;
+//    }
     self.extendedLayoutIncludesOpaqueBars = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    
-    
-    
     
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"上一个" style:UIBarButtonItemStyleDone target:self action:@selector(topText)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一个" style:UIBarButtonItemStyleDone target:self action:@selector(bottomText)];
     
-    NSMutableArray *arr = [NSMutableArray arrayWithObjects:
-                           [NSNumber numberWithInteger:CGXVerticalMenuIndicatorLinePosition_Left],
-                           [NSNumber numberWithInteger:CGXVerticalMenuIndicatorLinePosition_Right],
-                           [NSNumber numberWithInteger:CGXVerticalMenuIndicatorLinePosition_Top],
-                           [NSNumber numberWithInteger:CGXVerticalMenuIndicatorLinePosition_Bottom],
-                           nil];
-    for (int i = 0; i<arr.count; i++) {
-        CGXVerticalMenuTitleView *listView = [[CGXVerticalMenuTitleView alloc] initWithFrame:CGRectMake(((SCREEN_WIDTH-50)/4.0+10)*i, 0, (SCREEN_WIDTH-50)/4.0, kVCHeight)];
-        listView.delegate = self;
-        listView.backgroundColor = [UIColor colorWithRed:29.0/255.0f green:35.0/255.0f blue:69.0/255.0f alpha:1.0];
-        [self.view addSubview:listView];
-        listView.tag =  10000+i;
-        CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
-        backgroundView.backgroundViewColor = [UIColor orangeColor];
-        if (i==0) {
-            backgroundView.backgroundViewHeight = 30;
-            backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0-20;
-        } else if (i==1){
-            backgroundView.backgroundViewHeight = 30;
-            backgroundView.backgroundViewCornerRadius = 0;
-            backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0-20;
-        }else if (i==2){
-            backgroundView.backgroundViewCornerRadius = 25;
-            backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0-20;
-        }else if (i==3){
-            backgroundView.backgroundViewCornerRadius = 0;
+    
+    self.menuView = [[CGXVerticalMenuCategoryView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kVCHeight)];
+    self.menuView.backgroundColor = [UIColor whiteColor];
+    self.menuView.delegate = self;
+    [self.view addSubview:self.menuView];
+    self.menuView.scollType = CGXVerticalMenuCategoryViewScollTypeLinkage;
+    self.menuView.titleWidth = (SCREEN_WIDTH-50)/4.0;
+     self.menuView.leftBgColor = [UIColor colorWithRed:29.0/255.0f green:35.0/255.0f blue:69.0/255.0f alpha:1.0];;
+    self.menuView.righttBgColor = [UIColor whiteColor];
+    
+    CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
+    backgroundView.backgroundViewColor = [UIColor orangeColor];
+    backgroundView.backgroundViewHeight = 30;
+    backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0-20;
+    CGXVerticalMenuIndicatorLineView *lineView = [[CGXVerticalMenuIndicatorLineView alloc] init];
+    lineView.backgroundColor = [UIColor redColor];
+    lineView.positionType = CGXVerticalMenuIndicatorLinePosition_Left;
+    self.menuView.leftView.indicators = @[lineView,backgroundView];
+    
+    
+    
+    NSMutableArray *titleArr = [NSMutableArray arrayWithObjects:@"推荐",@"要闻",@"河北",@"财经",@"娱乐",@"体育",@"社会",@"NBA",@"视频",@"汽车",@"图片",@"科技",@"军事",@"国际",@"数码",@"星座",@"电影",@"时尚",@"文化",@"游戏",@"教育",@"动漫",@"政务",@"纪录片",@"房产",@"佛学",@"股票",@"理财", nil];
+    NSMutableArray *dataArr = [NSMutableArray array];
+    for (int i = 0; i<titleArr.count; i++) {
+        CGXVerticalMenuCategoryListModel *listModel = [[CGXVerticalMenuCategoryListModel alloc] init];
+        
+        CGXVerticalMenuTitleModel *itemModel = [[CGXVerticalMenuTitleModel alloc] init];
+        //            itemModel.isMoreClick = NO;
+        itemModel.title = titleArr[i];
+        itemModel.titleNormalColor = [UIColor whiteColor];
+        itemModel.titleSelectedColor = [UIColor redColor];
+        itemModel.titleFont = [UIFont systemFontOfSize:14];
+        itemModel.titleSelectedFont = [UIFont systemFontOfSize:18];
+        //                    [dataArr addObject:itemModel];
+        listModel.leftModel = itemModel;
+        
+        
+        
+        NSMutableArray *dataRightArr = [NSMutableArray array];
+        for (int i = 0; i<arc4random() % 6 + 3; i++) {
+            CGXVerticalMenuCollectionSectionModel *sectionModel = [[CGXVerticalMenuCollectionSectionModel alloc] init];
+            sectionModel.headerHeight = 100;
+            sectionModel.footerHeight = 10;
+            sectionModel.headerBgColor = [UIColor orangeColor];
+            sectionModel.footerBgColor = [UIColor yellowColor];
+            sectionModel.rowCount = 3;
+            NSMutableArray *rowArr = [NSMutableArray array];
+            for (int j = 0; j<6; j++) {
+                CGXVerticalMenuCollectionItemModel *itemModel = [[CGXVerticalMenuCollectionItemModel alloc] init];
+                [rowArr addObject:itemModel];
+            }
+            sectionModel.rowArray = [NSMutableArray arrayWithArray:rowArr];
+            [dataRightArr addObject:sectionModel];
         }
-        CGXVerticalMenuIndicatorLineView *lineView = [[CGXVerticalMenuIndicatorLineView alloc] init];
-        lineView.backgroundColor = [UIColor redColor];
-        
-        lineView.positionType = [arr[i] integerValue];
-        
-        listView.indicators = @[lineView,backgroundView];
-        
-        NSMutableArray *titleArr = [NSMutableArray arrayWithObjects:@"推荐",@"要闻",@"河北",@"财经",@"娱乐",@"体育",@"社会",@"NBA",@"视频",@"汽车",@"图片",@"科技",@"军事",@"国际",@"数码",@"星座",@"电影",@"时尚",@"文化",@"游戏",@"教育",@"动漫",@"政务",@"纪录片",@"房产",@"佛学",@"股票",@"理财", nil];
-        NSMutableArray *dataArr = [NSMutableArray array];
-        for (int i = 0; i<titleArr.count; i++) {
-            CGXVerticalMenuTitleModel *itemModel = [[CGXVerticalMenuTitleModel alloc] init];
-            //            itemModel.isMoreClick = NO;
-            itemModel.title = titleArr[i];
-            itemModel.titleNormalColor = [UIColor whiteColor];
-            itemModel.titleSelectedColor = [UIColor redColor];
-            itemModel.titleFont = [UIFont systemFontOfSize:14];
-            itemModel.titleSelectedFont = [UIFont systemFontOfSize:18];
-            [dataArr addObject:itemModel];
-        }
-        [listView updateMenuWithDataArray:dataArr];
+        listModel.rightArray = dataRightArr;
+ 
+        [dataArr addObject:listModel];
     }
+    [self.menuView updateListWithDataArray:dataArr];
+    
     
 }
 
 - (void)topText
 {
-    CGXVerticalMenuTitleView *listView1 = [self.view viewWithTag:10000];
-    CGXVerticalMenuTitleView *listView2 = [self.view viewWithTag:10001];
-    CGXVerticalMenuTitleView *listView3 = [self.view viewWithTag:10002];
-    CGXVerticalMenuTitleView *listView4 = [self.view viewWithTag:10003];
-    [listView1 scrollerItemAtIndex:listView1.selectedIndex-1];
-    [listView2 scrollerItemAtIndex:listView2.selectedIndex-1];
-    [listView3 scrollerItemAtIndex:listView3.selectedIndex-1];
-    [listView4 scrollerItemAtIndex:listView4.selectedIndex-1];
+    
+//    [self.listView scrollerItemAtIndex:self.listView.selectedIndex-1];
 }
 - (void)bottomText
 {
-    CGXVerticalMenuTitleView *listView1 = [self.view viewWithTag:10000];
-    CGXVerticalMenuTitleView *listView2 = [self.view viewWithTag:10001];
-    CGXVerticalMenuTitleView *listView3 = [self.view viewWithTag:10002];
-    CGXVerticalMenuTitleView *listView4 = [self.view viewWithTag:10003];
-    [listView1 scrollerItemAtIndex:listView1.selectedIndex+1];
-    [listView2 scrollerItemAtIndex:listView2.selectedIndex+1];
-    [listView3 scrollerItemAtIndex:listView3.selectedIndex+1];
-    [listView4 scrollerItemAtIndex:listView4.selectedIndex+1];
+//    [self.listView scrollerItemAtIndex:self.listView.selectedIndex+1];
 }
-- (void)verticalMenuTitleView:(CGXVerticalMenuTitleView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index
+- (UICollectionViewCell *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"点击选中 %@--%ld",categoryView,index);
+    CGXVerticalMenuCollectionCell *cell = [categoryView.rightView.collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionCell class]) forIndexPath:indexPath];
+    CGXVerticalMenuCollectionSectionModel *sectionModel = categoryView.rightView.dataArray[indexPath.section];
+    CGXVerticalMenuCollectionItemModel *itemModel = sectionModel.rowArray[indexPath.row];
+    [cell reloadData:itemModel];
+    return cell;
 }
-- (void)verticalMenuTitleView:(CGXVerticalMenuTitleView *)categoryView didScrollerSelectedItemAtIndex:(NSInteger)index
+
+- (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView KindHeadAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"滚动选中 %@--%ld",categoryView,index);
+    TitleHeaderView *titleView = [[TitleHeaderView alloc] init];
+    CGXVerticalMenuCategoryListModel *listModel = categoryView.dataArray[categoryView.leftView.selectedIndex];
+    titleView.titleLabel.text = [NSString stringWithFormat:@"%@--%ld--%ld",listModel.leftModel.title,indexPath.section,indexPath.row];
+    return titleView;
 }
-- (void)verticalMenuTitleView:(CGXVerticalMenuTitleView *)categoryView didSelectedItemAtIndex:(NSInteger)index
+- (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView KindFootAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"点击或者滚动选中 %@--%ld",categoryView,index);
+    UICollectionReusableView *titleView = [[UICollectionReusableView alloc] init];
+    return titleView;
 }
+
 @end

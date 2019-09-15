@@ -13,10 +13,10 @@
 #import "CGXVerticalMenuBaseCell.h"
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, CGXHomeCategoryListBaseViewSelectType) {
-    CGXHomeCategoryListBaseViewSelected,
-    CGXHomeCategoryListBaseViewClick,
-    CGXHomeCategoryListBaseViewScroll,
+typedef NS_ENUM(NSUInteger, CGXVerticalMenuBaseViewSelectType) {
+    CGXVerticalMenuBaseViewSelected,
+    CGXVerticalMenuBaseViewClick,
+    CGXVerticalMenuBaseViewScroll,
 };
 
 
