@@ -32,9 +32,9 @@
 #import "CGXVerticalMenuIndicatorProtocol.h"
 
 
-#import "CGXVerticalMenuCollectionView.h"
-#import "CGXVerticalMenuCollectionSectionModel.h"
-#import "CGXVerticalMenuCollectionItemModel.h"
-#import "CGXVerticalMenuCollectionCell.h"
+//#import "CGXVerticalMenuCollectionView.h"
+//#import "CGXVerticalMenuCollectionSectionModel.h"
+//#import "CGXVerticalMenuCollectionItemModel.h"
+//#import "CGXVerticalMenuCollectionCell.h"
 
 #endif /* CGXVerticalMenu_h */
