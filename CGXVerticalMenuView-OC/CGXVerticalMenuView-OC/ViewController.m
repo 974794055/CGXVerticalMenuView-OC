@@ -23,27 +23,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-//    if (@available(iOS 11.0, *)) {
-//        [UIScrollView ].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-//    } else {
-//        self.automaticallyAdjustsScrollViewInsets = NO;
-//    }
-    self.extendedLayoutIncludesOpaqueBars = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.tabBarController.tabBar.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationController.navigationBar.translucent = NO;
+    self.extendedLayoutIncludesOpaqueBars = NO;
     
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"上一个" style:UIBarButtonItemStyleDone target:self action:@selector(topText)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一个" style:UIBarButtonItemStyleDone target:self action:@selector(bottomText)];
-    
-    
+
     self.menuView = [[CGXVerticalMenuCategoryView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kVCHeight)];
     self.menuView.backgroundColor = [UIColor whiteColor];
     self.menuView.delegate = self;
     [self.view addSubview:self.menuView];
-    self.menuView.scollType = CGXVerticalMenuCategoryViewScollTypeLinkage;
     self.menuView.titleWidth = (SCREEN_WIDTH-50)/4.0;
      self.menuView.leftBgColor = [UIColor colorWithRed:29.0/255.0f green:35.0/255.0f blue:69.0/255.0f alpha:1.0];;
     self.menuView.righttBgColor = [UIColor whiteColor];
+    self.menuView.isKeepScrollState  = NO;
+    
     
     CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
     backgroundView.backgroundViewColor = [UIColor orangeColor];
@@ -71,8 +67,7 @@
         //                    [dataArr addObject:itemModel];
         listModel.leftModel = itemModel;
         
-        
-        
+    
         NSMutableArray *dataRightArr = [NSMutableArray array];
         for (int i = 0; i<arc4random() % 6 + 3; i++) {
             CGXVerticalMenuCollectionSectionModel *sectionModel = [[CGXVerticalMenuCollectionSectionModel alloc] init];
@@ -97,16 +92,6 @@
     
     
 }
-
-- (void)topText
-{
-    
-//    [self.listView scrollerItemAtIndex:self.listView.selectedIndex-1];
-}
-- (void)bottomText
-{
-//    [self.listView scrollerItemAtIndex:self.listView.selectedIndex+1];
-}
 - (UICollectionViewCell *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGXVerticalMenuCollectionCell *cell = [categoryView.rightView.collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionCell class]) forIndexPath:indexPath];
@@ -128,5 +113,23 @@
     UICollectionReusableView *titleView = [[UICollectionReusableView alloc] init];
     return titleView;
 }
+/** 左侧点击
+ 点击选中、滚动选中的情况才会调用该方法
+ @param categoryView categoryView description
+ @param index 选中的index
+ */
+- (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemAtIndex:(NSInteger)index
+{
+    NSLog(@"左侧点击 %ld",index);
+}
 
+/**  右侧点击
+ 点击选中、滚动选中的情况才会调用该方法
+ @param categoryView categoryView description
+ @param indexPath 选中的indexPath
+ */
+- (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemDetailsAtIndexPath:(NSIndexPath *)indexPath
+{
+     NSLog(@"右侧点击 %ld--%ld",indexPath.section,indexPath.row);
+}
 @end

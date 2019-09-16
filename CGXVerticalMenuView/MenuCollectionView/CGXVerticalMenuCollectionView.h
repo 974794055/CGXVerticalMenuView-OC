@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @end
+
 @interface CGXVerticalMenuCollectionView : UIView<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;

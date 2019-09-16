@@ -170,6 +170,24 @@
         if ((self.collectionView.isTracking || self.collectionView.isDecelerating)) {
             //只处理用户滚动的情况
             [self contentOffsetOfContentScrollViewDidChanged:contentOffset];
+            
+//            CGFloat contentOffsetY = contentOffset.y;
+//            CGFloat contentheight = categoryView.collectionView.bounds.size.height;
+//
+//            CGFloat bottomCellOffset = categoryView.collectionView.collectionViewLayout.collectionViewContentSize.height;
+//            if (contentOffsetY < -60) {
+//
+//            }
+//            if (contentheight > bottomCellOffset) {
+//                if (contentOffsetY > 60) {
+//                    categoryView.collectionView.contentOffset = CGPointZero;
+//                }
+//            } else{
+//                if (contentOffsetY + contentheight > bottomCellOffset+60) {
+//                    categoryView.collectionView.contentOffset = CGPointZero;
+//                }
+//            }
+            
         }
         self.lastContentViewContentOffset = contentOffset;
     }

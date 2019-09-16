@@ -82,9 +82,6 @@
  */
 - (void)listIndicatorSelectedCell:(CGXVerticalMenuIndicatorParamsModel *)model
 {
-    NSLog(@"Back--SelectedCell---%@" , model);
-    NSLog(@"Back--SelectedCell---%f" , CGRectGetHeight(self.frame));
-    
     [self updateIndicatorModel:model];
 }
 

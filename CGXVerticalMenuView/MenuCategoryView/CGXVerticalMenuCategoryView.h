@@ -15,17 +15,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/* 联动类型
- CGXCategoryListViewScollTypeNode：//不联动 ，点击左侧时可刷新右侧数据
- CGXCategoryListViewScollTypeSinglePartition：//联动 点击选中  左侧大分区对应右侧一个小分区 右侧对应的分区个数大于1时，只取第一个，个数为0时初始化一个空分区
- CGXCategoryListViewScollTypeMorePartition：//联动 右侧多分区
- 
- */
-typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewScollType) {
-    CGXVerticalMenuCategoryViewScollTypeNode,          //不联动
-    CGXVerticalMenuCategoryViewScollTypeLinkage,  //通过滚动到某个cell选中
-    CGXVerticalMenuCategoryViewScollTypeNodeCustom
-};
 @class CGXVerticalMenuCategoryView;
 @protocol CGXVerticalMenuCategoryViewDelegate <NSObject>
 
@@ -33,10 +22,23 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewScollType) {
 
 @optional
 
-
 - (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView KindHeadAtIndexPath:(NSIndexPath *)indexPath;
 - (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView KindFootAtIndexPath:(NSIndexPath *)indexPath;
 
+
+/** 左侧点击
+ 点击选中、滚动选中的情况才会调用该方法
+ @param categoryView categoryView description
+ @param index 选中的index
+ */
+- (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemAtIndex:(NSInteger)index;
+
+/**  右侧点击
+ 点击选中、滚动选中的情况才会调用该方法
+ @param categoryView categoryView description
+ @param indexPath 选中的indexPath
+ */
+- (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemDetailsAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -52,15 +54,11 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewScollType) {
 /* 左侧默认宽度100 */
 @property (nonatomic, assign) CGFloat titleWidth;
 
-/* 联动类型 */
-@property (nonatomic, assign) CGXVerticalMenuCategoryViewScollType  scollType;
-
 @property (nonatomic , strong) CGXVerticalMenuTitleView *leftView;
 @property (nonatomic,strong) CGXVerticalMenuCollectionView *rightView;
 
 //是否保持右边滚动时位置
 @property(assign,nonatomic) BOOL isKeepScrollState;
-@property(assign,nonatomic) BOOL isReturnLastOffset;
 
 @end
 

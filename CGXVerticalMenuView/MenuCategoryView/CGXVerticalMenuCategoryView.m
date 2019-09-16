@@ -11,14 +11,15 @@
 
 @property (nonatomic , strong,readwrite) NSMutableArray <CGXVerticalMenuCategoryListModel *> *dataArray;
 
-
-
 @property (nonatomic , assign) NSInteger currentInteger;
 
 
 @property (nonatomic , assign) BOOL dropUpDown;
 
 @property (nonatomic , assign) BOOL isScrollDown;
+
+
+@property(assign,nonatomic) BOOL isReturnLastOffset;
 
 @end
 
@@ -30,7 +31,6 @@
     if (self) {
         self.leftBgColor = [UIColor colorWithRed:29.0/255.0f green:35.0/255.0f blue:69.0/255.0f alpha:1.0];;
         self.righttBgColor = [UIColor whiteColor];
-        self.scollType = CGXVerticalMenuCategoryViewScollTypeNode;
         self.isScrollDown = YES;
         self.isReturnLastOffset=YES;
         //是否允许右位保持滚动位置
@@ -80,7 +80,9 @@
 - (void)verticalMenuTitleView:(CGXVerticalMenuTitleView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
     self.currentInteger = index;
-    self.rightView.collectionView.scrollEnabled = YES;
+    if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuView:didSelectedItemAtIndex:)]) {
+        [self.delegate verticalMenuView:self didSelectedItemAtIndex:index];
+    }
 }
 
 #pragma mark --  右侧代理
@@ -110,7 +112,9 @@
  */
 - (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView didClickSelectedItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuView:didSelectedItemDetailsAtIndexPath:)]) {
+        [self.delegate verticalMenuView:self didSelectedItemDetailsAtIndexPath:indexPath];
+    }
 }
 
 /**
@@ -123,52 +127,30 @@
         _isScrollDown = lastOffsetY < scrollView.contentOffset.y;
         lastOffsetY = scrollView.contentOffset.y;
     }
-    if (self.scollType == CGXVerticalMenuCategoryViewScollTypeNode){
-        if (self.isReturnLastOffset) {
-            CGXVerticalMenuCategoryListModel *listModel = self.dataArray[self.leftView.selectedIndex];
-            listModel.offsetScorller = scrollView.contentOffset.y;
-        }
+    if (self.isReturnLastOffset) {
+        CGXVerticalMenuCategoryListModel *listModel = self.dataArray[self.leftView.selectedIndex];
+        listModel.offsetScorller = scrollView.contentOffset.y;
     }
+    
 }
 // CollectionView分区标题即将展示
 - (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (self.isReturnLastOffset) {
+        CGXVerticalMenuCategoryListModel *listModel = self.dataArray[self.leftView.selectedIndex];
+        listModel.offsetScorller = categoryView.collectionView.contentOffset.y;
+    }
 }
 // CollectionView分区标题展示结束
 - (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.scollType == CGXVerticalMenuCategoryViewScollTypeNode){
-        if (self.isReturnLastOffset) {
-            CGXVerticalMenuCategoryListModel *listModel = self.dataArray[self.leftView.selectedIndex];
-            listModel.offsetScorller = categoryView.collectionView.contentOffset.y;
-        }
-    }
-}
-- (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView dropUpDownDidChanged:(CGPoint)contentOffset
-{
     
-    CGFloat contentOffsetY = contentOffset.y;
-    CGFloat contentheight = categoryView.collectionView.bounds.size.height;
+    if (self.isReturnLastOffset) {
+        CGXVerticalMenuCategoryListModel *listModel = self.dataArray[self.leftView.selectedIndex];
+        listModel.offsetScorller = categoryView.collectionView.contentOffset.y;
+    }
     
-    CGFloat bottomCellOffset = categoryView.collectionView.collectionViewLayout.collectionViewContentSize.height;
-    NSLog(@"%f",contentOffsetY);
-    if (contentOffsetY < -60) {
-        [self.leftView scrollerItemAtIndex:self.leftView.selectedIndex-1];
-    }
-    if (contentheight > bottomCellOffset) {
-        if (contentOffsetY > 60) {
-            categoryView.collectionView.contentOffset = CGPointZero;
-            [self.leftView scrollerItemAtIndex:self.leftView.selectedIndex+1];
-        }
-    } else{
-        if (contentOffsetY + contentheight > bottomCellOffset+60) {
-            categoryView.collectionView.contentOffset = CGPointZero;
-            [self.leftView scrollerItemAtIndex:self.leftView.selectedIndex+1];
-        }
-    }
 }
-
 -(void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     if ([scrollView isEqual:categoryView.collectionView]) {
@@ -185,29 +167,22 @@
                 
             }
         }
-        if (self.scollType == CGXVerticalMenuCategoryViewScollTypeNode){
-            if (self.isReturnLastOffset) {
-                CGXVerticalMenuCategoryListModel *listModel = self.dataArray[self.leftView.selectedIndex];
-                listModel.offsetScorller = categoryView.collectionView.contentOffset.y;
-            }
+        if (self.isReturnLastOffset) {
+            CGXVerticalMenuCategoryListModel *listModel = self.dataArray[self.leftView.selectedIndex];
+            listModel.offsetScorller = categoryView.collectionView.contentOffset.y;
         }
+        
     }
 }
 -(void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     if ([scrollView isEqual:categoryView.collectionView]) {
         self.isReturnLastOffset=NO;
-        // 停止类型1、停止类型2
-        BOOL scrollToScrollStop = !scrollView.tracking && !scrollView.dragging &&    !scrollView.decelerating;
-        if (scrollToScrollStop) {
-            
+        if (self.isReturnLastOffset) {
+            CGXVerticalMenuCategoryListModel *listModel = self.dataArray[self.leftView.selectedIndex];
+            listModel.offsetScorller = categoryView.collectionView.contentOffset.y;
         }
-        if (self.scollType == CGXVerticalMenuCategoryViewScollTypeNode){
-            if (self.isReturnLastOffset) {
-                CGXVerticalMenuCategoryListModel *listModel = self.dataArray[self.leftView.selectedIndex];
-                listModel.offsetScorller = categoryView.collectionView.contentOffset.y;
-            }
-        }
+        
     }
 }
 - (void)keepScrollStateInter:(NSInteger)inter
@@ -220,5 +195,6 @@
     }else{
         [self.rightView.collectionView scrollRectToVisible:CGRectMake(0, 0, self.rightView.collectionView.frame.size.width, self.rightView.collectionView.frame.size.height) animated:NO];
     }
+    
 }
 @end
