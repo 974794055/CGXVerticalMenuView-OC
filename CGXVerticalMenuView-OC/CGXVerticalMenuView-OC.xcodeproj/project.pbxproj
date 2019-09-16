@@ -115,6 +115,17 @@
 			path = MenuCollectionView;
 			sourceTree = "<group>";
 		};
+		0440E2A5232F241E00E93144 /* MenuCategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				0440E293232F183D00E93144 /* CGXVerticalMenuCategoryListModel.h */,
+				0440E295232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m */,
+				0440E294232F183D00E93144 /* CGXVerticalMenuCategoryView.h */,
+				0440E292232F183D00E93144 /* CGXVerticalMenuCategoryView.m */,
+			);
+			path = MenuCategoryView;
+			sourceTree = "<group>";
+		};
 		04B370BF232A27D700DDB62F = {
 			isa = PBXGroup;
 			children = (
@@ -157,10 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				04B370F1232A360200DDB62F /* CGXVerticalMenu.h */,
-				0440E293232F183D00E93144 /* CGXVerticalMenuCategoryListModel.h */,
-				0440E295232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m */,
-				0440E294232F183D00E93144 /* CGXVerticalMenuCategoryView.h */,
-				0440E292232F183D00E93144 /* CGXVerticalMenuCategoryView.m */,
+				0440E2A5232F241E00E93144 /* MenuCategoryView */,
 				0440E289232F183D00E93144 /* MenuCollectionView */,
 				04B370EA232A360200DDB62F /* MenuTitleView */,
 			);
