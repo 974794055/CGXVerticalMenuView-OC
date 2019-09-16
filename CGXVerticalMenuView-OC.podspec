@@ -19,17 +19,18 @@ s.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
 
  s.subspec 'MenuCategoryView' do |ss|
     ss.source_files = 'CGXVerticalMenuView/MenuCategoryView/**/*.{h,m}'
- 
+    ss.dependency 'CGXVerticalMenuView/MenuTitleView'
+ ss.dependency 'CGXVerticalMenuView/MenuCollectionView'
   end
 
  s.subspec 'MenuTitleView' do |ss|
     ss.source_files = 'CGXVerticalMenuView/MenuTitleView/**/*.{h,m}'
-   ss.dependency 'CGXVerticalMenuView/MenuCategoryView'
+
   end
 
  s.subspec 'MenuCollectionView' do |ss|
     ss.source_files = 'CGXVerticalMenuView/MenuCollectionView/**/*.{h,m}'
-   ss.dependency 'CGXVerticalMenuView/MenuCategoryView'
+  
   end
 
 
