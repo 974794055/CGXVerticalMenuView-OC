@@ -10,8 +10,6 @@
 #define CGXVerticalMenu_h
 
 
-#import "CGXVerticalMenuCategoryView.h"
-
 #import "CGXVerticalMenuBaseView.h"
 #import "CGXVerticalMenuBaseCell.h"
 #import "CGXVerticalMenuBaseModel.h"
@@ -31,10 +29,5 @@
 #import "CGXVerticalMenuViewDefines.h"
 #import "CGXVerticalMenuIndicatorProtocol.h"
 
-
-//#import "CGXVerticalMenuCollectionView.h"
-//#import "CGXVerticalMenuCollectionSectionModel.h"
-//#import "CGXVerticalMenuCollectionItemModel.h"
-//#import "CGXVerticalMenuCollectionCell.h"
 
 #endif /* CGXVerticalMenu_h */
