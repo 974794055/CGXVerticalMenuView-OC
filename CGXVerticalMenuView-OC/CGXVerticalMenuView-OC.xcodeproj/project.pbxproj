@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0440E296232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E28E232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.m */; };
+		0440E297232F183D00E93144 /* CGXVerticalMenuCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E28F232F183D00E93144 /* CGXVerticalMenuCollectionCell.m */; };
+		0440E298232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E290232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.m */; };
+		0440E299232F183D00E93144 /* CGXVerticalMenuCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E291232F183D00E93144 /* CGXVerticalMenuCollectionView.m */; };
+		0440E29A232F183D00E93144 /* CGXVerticalMenuCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E292232F183D00E93144 /* CGXVerticalMenuCategoryView.m */; };
+		0440E29B232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E295232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m */; };
 		04B370CD232A27D700DDB62F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370CC232A27D700DDB62F /* AppDelegate.m */; };
 		04B370D0232A27D700DDB62F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370CF232A27D700DDB62F /* ViewController.m */; };
 		04B370D3232A27D700DDB62F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B370D1232A27D700DDB62F /* Main.storyboard */; };
@@ -27,6 +33,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0440E28A232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionItemModel.h; sourceTree = "<group>"; };
+		0440E28B232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionSectionModel.h; sourceTree = "<group>"; };
+		0440E28C232F183D00E93144 /* CGXVerticalMenuCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionCell.h; sourceTree = "<group>"; };
+		0440E28D232F183D00E93144 /* CGXVerticalMenuCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionView.h; sourceTree = "<group>"; };
+		0440E28E232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionItemModel.m; sourceTree = "<group>"; };
+		0440E28F232F183D00E93144 /* CGXVerticalMenuCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionCell.m; sourceTree = "<group>"; };
+		0440E290232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionSectionModel.m; sourceTree = "<group>"; };
+		0440E291232F183D00E93144 /* CGXVerticalMenuCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionView.m; sourceTree = "<group>"; };
+		0440E292232F183D00E93144 /* CGXVerticalMenuCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCategoryView.m; sourceTree = "<group>"; };
+		0440E293232F183D00E93144 /* CGXVerticalMenuCategoryListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCategoryListModel.h; sourceTree = "<group>"; };
+		0440E294232F183D00E93144 /* CGXVerticalMenuCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCategoryView.h; sourceTree = "<group>"; };
+		0440E295232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCategoryListModel.m; sourceTree = "<group>"; };
 		04B370C8232A27D700DDB62F /* CGXVerticalMenuView-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CGXVerticalMenuView-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B370CB232A27D700DDB62F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04B370CC232A27D700DDB62F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -76,6 +94,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0440E289232F183D00E93144 /* MenuCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				0440E28D232F183D00E93144 /* CGXVerticalMenuCollectionView.h */,
+				0440E291232F183D00E93144 /* CGXVerticalMenuCollectionView.m */,
+				0440E28A232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.h */,
+				0440E28E232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.m */,
+				0440E28C232F183D00E93144 /* CGXVerticalMenuCollectionCell.h */,
+				0440E28F232F183D00E93144 /* CGXVerticalMenuCollectionCell.m */,
+				0440E28B232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.h */,
+				0440E290232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.m */,
+			);
+			path = MenuCollectionView;
+			sourceTree = "<group>";
+		};
 		04B370BF232A27D700DDB62F = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +147,11 @@
 			isa = PBXGroup;
 			children = (
 				04B370F1232A360200DDB62F /* CGXVerticalMenu.h */,
+				0440E293232F183D00E93144 /* CGXVerticalMenuCategoryListModel.h */,
+				0440E295232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m */,
+				0440E294232F183D00E93144 /* CGXVerticalMenuCategoryView.h */,
+				0440E292232F183D00E93144 /* CGXVerticalMenuCategoryView.m */,
+				0440E289232F183D00E93144 /* MenuCollectionView */,
 				04B370EA232A360200DDB62F /* MenuTitleView */,
 			);
 			name = CGXVerticalMenuView;
@@ -253,18 +291,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0440E299232F183D00E93144 /* CGXVerticalMenuCollectionView.m in Sources */,
 				04B3710A232A360200DDB62F /* CGXVerticalMenuBaseModel.m in Sources */,
 				04B37107232A360200DDB62F /* CGXVerticalMenuIndicatoCollectionView.m in Sources */,
+				0440E296232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.m in Sources */,
 				04B37109232A360200DDB62F /* CGXVerticalMenuBaseView.m in Sources */,
 				04B37104232A360200DDB62F /* CGXVerticalMenuTitleCell.m in Sources */,
+				0440E298232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.m in Sources */,
 				04B37103232A360200DDB62F /* CGXVerticalMenuTitleModel.m in Sources */,
 				04B370D0232A27D700DDB62F /* ViewController.m in Sources */,
+				0440E297232F183D00E93144 /* CGXVerticalMenuCollectionCell.m in Sources */,
 				04B37108232A360200DDB62F /* CGXVerticalMenuBaseCell.m in Sources */,
 				04B37106232A360200DDB62F /* CGXVerticalMenuIndicatorParamsModel.m in Sources */,
 				04B37105232A360200DDB62F /* CGXVerticalMenuTitleView.m in Sources */,
 				04B370DB232A27D800DDB62F /* main.m in Sources */,
+				0440E29A232F183D00E93144 /* CGXVerticalMenuCategoryView.m in Sources */,
 				04B37102232A360200DDB62F /* CGXVerticalMenuIndicatorLineView.m in Sources */,
 				04B37101232A360200DDB62F /* CGXVerticalMenuIndicatorBackgroundView.m in Sources */,
+				0440E29B232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m in Sources */,
 				04B37100232A360200DDB62F /* CGXVerticalMenuIndicatorComponentView.m in Sources */,
 				04B370CD232A27D700DDB62F /* AppDelegate.m in Sources */,
 			);

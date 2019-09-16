@@ -30,4 +30,6 @@
 #import "CGXVerticalMenuIndicatorProtocol.h"
 
 
+#import "CGXVerticalMenuCollectionView.h"
+
 #endif /* CGXVerticalMenu_h */
