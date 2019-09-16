@@ -31,5 +31,12 @@
 
 
 #import "CGXVerticalMenuCollectionView.h"
+#import "CGXVerticalMenuCollectionSectionModel.h"
+#import "CGXVerticalMenuCollectionItemModel.h"
+#import "CGXVerticalMenuCollectionCell.h"
+
+#import "CGXVerticalMenuCategoryView.h"
+#import "CGXVerticalMenuCategoryListModel.h"
+
 
 #endif /* CGXVerticalMenu_h */
