@@ -11,19 +11,15 @@
 #import "CGXVerticalMenuTitleView.h"
 #import "CGXVerticalMenuIndicatorLineView.h"
 #import "CGXVerticalMenuIndicatorBackgroundView.h"
-#import "CGXVerticalMenuCollectionView.h"
-
+#import "CGXVerticalMenuCategoryTableViewCell.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@class CGXVerticalMenuCategoryView;
-@protocol CGXVerticalMenuCategoryViewDelegate <NSObject>
+@class CGXVerticalMenuCategoryView2;
+@protocol CGXVerticalMenuCategoryView2Delegate <NSObject>
 
-- (UICollectionViewCell *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
 
-- (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView KindHeadAtIndexPath:(NSIndexPath *)indexPath;
-- (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView KindFootAtIndexPath:(NSIndexPath *)indexPath;
 
 
 /** 左侧点击
@@ -31,20 +27,23 @@ NS_ASSUME_NONNULL_BEGIN
  @param categoryView categoryView description
  @param index 选中的index
  */
-- (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemAtIndex:(NSInteger)index;
+- (void)verticalMenuView:(CGXVerticalMenuCategoryView2 *)categoryView didSelectedItemAtIndex:(NSInteger)index;
 
 /**  右侧点击
  点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param indexPath 选中的indexPath
  */
-- (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemDetailsAtIndexPath:(NSIndexPath *)indexPath;
+- (void)verticalMenuView:(CGXVerticalMenuCategoryView2 *)categoryView didSelectedItemDetailsAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
-@interface CGXVerticalMenuCategoryView : UIView
+@interface CGXVerticalMenuCategoryView2 : UIView<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic, weak) id<CGXVerticalMenuCategoryViewDelegate> delegate;
+
+@property (nonatomic , strong) UITableView *tableView;
+
+@property (nonatomic, weak) id<CGXVerticalMenuCategoryView2Delegate> delegate;
 
 @property (nonatomic , strong,readonly) NSMutableArray <CGXVerticalMenuCategoryListModel *> *dataArray;
 
@@ -56,10 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat titleWidth;
 
 @property (nonatomic , strong) CGXVerticalMenuTitleView *leftView;
-@property (nonatomic,strong) CGXVerticalMenuCollectionView *rightView;
 
-//是否保持右边滚动时位置
-@property(assign,nonatomic) BOOL isKeepScrollState;
 
 @end
 

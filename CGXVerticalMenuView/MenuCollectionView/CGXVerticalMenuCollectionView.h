@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CGXVerticalMenuCollectionSectionModel.h"
 #import "CGXVerticalMenuCollectionCell.h"
+#import "CGXVerticalMenuCollectionViewFlowLayout.h"
+
 NS_ASSUME_NONNULL_BEGIN
 @class CGXVerticalMenuCollectionView;
 @protocol CGXVerticalMenuCollectionViewDelegate <NSObject>
@@ -53,6 +55,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong,readonly) NSMutableArray <CGXVerticalMenuCollectionSectionModel *> *dataArray;
 
 @property (nonatomic, weak) id<CGXVerticalMenuCollectionViewDelegate> delegate;
+
+// 是否悬浮在顶部 默认NO
+@property (nonatomic , assign) BOOL stopTop;
 
 /*
  自定义cell 必须实现

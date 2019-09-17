@@ -42,12 +42,29 @@
 - (void)initializeData
 {
     self.dataArray = [NSMutableArray array];
+    self.stopTop = NO;
+}
+- (CGXVerticalMenuCollectionViewFlowLayout *)preferredLayout
+{
+    CGXVerticalMenuCollectionViewFlowLayout *layout = [[CGXVerticalMenuCollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    layout.stopTop = self.stopTop;
+    return layout;
+}
+- (void)setStopTop:(BOOL)stopTop
+{
+    _stopTop = stopTop;
+    CGXVerticalMenuCollectionViewFlowLayout *layout =  [[CGXVerticalMenuCollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    layout.stopTop = self.stopTop;
+    
+    self.collectionView.collectionViewLayout = layout;
+    [self.collectionView.collectionViewLayout invalidateLayout];
+    [self.collectionView reloadData];
 }
 - (void)initializeViews
 {
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    self.collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.preferredLayout];
     self.collectionView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
