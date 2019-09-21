@@ -22,7 +22,6 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.extendedLayoutIncludesOpaqueBars = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     

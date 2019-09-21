@@ -144,8 +144,8 @@
         [view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [obj removeFromSuperview];
         }];
-        if (self.delegate && [self.delegate respondsToSelector:@selector(categoryRightView:KindHeadAtIndexPath:)]) {
-            UICollectionReusableView *headerView =[self.delegate categoryRightView:self KindHeadAtIndexPath:indexPath];
+        if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(categoryRightView:KindHeadAtIndexPath:)]) {
+            UICollectionReusableView *headerView =[self.dataSouce categoryRightView:self KindHeadAtIndexPath:indexPath];
             headerView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
             headerView.backgroundColor = sectionModel.headerBgColor;
             [view addSubview:headerView];
@@ -158,8 +158,8 @@
         [view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [obj removeFromSuperview];
         }];
-        if (self.delegate && [self.delegate respondsToSelector:@selector(categoryRightView:KindFootAtIndexPath:)]) {
-            UICollectionReusableView *footerView = [self.delegate categoryRightView:self KindFootAtIndexPath:indexPath];
+        if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(categoryRightView:KindFootAtIndexPath:)]) {
+            UICollectionReusableView *footerView = [self.dataSouce categoryRightView:self KindFootAtIndexPath:indexPath];
             footerView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
              footerView.backgroundColor = sectionModel.footerBgColor;
             [view addSubview:footerView];
@@ -171,7 +171,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self.delegate categoryRightView:self cellForItemAtIndexPath:indexPath];
+    return [self.dataSouce categoryRightView:self cellForItemAtIndexPath:indexPath];
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -251,7 +251,11 @@
         [self.delegate categoryRightView:self scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
     }
 }
-
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(categoryRightView:scrollViewDidEndScrollingAnimation:)]) {
+        [self.delegate categoryRightView:self scrollViewDidEndScrollingAnimation:scrollView];
+    }
+}
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if (self.delegate && [self.delegate respondsToSelector:@selector(categoryRightView:scrollViewDidEndDecelerating:)]) {
         [self.delegate categoryRightView:self scrollViewDidEndDecelerating:scrollView];

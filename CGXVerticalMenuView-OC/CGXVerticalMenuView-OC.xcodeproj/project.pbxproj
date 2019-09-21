@@ -36,8 +36,6 @@
 		9E3F0A34233116D30098DDA8 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F0A33233116D30098DDA8 /* OneViewController.m */; };
 		9E3F0A37233116DC0098DDA8 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F0A36233116DC0098DDA8 /* TwoViewController.m */; };
 		9E3F0A3A233118360098DDA8 /* CGXVerticalMenuCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F0A39233118360098DDA8 /* CGXVerticalMenuCollectionViewFlowLayout.m */; };
-		9E3F0A3D233120670098DDA8 /* CGXVerticalMenuCategoryView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F0A3C233120670098DDA8 /* CGXVerticalMenuCategoryView2.m */; };
-		9E3F0A40233122B20098DDA8 /* CGXVerticalMenuCategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F0A3F233122B20098DDA8 /* CGXVerticalMenuCategoryTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,10 +99,6 @@
 		9E3F0A36233116DC0098DDA8 /* TwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
 		9E3F0A38233118360098DDA8 /* CGXVerticalMenuCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		9E3F0A39233118360098DDA8 /* CGXVerticalMenuCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionViewFlowLayout.m; sourceTree = "<group>"; };
-		9E3F0A3B233120670098DDA8 /* CGXVerticalMenuCategoryView2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCategoryView2.h; sourceTree = "<group>"; };
-		9E3F0A3C233120670098DDA8 /* CGXVerticalMenuCategoryView2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCategoryView2.m; sourceTree = "<group>"; };
-		9E3F0A3E233122B20098DDA8 /* CGXVerticalMenuCategoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCategoryTableViewCell.h; sourceTree = "<group>"; };
-		9E3F0A3F233122B20098DDA8 /* CGXVerticalMenuCategoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCategoryTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,14 +132,10 @@
 		0440E2A5232F241E00E93144 /* MenuCategoryView */ = {
 			isa = PBXGroup;
 			children = (
-				0440E293232F183D00E93144 /* CGXVerticalMenuCategoryListModel.h */,
-				0440E295232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m */,
 				0440E294232F183D00E93144 /* CGXVerticalMenuCategoryView.h */,
 				0440E292232F183D00E93144 /* CGXVerticalMenuCategoryView.m */,
-				9E3F0A3B233120670098DDA8 /* CGXVerticalMenuCategoryView2.h */,
-				9E3F0A3C233120670098DDA8 /* CGXVerticalMenuCategoryView2.m */,
-				9E3F0A3E233122B20098DDA8 /* CGXVerticalMenuCategoryTableViewCell.h */,
-				9E3F0A3F233122B20098DDA8 /* CGXVerticalMenuCategoryTableViewCell.m */,
+				0440E293232F183D00E93144 /* CGXVerticalMenuCategoryListModel.h */,
+				0440E295232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m */,
 			);
 			path = MenuCategoryView;
 			sourceTree = "<group>";
@@ -173,8 +163,6 @@
 				04B370CC232A27D700DDB62F /* AppDelegate.m */,
 				0440E2A2232F1BF500E93144 /* ViewController.h */,
 				0440E2A3232F1BF500E93144 /* ViewController.m */,
-				0440E29E232F1BC600E93144 /* TitleHeaderView.h */,
-				0440E29D232F1BC600E93144 /* TitleHeaderView.m */,
 				0440E29C232F1BC600E93144 /* TitleViewController.h */,
 				0440E29F232F1BC600E93144 /* TitleViewController.m */,
 				9E3F0A2F233115B50098DDA8 /* ThreeViewController.h */,
@@ -183,6 +171,8 @@
 				9E3F0A33233116D30098DDA8 /* OneViewController.m */,
 				9E3F0A35233116DC0098DDA8 /* TwoViewController.h */,
 				9E3F0A36233116DC0098DDA8 /* TwoViewController.m */,
+				0440E29E232F1BC600E93144 /* TitleHeaderView.h */,
+				0440E29D232F1BC600E93144 /* TitleHeaderView.m */,
 				04B370E1232A360200DDB62F /* CGXVerticalMenuView */,
 				04B370D1232A27D700DDB62F /* Main.storyboard */,
 				04B3710B232A363100DDB62F /* PrefixHeader.pch */,
@@ -358,11 +348,9 @@
 				9E3F0A34233116D30098DDA8 /* OneViewController.m in Sources */,
 				04B37102232A360200DDB62F /* CGXVerticalMenuIndicatorLineView.m in Sources */,
 				04B37101232A360200DDB62F /* CGXVerticalMenuIndicatorBackgroundView.m in Sources */,
-				9E3F0A3D233120670098DDA8 /* CGXVerticalMenuCategoryView2.m in Sources */,
 				0440E2A4232F1BF500E93144 /* ViewController.m in Sources */,
 				0440E29B232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m in Sources */,
 				04B37100232A360200DDB62F /* CGXVerticalMenuIndicatorComponentView.m in Sources */,
-				9E3F0A40233122B20098DDA8 /* CGXVerticalMenuCategoryTableViewCell.m in Sources */,
 				0440E2A1232F1BC700E93144 /* TitleViewController.m in Sources */,
 				0440E2A0232F1BC700E93144 /* TitleHeaderView.m in Sources */,
 				9E3F0A37233116DC0098DDA8 /* TwoViewController.m in Sources */,
@@ -443,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -496,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -513,6 +501,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CGXVerticalMenuView-OC/PrefixHeader.pch";
 				INFOPLIST_FILE = "CGXVerticalMenuView-OC/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,6 +521,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CGXVerticalMenuView-OC/PrefixHeader.pch";
 				INFOPLIST_FILE = "CGXVerticalMenuView-OC/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

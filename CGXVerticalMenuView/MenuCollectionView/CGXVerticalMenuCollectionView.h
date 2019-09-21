@@ -13,7 +13,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @class CGXVerticalMenuCollectionView;
-@protocol CGXVerticalMenuCollectionViewDelegate <NSObject>
+
+@protocol CGXVerticalMenuCollectionViewDataSouce <NSObject>
 
 - (UICollectionViewCell *)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 
@@ -22,6 +23,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (UICollectionReusableView *)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView KindHeadAtIndexPath:(NSIndexPath *)indexPath;
 - (UICollectionReusableView *)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView KindFootAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+@protocol CGXVerticalMenuCollectionViewDelegate <NSObject>
+
+
+@optional
 
 /**
  点击选中的情况才会调用该方法
@@ -42,6 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath;
 
 -(void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView scrollViewWillBeginDragging:(UIScrollView *)scrollView;
+-(void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView;
+
 -(void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
 -(void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 
@@ -55,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong,readonly) NSMutableArray <CGXVerticalMenuCollectionSectionModel *> *dataArray;
 
 @property (nonatomic, weak) id<CGXVerticalMenuCollectionViewDelegate> delegate;
-
+@property (nonatomic, weak) id<CGXVerticalMenuCollectionViewDataSouce> dataSouce;
 // 是否悬浮在顶部 默认NO
 @property (nonatomic , assign) BOOL stopTop;
 

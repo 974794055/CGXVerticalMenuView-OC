@@ -25,7 +25,6 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.extendedLayoutIncludesOpaqueBars = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.dataArray =  [NSMutableArray array];
     
@@ -40,10 +39,8 @@
     
     
     self.dataArray = [NSMutableArray arrayWithObjects:@"不联动，点击左侧切换右侧",
-                      @"联动，一个分区联动",
-                      @"联动，上下拉更新",
-                      @"联动，垂直分页",
-                      @"联动，水平分页",
+                      @"联动",
+                      @"联动",
                       nil];
     
     [self.tableView reloadData];
@@ -124,14 +121,6 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row==2){
-        ThreeViewController *vc = [[ThreeViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row==3){
-        ThreeViewController *vc = [[ThreeViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row==4){
         ThreeViewController *vc = [[ThreeViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];

@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSMutableArray <CGXVerticalMenuCollectionSectionModel *> *rightArray;
 
-
 //这个来定位右边数据源滚动的位置 内部使用
 @property (nonatomic ,assign) CGFloat offsetScorller;
 

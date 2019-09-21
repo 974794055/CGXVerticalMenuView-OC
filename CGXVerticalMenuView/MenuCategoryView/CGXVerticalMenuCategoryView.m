@@ -7,7 +7,7 @@
 //
 
 #import "CGXVerticalMenuCategoryView.h"
-@interface CGXVerticalMenuCategoryView ()<CGXVerticalMenuTitleViewDelegate,CGXVerticalMenuCollectionViewDelegate>
+@interface CGXVerticalMenuCategoryView ()<CGXVerticalMenuTitleViewDelegate,CGXVerticalMenuCollectionViewDelegate,CGXVerticalMenuCollectionViewDataSouce>
 
 @property (nonatomic , strong,readwrite) NSMutableArray <CGXVerticalMenuCategoryListModel *> *dataArray;
 
@@ -46,6 +46,7 @@
         
         self.rightView = [[CGXVerticalMenuCollectionView alloc] initWithFrame:CGRectMake(self.titleWidth, 0, CGRectGetWidth(self.bounds)-self.titleWidth, CGRectGetHeight(self.bounds))];
         self.rightView.delegate = self;
+         self.rightView.dataSouce = self;
         self.rightView.backgroundColor = self.righttBgColor;
         [self addSubview:self.rightView];
         
