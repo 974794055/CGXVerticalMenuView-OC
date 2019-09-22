@@ -13,8 +13,6 @@
 #import "CGXVerticalMenuIndicatorLineView.h"
 #import "CGXVerticalMenuIndicatorBackgroundView.h"
 #import "CGXVerticalMenuCollectionView.h"
-#import "TitleHeaderView.h"
-
 #import "CGXVerticalMenuContainerView.h"
 
 NS_ASSUME_NONNULL_BEGIN
