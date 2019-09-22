@@ -2,8 +2,8 @@
 //  ViewController.m
 //  CGXCategoryListView-OC
 //
-//  Created by 曹贵鑫 on 2019/9/4.
-//  Copyright © 2019 曹贵鑫. All rights reserved.
+//  Created by  on 2019/9/4.
+//  Copyright © 2019 . All rights reserved.
 //
 
 #import "ThreeViewController.h"

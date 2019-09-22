@@ -1,9 +1,9 @@
 //
-//  MJDIYBackFooter.m
-//  MJRefreshExample
+//  CGXRefreshBackFooter.m
+//  CGXVerticalMenuView-OC
 //
-//  Created by MJ Lee on 15/6/13.
-//  Copyright © 2015年 小码哥. All rights reserved.
+//  Created by CGX on 2018/5/31.
+//  Copyright © 2018年 CGX. All rights reserved.
 //
 
 #import "CGXRefreshBackFooter.h"

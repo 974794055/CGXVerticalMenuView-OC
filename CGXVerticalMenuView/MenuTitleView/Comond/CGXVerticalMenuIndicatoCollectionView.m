@@ -3,7 +3,7 @@
 //  CGXHomeCategoryListView
 //
 //  Created by MacMini-1 on 2019/9/3.
-//  Copyright © 2019 曹贵鑫. All rights reserved.
+//  Copyright © 2019 . All rights reserved.
 //
 
 #import "CGXVerticalMenuIndicatoCollectionView.h"

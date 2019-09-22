@@ -2,7 +2,7 @@
 //  TitleHeaderView.m
 //  CGXVerticalMenuView-OC
 //
-//  Created by 曹贵鑫 on 2019/9/15.
+//  Created by  on 2019/9/15.
 //  Copyright © 2019 CGX. All rights reserved.
 //
 
