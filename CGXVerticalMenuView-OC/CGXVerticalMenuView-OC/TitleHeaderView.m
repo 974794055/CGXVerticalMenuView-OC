@@ -19,6 +19,12 @@
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.titleLabel];
         self.titleLabel.textColor = [UIColor blackColor];
+        
+        
+        self.urlImageView = [[UIImageView alloc] init];
+        self.urlImageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self addSubview:self.urlImageView];
+        self.urlImageView.frame = self.bounds;
     }
     return self;
 }
@@ -26,6 +32,7 @@
 {
     [super layoutSubviews];
     self.titleLabel.frame = self.bounds;
+      self.urlImageView.frame = self.bounds;
 }
 
 

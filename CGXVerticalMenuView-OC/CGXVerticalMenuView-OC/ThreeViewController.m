@@ -22,7 +22,7 @@
     self.view.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
-
+  self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
     
 }

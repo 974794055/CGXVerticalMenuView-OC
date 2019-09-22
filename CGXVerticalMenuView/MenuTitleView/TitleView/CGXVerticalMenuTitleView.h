@@ -46,13 +46,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CGXVerticalMenuTitleView : CGXVerticalMenuBaseView
 
+/**
+ 代理方法
+ */
 @property (nonatomic, weak) id<CGXVerticalMenuTitleViewDelegate> delegate;
-
+/**
+ 指示器方向 默认左侧
+ */
 @property (nonatomic, assign) CGXCategoryListCellClickedPosition clickedPosition;
 
-@property (nonatomic, assign) NSTimeInterval timeDuration;//指示器动画时间 默认0
+/**
+   指示器动画时间 默认0
+ */
+@property (nonatomic, assign) NSTimeInterval timeDuration;
 
-
+/**
+ 选中目标index的item
+ */
 @property (nonatomic, assign,readonly) NSInteger  selectedIndex;
 
 /**

@@ -51,26 +51,28 @@
     self.borderView.frame = self.bounds;
 
     self.borderView.backgroundColor = self.model.bgColor;
-//    self.borderView.layer.masksToBounds = YES;
-//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.borderView.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(self.model.cornerRadius, self.model.cornerRadius)];
-//    CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
-//    maskLayer.frame = self.borderView.bounds;
-//    maskLayer.path = maskPath.CGPath;
-//    self.borderView.layer.mask = maskLayer;
-//    
-//    CAShapeLayer *borderLayer = [CAShapeLayer layer];
-//    borderLayer.frame = self.borderView.bounds;
-//    borderLayer.path = maskPath.CGPath;
-//    borderLayer.lineWidth = self.model.borderWidth;
-//    borderLayer.fillColor = [UIColor clearColor].CGColor;
-//    borderLayer.strokeColor = self.model.borderColor.CGColor;
-//    [self.borderView.layer addSublayer:borderLayer];
+
 
 }
 - (void)reloadData:(CGXVerticalMenuCollectionItemModel *)model
 {
     self.model = model;
   
-
+    
+    self.borderView.layer.masksToBounds = YES;
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.borderView.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(self.model.cornerRadius, self.model.cornerRadius)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
+    maskLayer.frame = self.borderView.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.borderView.layer.mask = maskLayer;
+    
+    CAShapeLayer *borderLayer = [CAShapeLayer layer];
+    borderLayer.frame = self.borderView.bounds;
+    borderLayer.path = maskPath.CGPath;
+    borderLayer.lineWidth = self.model.borderWidth;
+    borderLayer.fillColor = [UIColor clearColor].CGColor;
+    borderLayer.strokeColor = self.model.borderColor.CGColor;
+    [self.borderView.layer addSublayer:borderLayer];
+ 
 }
 @end

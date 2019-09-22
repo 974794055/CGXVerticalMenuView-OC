@@ -24,10 +24,12 @@
     // 截取到父类所返回的数组（里面放的是当前屏幕所能展示的item的结构信息），并转化成不可变数组
     NSMutableArray *superArray = [[super layoutAttributesForElementsInRect:rect] mutableCopy];
     
+   
+    
     if (self.stopTop) {
+
         // 创建存索引的数组，无符号（正整数），无序（不能通过下标取值），不可重复（重复的话会自动过滤）
         NSMutableIndexSet *noneHeaderSections = [NSMutableIndexSet indexSet];
-        
         // 遍历superArray，得到一个当前屏幕中所有的section数组
         for (UICollectionViewLayoutAttributes *attributes in superArray)
         {

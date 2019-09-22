@@ -23,7 +23,7 @@
     self.view.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
+      self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"上一个" style:UIBarButtonItemStyleDone target:self action:@selector(topText)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一个" style:UIBarButtonItemStyleDone target:self action:@selector(bottomText)];
@@ -51,9 +51,11 @@
             backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0-20;
         }else if (i==2){
             backgroundView.backgroundViewCornerRadius = 25;
-            backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0-20;
+              backgroundView.backgroundViewHeight = 30;
+            backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0;
         }else if (i==3){
             backgroundView.backgroundViewCornerRadius = 0;
+           
         }
         CGXVerticalMenuIndicatorLineView *lineView = [[CGXVerticalMenuIndicatorLineView alloc] init];
         lineView.backgroundColor = [UIColor redColor];

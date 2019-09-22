@@ -14,7 +14,6 @@
     self = [super init];
     if (self) {
         self.rightArray = [NSMutableArray array];
-        self.offsetScorller = 0;
     }
     return self;
 }

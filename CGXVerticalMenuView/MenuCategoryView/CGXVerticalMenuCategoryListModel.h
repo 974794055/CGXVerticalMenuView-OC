@@ -13,12 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CGXVerticalMenuCategoryListModel : NSObject
 
+// 左侧数据源
 @property (nonatomic , strong) CGXVerticalMenuTitleModel *leftModel;
 
+// 右侧数据源
 @property (nonatomic, strong) NSMutableArray <CGXVerticalMenuCollectionSectionModel *> *rightArray;
 
-//这个来定位右边数据源滚动的位置 内部使用
-@property (nonatomic ,assign) CGFloat offsetScorller;
 
 @end
 

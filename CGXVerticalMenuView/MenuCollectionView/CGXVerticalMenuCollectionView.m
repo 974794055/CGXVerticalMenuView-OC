@@ -13,9 +13,6 @@
 
 @property (nonatomic, strong,readwrite) NSMutableArray <CGXVerticalMenuCollectionSectionModel *> *dataArray;
 
-@property (nonatomic, assign) CGPoint lastContentViewContentOffset;
-
-
 @end
 @implementation CGXVerticalMenuCollectionView
 
@@ -187,26 +184,7 @@
         if ((self.collectionView.isTracking || self.collectionView.isDecelerating)) {
             //只处理用户滚动的情况
             [self contentOffsetOfContentScrollViewDidChanged:contentOffset];
-            
-//            CGFloat contentOffsetY = contentOffset.y;
-//            CGFloat contentheight = categoryView.collectionView.bounds.size.height;
-//
-//            CGFloat bottomCellOffset = categoryView.collectionView.collectionViewLayout.collectionViewContentSize.height;
-//            if (contentOffsetY < -60) {
-//
-//            }
-//            if (contentheight > bottomCellOffset) {
-//                if (contentOffsetY > 60) {
-//                    categoryView.collectionView.contentOffset = CGPointZero;
-//                }
-//            } else{
-//                if (contentOffsetY + contentheight > bottomCellOffset+60) {
-//                    categoryView.collectionView.contentOffset = CGPointZero;
-//                }
-//            }
-            
         }
-        self.lastContentViewContentOffset = contentOffset;
     }
 }
 
@@ -266,6 +244,7 @@
     [self.dataArray removeAllObjects];
     [self.dataArray addObjectsFromArray:dataArray];
     [self.collectionView reloadData];
+//    [self.collectionView scrollRectToVisible:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) animated:NO];
 }
 - (void)dealloc
 {

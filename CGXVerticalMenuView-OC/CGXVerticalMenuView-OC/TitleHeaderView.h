@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TitleHeaderView : UICollectionReusableView
 @property (nonatomic , strong) UILabel *titleLabel;
-
+@property (nonatomic , strong) UIImageView *urlImageView;
 @end
 
 NS_ASSUME_NONNULL_END

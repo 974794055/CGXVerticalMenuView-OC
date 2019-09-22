@@ -1,0 +1,11 @@
+platform:ios,'7.0'
+target "CGXVerticalMenuView-OC" do
+
+
+pod 'Masonry'
+pod 'MJRefresh'
+pod 'SDWebImage'
+pod 'MJExtension'
+
+
+end
