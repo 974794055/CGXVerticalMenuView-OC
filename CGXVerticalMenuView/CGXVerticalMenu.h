@@ -2,9 +2,13 @@
 //  CGXVerticalMenu.h
 //  CGXCategoryListView-OC
 //
-//  Created by MacMini-1 on 2019/9/12.
-//  Copyright © 2019 . All rights reserved.
+//  Created by CGX on 2019/9/12.
+//  Copyright © 2019 CGX. All rights reserved.
 //
+/*
+ 简书地址：https://www.jianshu.com/p/c34fa8a26b2c
+ 下载链接：https://github.com/974794055/CGXVerticalMenuView-OC.git
+ */
 
 #ifndef CGXVerticalMenu_h
 #define CGXVerticalMenu_h

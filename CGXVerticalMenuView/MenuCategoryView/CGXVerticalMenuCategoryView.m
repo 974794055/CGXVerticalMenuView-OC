@@ -2,7 +2,7 @@
 //  CGXVerticalMenuView.m
 //  CGXVerticalMenuView-OC
 //
-//  Created by  on 2019/9/15.
+//  Created by CGX on 2019/9/12.
 //  Copyright © 2019 CGX. All rights reserved.
 //
 

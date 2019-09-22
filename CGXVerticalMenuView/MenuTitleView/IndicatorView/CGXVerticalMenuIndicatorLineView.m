@@ -2,7 +2,7 @@
 //  CGXHomeCategoryIndicatorLineView.m
 //  CGXHomeCategoryListView-OC
 //
-//  Created by MacMini-1 on 2019/7/25.
+//  Created by CGX on 2019/9/12.
 //  Copyright © 2019 CGX. All rights reserved.
 //
 
