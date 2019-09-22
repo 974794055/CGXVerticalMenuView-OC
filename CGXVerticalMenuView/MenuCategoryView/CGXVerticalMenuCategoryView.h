@@ -103,7 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , strong) UIColor *rightBgColor;
 /* 左侧默认宽度100 */
 @property (nonatomic, assign) CGFloat titleWidth;
-
+/* 选中目标index */
 @property (nonatomic , assign,readonly) NSInteger currentInteger;
 
 /**
