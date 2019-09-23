@@ -187,7 +187,6 @@
     [self.dataArray removeAllObjects];
     [self.dataArray addObjectsFromArray:dataArray];
     [self.collectionView reloadData];
-    
 }
 - (void)replaceObjectAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuBaseModel  *)itemModel
 {

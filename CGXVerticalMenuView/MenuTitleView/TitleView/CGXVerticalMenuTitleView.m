@@ -66,7 +66,33 @@
 - (void)updateMenuWithDataArray:(NSMutableArray<CGXVerticalMenuBaseModel *> *)dataArray
 {
     [super updateMenuWithDataArray:dataArray];
-    [self selectItemAtIndex:self.selectedIndex];    
+    
+    for (UIView<CGXCategoryListIndicatorProtocol> *indicator in self.indicators) {
+        if (self.dataArray.count <= 0) {
+            indicator.hidden = YES;
+        }else {
+            indicator.hidden = NO;
+
+            CGXVerticalMenuTitleModel *model = (CGXVerticalMenuTitleModel *)self.dataArray[self.selectedIndex];
+            NSInteger lastSelectedIndex = self.selectedIndex;
+            CGRect clickedCellFrame = CGRectMake(0, self.selectedIndex *model.rowHeight , self.frame.size.width, model.rowHeight);
+
+            CGXVerticalMenuIndicatorParamsModel *indicatorParamsModel = [[CGXVerticalMenuIndicatorParamsModel alloc] init];
+            indicatorParamsModel.selectedIndex = self.selectedIndex;
+            indicatorParamsModel.lastSelectedIndex = lastSelectedIndex;
+            indicatorParamsModel.selectedCellFrame = clickedCellFrame;
+            indicatorParamsModel.isFirstClick = self.isFirstClick;
+            indicatorParamsModel.timeDuration = self.timeDuration;
+            [indicator listIndicatorRefreshState:indicatorParamsModel];
+            if ([indicator isKindOfClass:[CGXVerticalMenuIndicatorBackgroundView class]]) {
+                CGRect maskFrame = indicator.frame;
+                maskFrame.origin.x = maskFrame.origin.x - clickedCellFrame.origin.x;
+                indicatorParamsModel.backgroundViewMaskFrame = clickedCellFrame;
+            }
+        }
+    }
+    [self selectItemAtIndex:self.selectedIndex];
+    
 }
 - (void)replaceObjectAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuBaseModel  *)itemModel
 {

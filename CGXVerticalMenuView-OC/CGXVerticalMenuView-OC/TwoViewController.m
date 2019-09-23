@@ -42,7 +42,7 @@
     CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
     backgroundView.backgroundViewColor = [UIColor orangeColor];
     backgroundView.backgroundViewHeight = 30;
-    backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0-20;
+    backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0;
     CGXVerticalMenuIndicatorLineView *lineView = [[CGXVerticalMenuIndicatorLineView alloc] init];
     lineView.backgroundColor = [UIColor redColor];
     lineView.positionType = CGXVerticalMenuIndicatorLinePosition_Left;
@@ -59,7 +59,7 @@
         itemModel.titleNormalColor = [UIColor whiteColor];
         itemModel.titleSelectedColor = [UIColor redColor];
         itemModel.titleFont = [UIFont systemFontOfSize:14];
-        itemModel.titleSelectedFont = [UIFont systemFontOfSize:18];
+        itemModel.titleSelectedFont = [UIFont systemFontOfSize:16];
         //                    [dataArr addObject:itemModel];
         listModel.leftModel = itemModel;
         

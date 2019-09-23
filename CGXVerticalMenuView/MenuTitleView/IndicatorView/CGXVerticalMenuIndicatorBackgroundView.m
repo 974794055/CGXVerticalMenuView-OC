@@ -52,23 +52,8 @@
  */
 - (void)listIndicatorRefreshState:(CGXVerticalMenuIndicatorParamsModel *)model
 {
-    NSLog(@"RefreshState---%@" , model);
-}
-
-/**
- contentScrollView在进行手势滑动时，处理指示器跟随手势变化UI逻辑；
- 
- param selectedIndex 当前选中的index
- param leftIndex 正在过渡中的两个cell，相对位置在左边的cell的index
- param leftCellFrame 正在过渡中的两个cell，相对位置在左边的cell的frame
- param rightIndex 正在过渡中的两个cell，相对位置在右边的cell的index
- param rightCellFrame 正在过渡中的两个cell，相对位置在右边的cell的frame
- param percent 过渡百分比
- @param model 数据模型
- */
-- (void)listIndicatorContentScrollViewDidScroll:(CGXVerticalMenuIndicatorParamsModel *)model
-{
-    NSLog(@"ScrollCell---%@" , model);
+//    NSLog(@"RefreshState---%@" , model);
+    [self updateIndicatorModel:model];
 }
 
 /**
