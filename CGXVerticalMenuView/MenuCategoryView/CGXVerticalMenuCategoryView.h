@@ -39,6 +39,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView ListView:(CGXVerticalMenuCollectionView *)listView KindFootAtIndexPath:(NSIndexPath *)indexPath listViewInRow:(NSInteger)row;
 
+
+/**
+ 每个分区背景颜色  默认背景色
+ 实现此代理时 CGXVerticalMenuCollectionSectionModel 内的配置sectionColor无效
+ */
+- (UIColor *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView BackgroundColorForSection:(NSInteger)section;
+
 @end
 
 @protocol CGXVerticalMenuCategoryViewDelegate <NSObject>
@@ -105,6 +112,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat titleWidth;
 /* 选中目标index */
 @property (nonatomic , assign,readonly) NSInteger currentInteger;
+
+// 右侧滚动左侧间距 默认0
+@property (nonatomic, assign) CGFloat spaceLeft;
+// 右侧滚动右侧侧间距 默认0
+@property (nonatomic, assign) CGFloat spaceRight;
 
 /**
  右侧手动翻页滚动动画 默认NO

@@ -10,19 +10,32 @@
 #import "CGXVerticalMenuCollectionSectionModel.h"
 #import "CGXVerticalMenuCollectionCell.h"
 #import "CGXVerticalMenuCollectionViewFlowLayout.h"
-
+#import "CGXVerticalMenuCollectionReusableView.h"
 NS_ASSUME_NONNULL_BEGIN
 @class CGXVerticalMenuCollectionView;
 
 @protocol CGXVerticalMenuCollectionViewDataSouce <NSObject>
-
+/**
+ 每个分区自定义cell
+ */
 - (UICollectionViewCell *)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
 
-
+/**
+ 每个分区头自定义view
+ */
 - (UICollectionReusableView *)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView KindHeadAtIndexPath:(NSIndexPath *)indexPath;
+/**
+ 每个分区脚自定义view
+ */
 - (UICollectionReusableView *)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView KindFootAtIndexPath:(NSIndexPath *)indexPath;
+
+/**
+ 每个分区背景颜色  默认背景色
+ */
+- (UIColor *)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView BackgroundColorForSection:(NSInteger)section;
+
 
 @end
 
@@ -58,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface CGXVerticalMenuCollectionView : UIView<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface CGXVerticalMenuCollectionView : UIView<UICollectionViewDataSource,UICollectionViewDelegate,CGXVerticalMenuCollectionViewFlowLayoutDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 

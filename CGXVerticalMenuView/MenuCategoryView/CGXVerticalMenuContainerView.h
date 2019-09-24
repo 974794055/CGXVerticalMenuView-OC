@@ -40,6 +40,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<CGXVerticalMenuContainerViewDelegate> delegate;
 
+// 滚动左侧间距 默认0
+@property (nonatomic, assign) CGFloat spaceLeft;
+// 滚动右侧侧间距 默认0
+@property (nonatomic, assign) CGFloat spaceRight;
+
 // 滚动动画 默认NO
 @property (nonatomic, assign) BOOL animated;
 // 是否是点击滚动翻页的，为YES时 和 animated无效，无滚动动画

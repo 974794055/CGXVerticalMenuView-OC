@@ -40,6 +40,7 @@
 {
     self.dataArray = [NSMutableArray array];
     self.stopTop = NO;
+    self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
 }
 - (CGXVerticalMenuCollectionViewFlowLayout *)preferredLayout
 {
@@ -62,7 +63,7 @@
 - (void)initializeViews
 {
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.preferredLayout];
-    self.collectionView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
+    self.collectionView.backgroundColor = self.backgroundColor;
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.scrollsToTop = NO;
@@ -72,6 +73,8 @@
     [self.collectionView registerClass:[CGXVerticalMenuCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionCell class])];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([UICollectionReusableView class])];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([UICollectionReusableView class])];
+    [self.collectionView registerClass:[CGXVerticalMenuCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionReusableView class])];
+    [self.collectionView registerClass:[CGXVerticalMenuCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionReusableView class])];
     if (@available(iOS 11.0, *)) {
         self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
@@ -136,7 +139,7 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if (kind == UICollectionElementKindSectionHeader) {
         CGXVerticalMenuCollectionSectionModel *sectionModel = self.dataArray[indexPath.section];
-        UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass([UICollectionReusableView class]) forIndexPath:indexPath];
+        CGXVerticalMenuCollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionReusableView class]) forIndexPath:indexPath];
         view.backgroundColor = sectionModel.headerBgColor;
         [view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [obj removeFromSuperview];
@@ -150,7 +153,7 @@
         return view;
     } else {
         CGXVerticalMenuCollectionSectionModel *sectionModel = self.dataArray[indexPath.section];
-        UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass([UICollectionReusableView class]) forIndexPath:indexPath];
+        CGXVerticalMenuCollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionReusableView class]) forIndexPath:indexPath];
         view.backgroundColor = sectionModel.footerBgColor;
         [view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [obj removeFromSuperview];
@@ -164,6 +167,16 @@
         return view;
     }
     return nil;
+}
+
+#pragma mark - JHCollectionViewDelegateFlowLayout
+- (UIColor *)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout backgroundColorForSection:(NSInteger)section
+{
+     CGXVerticalMenuCollectionSectionModel *sectionModel = self.dataArray[section];
+    if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(categoryRightView:BackgroundColorForSection:)]) {
+        return [self.dataSouce categoryRightView:self BackgroundColorForSection:section];
+    }
+    return sectionModel.sectionColor;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

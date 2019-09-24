@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , assign) CGFloat headerHeight;
 @property (nonatomic , strong) UIColor *headerBgColor;
 
+// 每个分区颜色 默认无色
+@property (nonatomic , strong) UIColor *sectionColor;
+
 
 @property (nonatomic , strong) id headerData;
 @property (nonatomic , strong) id footerData;

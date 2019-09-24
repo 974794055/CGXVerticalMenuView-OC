@@ -127,7 +127,7 @@
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
-    NSLog(@"左侧点击 %ld",index);
+    NSLog(@"左侧点击 %ld",(long)index);
 }
 
 /**  右侧点击
@@ -137,7 +137,7 @@
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemDetailsAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"右侧点击 %ld--%ld",indexPath.section,indexPath.row);
+    NSLog(@"右侧点击 %ld--%ld",(long)indexPath.section,(long)indexPath.row);
 }
 
 /**  将要显示
@@ -147,7 +147,7 @@
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView willDisplayCellAtRow:(NSInteger)row
 {
-     NSLog(@"将要显示 %ld",row);
+    NSLog(@"将要显示 %ld",(long)row);
 }
 /**  将要消失
  点击选中、滚动选中的情况才会调用该方法
@@ -156,7 +156,7 @@
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didEndDisplayingCellAtRow:(NSInteger)row
 {
-    NSLog(@"将要消失 %ld",row);
+    NSLog(@"将要消失 %ld",(long)row);
 }
 
 - (UICollectionViewCell *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView ListView:(CGXVerticalMenuCollectionView *)listView cellForItemAtIndexPath:(NSIndexPath *)indexPath listViewInRow:(NSInteger)row;
@@ -171,12 +171,21 @@
 {
     TitleHeaderView *titleView = [[TitleHeaderView alloc] init];
     CGXVerticalMenuCategoryListModel *listModel = categoryView.dataArray[row];
-    titleView.titleLabel.text = [NSString stringWithFormat:@"%@--%ld",listModel.leftModel.title,indexPath.section];
+    titleView.titleLabel.text = [NSString stringWithFormat:@"%@--%ld",listModel.leftModel.title,(long)indexPath.section];
     return titleView;
 }
 - (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView ListView:(CGXVerticalMenuCollectionView *)listView KindFootAtIndexPath:(NSIndexPath *)indexPath listViewInRow:(NSInteger)row
 {
     return [[UICollectionReusableView alloc] init];
+}
+/**
+ 每个分区背景颜色  默认背景色
+ */
+- (UIColor *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView BackgroundColorForSection:(NSInteger)section
+{
+    NSArray *colorArr = @[[UIColor redColor], [UIColor greenColor],[UIColor yellowColor],[UIColor blueColor]];
+    NSInteger inter = arc4random() % 3;
+    return [colorArr objectAtIndex:inter];
 }
 /*
 #pragma mark - Navigation

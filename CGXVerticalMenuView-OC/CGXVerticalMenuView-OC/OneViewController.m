@@ -16,6 +16,9 @@
 
 
 @property (nonatomic , strong) CGXVerticalMenuCategoryView *menuView;
+
+@property (nonatomic , assign) BOOL sectionClick;
+
 @end
 
 @implementation OneViewController
@@ -27,6 +30,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
       self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.sectionClick = NO;
     
     self.menuView = [[CGXVerticalMenuCategoryView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kSafeVCHeight)];
     self.menuView.backgroundColor = [UIColor whiteColor];
@@ -36,7 +40,8 @@
     self.menuView.titleWidth = (SCREEN_WIDTH-50)/4.0;
     self.menuView.leftBgColor = [UIColor colorWithWhite:0.93 alpha:1];;
     self.menuView.rightBgColor = [UIColor whiteColor];
-
+    
+    
     CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
     backgroundView.backgroundViewColor = [UIColor orangeColor];
 //    backgroundView.backgroundViewHeight = 30;
@@ -84,7 +89,20 @@
     }
     [self.menuView updateListWithDataArray:dataArr];
     
+     UIBarButtonItem *item1  =[[UIBarButtonItem alloc] initWithTitle:@"右侧背景白色" style:UIBarButtonItemStyleDone target:self action:@selector(sectionLeftClick:)];
     
+     UIBarButtonItem *item2 =[[UIBarButtonItem alloc] initWithTitle:@"随机右侧背景色" style:UIBarButtonItemStyleDone target:self action:@selector(sectionRightClick:)];
+    self.navigationItem.rightBarButtonItems = @[item1,item2];
+}
+- (void)sectionLeftClick:(UIBarButtonItem *)bar
+{
+    self.sectionClick = NO;
+    [self.menuView selectItemAtIndex:self.menuView.currentInteger];
+}
+- (void)sectionRightClick:(UIBarButtonItem *)bar
+{
+    self.sectionClick = YES;
+    [self.menuView selectItemAtIndex:self.menuView.currentInteger];
 }
 - (UICollectionViewCell *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView ListView:(CGXVerticalMenuCollectionView *)listView cellForItemAtIndexPath:(NSIndexPath *)indexPath listViewInRow:(NSInteger)row;
 {
@@ -98,12 +116,24 @@
 {
     TitleHeaderView *titleView = [[TitleHeaderView alloc] init];
     CGXVerticalMenuCategoryListModel *listModel = categoryView.dataArray[row];
-    titleView.titleLabel.text = [NSString stringWithFormat:@"%@--%ld",listModel.leftModel.title,indexPath.section];
+    titleView.titleLabel.text = [NSString stringWithFormat:@"%@--%ld",listModel.leftModel.title,(long)indexPath.section];
     return titleView;
 }
 - (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView ListView:(CGXVerticalMenuCollectionView *)listView KindFootAtIndexPath:(NSIndexPath *)indexPath listViewInRow:(NSInteger)row
 {
     return [[UICollectionReusableView alloc] init];
+}
+/**
+ 每个分区背景颜色  默认背景色
+ */
+- (UIColor *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView BackgroundColorForSection:(NSInteger)section
+{
+    if (self.sectionClick) {
+        NSArray *colorArr = @[[UIColor redColor], [UIColor greenColor],[UIColor yellowColor],[UIColor purpleColor], [UIColor blueColor],[UIColor blackColor]];
+        NSInteger inter = arc4random() % 6;
+        return [colorArr objectAtIndex:inter];
+    }
+    return categoryView.rightBgColor;
 }
 /** 左侧点击
  点击选中、滚动选中的情况才会调用该方法
@@ -112,7 +142,7 @@
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
-    NSLog(@"左侧点击 %ld",index);
+    NSLog(@"左侧点击 %ld",(long)index);
 }
 
 /**  右侧点击
@@ -122,7 +152,7 @@
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemDetailsAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"右侧点击 %ld--%ld",indexPath.section,indexPath.row);
+    NSLog(@"右侧点击 %ld--%ld",(long)indexPath.section,(long)indexPath.row);
 }
 /**  将要显示
  点击选中、滚动选中的情况才会调用该方法
@@ -131,7 +161,7 @@
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView willDisplayCellAtRow:(NSInteger)row
 {
-    NSLog(@"将要显示 %ld",row);
+    NSLog(@"将要显示 %ld",(long)row);
 }
 /**  将要消失
  点击选中、滚动选中的情况才会调用该方法
@@ -140,7 +170,7 @@
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didEndDisplayingCellAtRow:(NSInteger)row
 {
-    NSLog(@"将要消失 %ld",row);
+    NSLog(@"将要消失 %ld",(long)row);
 }
 /*
 #pragma mark - Navigation

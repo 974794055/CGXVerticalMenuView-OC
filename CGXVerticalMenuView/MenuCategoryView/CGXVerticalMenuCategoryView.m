@@ -48,7 +48,8 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
         self.titleWidth = 100;
         self.currentInteger = 0;
         self.dataArray = [NSMutableArray array];
-        
+        self.spaceLeft = 0;
+        self.spaceRight = 0;
         self.leftView = [[CGXVerticalMenuTitleView alloc] initWithFrame:CGRectMake(0, 0, self.titleWidth, CGRectGetHeight(self.bounds))];
         self.leftView.delegate = self;
         self.leftView.backgroundColor = self.leftBgColor;
@@ -67,6 +68,16 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
         self.leftView.indicators = @[lineView];
     }
     return self;
+}
+- (void)setSpaceLeft:(CGFloat)spaceLeft
+{
+    _spaceLeft = spaceLeft;
+    self.containerView.spaceLeft = spaceLeft;
+}
+- (void)setSpaceRight:(CGFloat)spaceRight
+{
+    _spaceRight = spaceRight;
+     self.containerView.spaceRight = spaceRight;
 }
 - (void)setLeftBgColor:(UIColor *)leftBgColor
 {
@@ -196,6 +207,17 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
         return [self.dataSouce verticalMenuView:self ListView:categoryView KindFootAtIndexPath:indexPath listViewInRow:self.currentInteger];
     }
     return [[UICollectionReusableView alloc] init];
+}
+/**
+ 每个分区背景颜色  默认背景色
+ */
+- (UIColor *)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView BackgroundColorForSection:(NSInteger)section
+{
+    if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(verticalMenuView:BackgroundColorForSection:)]) {
+        return [self.dataSouce verticalMenuView:self BackgroundColorForSection:section];
+    }
+    CGXVerticalMenuCollectionSectionModel *sectionModel = categoryView.dataArray[section];
+    return sectionModel.sectionColor;
 }
 - (UIViewController*)viewController:(UIView *)view {
     for (UIView* next = [view superview]; next; next = next.superview) {
