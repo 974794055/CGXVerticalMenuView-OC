@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CGXVerticalMenuCollectionViewLayoutAttributes.h"
+#import "CGXVerticalMenuCollectionReusableView.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol CGXVerticalMenuCollectionViewFlowLayoutDelegate <UICollectionViewDelegateFlowLayout>

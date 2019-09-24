@@ -7,8 +7,7 @@
 //
 
 #import "CGXVerticalMenuCollectionViewFlowLayout.h"
-#import "CGXVerticalMenuCollectionViewLayoutAttributes.h"
-#import "CGXVerticalMenuCollectionReusableView.h"
+
 NSString *const CGXVerticalMenuCollectionViewFlowLayoutSectionBackground = @"CGXVerticalMenuCollectionViewFlowLayoutSectionBackground";
 
 
