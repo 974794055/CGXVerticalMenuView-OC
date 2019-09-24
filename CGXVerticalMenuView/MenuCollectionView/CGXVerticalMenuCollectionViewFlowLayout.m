@@ -8,7 +8,7 @@
 
 #import "CGXVerticalMenuCollectionViewFlowLayout.h"
 #import "CGXVerticalMenuCollectionViewLayoutAttributes.h"
-#import "TitleHeaderView.h"
+#import "CGXVerticalMenuCollectionReusableView.h"
 NSString *const CGXVerticalMenuCollectionViewFlowLayoutSectionBackground = @"CGXVerticalMenuCollectionViewFlowLayoutSectionBackground";
 
 
@@ -20,7 +20,7 @@ NSString *const CGXVerticalMenuCollectionViewFlowLayoutSectionBackground = @"CGX
     if (self) {
         self.stopTop = NO;
         self.decorationViewAttrs = [NSMutableArray array];
-         [self registerClass:[TitleHeaderView class] forDecorationViewOfKind:CGXVerticalMenuCollectionViewFlowLayoutSectionBackground];
+         [self registerClass:[CGXVerticalMenuCollectionReusableView class] forDecorationViewOfKind:CGXVerticalMenuCollectionViewFlowLayoutSectionBackground];
     }
     return self;
 }
