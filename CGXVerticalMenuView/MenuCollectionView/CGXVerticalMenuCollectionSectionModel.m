@@ -23,7 +23,7 @@
         self.headerHeight = 0;
         self.footerBgColor = [UIColor colorWithWhite:0.93 alpha:1];
         self.headerBgColor= [UIColor whiteColor];
-        
+         self.sectionColor= [UIColor blackColor];
     }
     return self;
 }

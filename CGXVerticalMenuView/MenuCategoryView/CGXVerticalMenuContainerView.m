@@ -32,6 +32,8 @@
     self.animated = NO;
     self.isClickScroll = YES;
     self.currentInteger = 0;
+    self.spaceLeft = 0;
+    self.spaceRight = 0;
    self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 0;
@@ -106,7 +108,7 @@
         [view removeFromSuperview];
     }
     UIView *listView = [self.dataSouce verticalListContainerView:self listViewInRow:indexPath.item];
-    listView.frame = cell.bounds;
+    listView.frame = CGRectMake(self.spaceLeft, 0,  cell.bounds.size.width-self.spaceLeft-self.spaceRight, cell.bounds.size.height);
     [cell.contentView addSubview:listView];
     return cell;
 }

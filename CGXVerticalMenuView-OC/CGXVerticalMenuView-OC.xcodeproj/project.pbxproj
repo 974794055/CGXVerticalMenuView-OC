@@ -31,6 +31,8 @@
 		04B37108232A360200DDB62F /* CGXVerticalMenuBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370FB232A360200DDB62F /* CGXVerticalMenuBaseCell.m */; };
 		04B37109232A360200DDB62F /* CGXVerticalMenuBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370FC232A360200DDB62F /* CGXVerticalMenuBaseView.m */; };
 		04B3710A232A360200DDB62F /* CGXVerticalMenuBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370FD232A360200DDB62F /* CGXVerticalMenuBaseModel.m */; };
+		04C406A9233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C406A8233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.m */; };
+		04C406AC233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C406AB233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.m */; };
 		66F071276DDD64383EF07093 /* libPods-CGXVerticalMenuView-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 650CB3317FD028B80982C5AE /* libPods-CGXVerticalMenuView-OC.a */; };
 		9E3F0A31233115B50098DDA8 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F0A30233115B50098DDA8 /* ThreeViewController.m */; };
 		9E3F0A34233116D30098DDA8 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F0A33233116D30098DDA8 /* OneViewController.m */; };
@@ -95,6 +97,10 @@
 		04B370FE232A360200DDB62F /* CGXVerticalMenuBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuBaseCell.h; sourceTree = "<group>"; };
 		04B370FF232A360200DDB62F /* CGXVerticalMenuBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuBaseView.h; sourceTree = "<group>"; };
 		04B3710B232A363100DDB62F /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		04C406A7233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
+		04C406A8233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionViewLayoutAttributes.m; sourceTree = "<group>"; };
+		04C406AA233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionReusableView.h; sourceTree = "<group>"; };
+		04C406AB233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionReusableView.m; sourceTree = "<group>"; };
 		650CB3317FD028B80982C5AE /* libPods-CGXVerticalMenuView-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CGXVerticalMenuView-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3F0A2F233115B50098DDA8 /* ThreeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeViewController.h; sourceTree = "<group>"; };
 		9E3F0A30233115B50098DDA8 /* ThreeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeViewController.m; sourceTree = "<group>"; };
@@ -151,8 +157,12 @@
 				0440E28E232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.m */,
 				0440E28B232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.h */,
 				0440E290232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.m */,
+				04C406AA233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.h */,
+				04C406AB233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.m */,
 				9E3F0A38233118360098DDA8 /* CGXVerticalMenuCollectionViewFlowLayout.h */,
 				9E3F0A39233118360098DDA8 /* CGXVerticalMenuCollectionViewFlowLayout.m */,
+				04C406A7233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.h */,
+				04C406A8233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.m */,
 			);
 			path = MenuCollectionView;
 			sourceTree = "<group>";
@@ -437,6 +447,7 @@
 				04B37109232A360200DDB62F /* CGXVerticalMenuBaseView.m in Sources */,
 				04B37104232A360200DDB62F /* CGXVerticalMenuTitleCell.m in Sources */,
 				0440E298232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.m in Sources */,
+				04C406A9233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.m in Sources */,
 				04B37103232A360200DDB62F /* CGXVerticalMenuTitleModel.m in Sources */,
 				0440E297232F183D00E93144 /* CGXVerticalMenuCollectionCell.m in Sources */,
 				04B37108232A360200DDB62F /* CGXVerticalMenuBaseCell.m in Sources */,
@@ -454,6 +465,7 @@
 				9EB89E802337060300A58483 /* CGXRefreshBackFooter.m in Sources */,
 				9E4337B4233679F800F4DEB4 /* CGXRefreshFooter.m in Sources */,
 				9E43376E23362E0E00F4DEB4 /* CGXVerticalMenuCategoryView.m in Sources */,
+				04C406AC233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.m in Sources */,
 				0440E2A4232F1BF500E93144 /* ViewController.m in Sources */,
 				0440E29B232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m in Sources */,
 				04B37100232A360200DDB62F /* CGXVerticalMenuIndicatorComponentView.m in Sources */,
