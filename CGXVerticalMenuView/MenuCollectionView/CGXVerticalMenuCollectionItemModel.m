@@ -15,8 +15,8 @@
     if (self) {
         self.rowHeight = 80;
         self.cellClass = [UICollectionViewCell class];
-        self.cornerRadius = 4;
-        self.borderWidth = 0.5;
+        self.cornerRadius = 8;
+        self.borderWidth = 0.5*2;
         self.borderColor = [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1];
         self.bgColor = [UIColor colorWithWhite:0.93 alpha:1];
     }

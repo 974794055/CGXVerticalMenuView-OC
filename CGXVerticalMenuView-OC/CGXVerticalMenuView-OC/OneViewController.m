@@ -41,7 +41,6 @@
     self.menuView.leftBgColor = [UIColor colorWithWhite:0.93 alpha:1];;
     self.menuView.rightBgColor = [UIColor whiteColor];
     
-    
     CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
     backgroundView.backgroundViewColor = [UIColor orangeColor];
 //    backgroundView.backgroundViewHeight = 30;
@@ -58,7 +57,7 @@
         CGXVerticalMenuCategoryListModel *listModel = [[CGXVerticalMenuCategoryListModel alloc] init];
         
         CGXVerticalMenuTitleModel *itemModel = [[CGXVerticalMenuTitleModel alloc] init];
-        //            itemModel.isMoreClick = NO;
+//                    itemModel.isMoreClick = NO;
         itemModel.title = titleArr[i];
         itemModel.titleNormalColor = [UIColor blackColor];
         itemModel.titleSelectedColor = [UIColor redColor];
