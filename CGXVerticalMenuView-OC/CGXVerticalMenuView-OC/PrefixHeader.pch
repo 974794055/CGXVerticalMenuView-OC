@@ -1,6 +1,6 @@
 //
 //  PrefixHeader.pch
-//  CGXCategoryListView-OC
+//  CGXVerticalMenuView-OC
 //
 //  Created by CGX on 2019/9/12.
 //  Copyright © 2019 CGX. All rights reserved.
@@ -59,7 +59,5 @@
 #define MPWeakSelf(type)  __weak typeof(type) weak##type = type;
 #define MPStrongSelf(type)  __strong typeof(type) type = weak##type;
 
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #endif /* PrefixHeader_pch */

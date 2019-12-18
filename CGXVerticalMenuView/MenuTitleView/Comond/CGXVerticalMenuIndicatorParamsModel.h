@@ -1,9 +1,9 @@
 //
 //  CGXCategoryIndicatorParamsModel.h
-//  CGXCategoryView
+//  CGXVerticalMenuView-OC
 //
-//  Created by CGX on 2018/12/13.
-//  Copyright © 2018 CGX. All rights reserved.
+//  Created by CGX on 2018/05/01.
+//  Copyright © 2019 CGX. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

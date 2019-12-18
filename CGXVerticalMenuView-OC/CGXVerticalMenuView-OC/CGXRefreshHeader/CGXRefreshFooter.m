@@ -2,8 +2,8 @@
 //  CGXRefreshFooter.m
 //  CGXVerticalMenuView-OC
 //
-//  Created by CGX on 2018/5/31.
-//  Copyright © 2018年 CGX. All rights reserved.
+//  Created by CGX on 2018/05/01.
+//  Copyright © 2019 CGX. All rights reserved.
 //
 
 #import "CGXRefreshFooter.h"
