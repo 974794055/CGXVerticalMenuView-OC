@@ -15,7 +15,6 @@
 #ifndef CGXVerticalMenu_h
 #define CGXVerticalMenu_h
 
-
 #import "CGXVerticalMenuBaseView.h"
 #import "CGXVerticalMenuBaseCell.h"
 #import "CGXVerticalMenuBaseModel.h"
