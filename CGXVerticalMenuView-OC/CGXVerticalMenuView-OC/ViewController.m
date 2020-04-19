@@ -31,6 +31,7 @@
     
     [self creatTableView];
     
+    
     self.dataArray = [NSMutableArray arrayWithObjects:@"不联动，点击左侧切换右侧",
                       @"联动",
 //                      @"联动",
