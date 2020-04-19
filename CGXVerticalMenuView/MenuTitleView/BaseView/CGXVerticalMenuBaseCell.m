@@ -30,4 +30,8 @@
 {
     
 }
+- (void)reloadData:(CGXVerticalMenuBaseModel *)model
+{
+    self.cellModel = model;
+}
 @end

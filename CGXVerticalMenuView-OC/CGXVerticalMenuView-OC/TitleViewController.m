@@ -106,6 +106,16 @@
 - (void)verticalMenuTitleView:(CGXVerticalMenuTitleView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index
 {
     NSLog(@"点击选中 %@--%ld",categoryView,index);
+    
+    if (categoryView.tag==10000) {
+        CGXVerticalMenuTitleView *listView1 = [self.view viewWithTag:10000];
+         CGXVerticalMenuTitleModel *itemModel = (CGXVerticalMenuTitleModel *)listView1.dataArray[index];
+             //            itemModel.isMoreClick = NO;
+         itemModel.title = [NSString stringWithFormat:@"-%u-" ,arc4random() % 8];
+         [listView1 replaceObjectAtIndex:index ItemModel:itemModel];
+    }
+
+    
 }
 - (void)verticalMenuTitleView:(CGXVerticalMenuTitleView *)categoryView didScrollerSelectedItemAtIndex:(NSInteger)index
 {

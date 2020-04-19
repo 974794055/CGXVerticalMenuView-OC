@@ -12,7 +12,7 @@
 
 @property (nonatomic , strong) UILabel *titleLabel;
 
-@property (nonatomic , strong) CGXVerticalMenuTitleModel *model;
+
 
 @end
 
@@ -31,16 +31,17 @@
     [super layoutSubviews];
     self.titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.contentView.frame), CGRectGetHeight(self.contentView.frame));
 }
-- (void)reloadData:(CGXVerticalMenuTitleModel *)model IsSelect:(BOOL)isSelect
+- (void)reloadData:(CGXVerticalMenuBaseModel *)model
 {
-    self.model = model;
-    self.titleLabel.text = model.title;
-    if (isSelect) {
-        self.titleLabel.textColor = model.titleSelectedColor;
-        self.titleLabel.font = model.titleSelectedFont;
+    [super reloadData:model];
+    CGXVerticalMenuTitleModel *cellModel = (CGXVerticalMenuTitleModel *)model;
+    self.titleLabel.text = cellModel.title;
+    if (cellModel.isSelected) {
+        self.titleLabel.textColor = cellModel.titleSelectedColor;
+        self.titleLabel.font = cellModel.titleSelectedFont;
     } else{
-        self.titleLabel.textColor = model.titleNormalColor;
-        self.titleLabel.font = model.titleFont;
+        self.titleLabel.textColor = cellModel.titleNormalColor;
+        self.titleLabel.font = cellModel.titleFont;
     }
 }
 

@@ -14,7 +14,7 @@
 
 @property (nonatomic, assign) CGFloat isFirstClick;//是否第一次点击
 
-@property (nonatomic, assign,readwrite) NSInteger  selectedIndex;
+
 
 @end
 
@@ -26,7 +26,7 @@
    
     self.isFirstClick = YES;
     self.timeDuration = 0;
-    self.selectedIndex = 0;
+   
   
     self.clickedPosition = CGXCategoryListCellClickedPosition_Left;
 }
@@ -47,18 +47,6 @@
 {
     return CGXVerticalMenuTitleCell.class;
 }
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGXVerticalMenuTitleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([self preferredCellClass]) forIndexPath:indexPath];
-    CGXVerticalMenuTitleModel *model = (CGXVerticalMenuTitleModel *)self.dataArray[indexPath.section];
-    
-    BOOL isSelect = NO;
-    if (self.selectedIndex == indexPath.section) {
-        isSelect = YES;
-    }
-    [cell reloadData:model IsSelect:isSelect];
-    return cell;
-}
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [self selectCellAtIndex:indexPath.section selectedType:CGXCategoryListCellSelectedTypeClick];
@@ -66,7 +54,7 @@
 - (void)updateMenuWithDataArray:(NSMutableArray<CGXVerticalMenuBaseModel *> *)dataArray
 {
     [super updateMenuWithDataArray:dataArray];
-    
+
     for (UIView<CGXCategoryListIndicatorProtocol> *indicator in self.indicators) {
         if (self.dataArray.count <= 0) {
             indicator.hidden = YES;
@@ -94,13 +82,18 @@
     [self selectItemAtIndex:self.selectedIndex];
     
 }
-- (void)replaceObjectAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuBaseModel  *)itemModel
-{
-    [super replaceObjectAtIndex:index ItemModel:itemModel];
-    [self.dataArray replaceObjectAtIndex:index withObject:itemModel];
-    [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:index]];
-}
 
+
+- (void)refreshCellModel:(CGXVerticalMenuBaseModel *)cellModel index:(NSInteger)index
+{
+    [super refreshCellModel:cellModel index:index];
+//    CGXVerticalMenuTitleModel *model = (CGXVerticalMenuTitleModel *)cellModel;
+  
+}
+- (void)refreshSelectedCellModel:(CGXVerticalMenuBaseModel *)selectedCellModel unselectedCellModel:(CGXVerticalMenuBaseModel *)unselectedCellModel
+{
+    [super refreshSelectedCellModel:selectedCellModel unselectedCellModel:unselectedCellModel];
+}
 /**
  选中目标index的item
  @param index 目标index
@@ -125,21 +118,51 @@
     if (index>self.dataArray.count-1) {
         return;
     }
-    CGXVerticalMenuTitleModel *model = (CGXVerticalMenuTitleModel *)self.dataArray[index];
+    if (self.selectedIndex == index) {
+        if (self.isFirstClick) {
+            self.isFirstClick = !self.isFirstClick;
+            [self updateIndicatorAtIndex:index selectedType:selectedType]; //更新指示器
+        } else{
+            CGXVerticalMenuTitleModel *newModel = (CGXVerticalMenuTitleModel *)self.dataArray[index];
+            if (newModel.isMoreClick) {
+                [self updateCellAtIndex:index selectedType:selectedType];
+            }
+        }
+        return;
+    } else{
+        [self updateIndicatorAtIndex:index selectedType:selectedType]; //更新指示器
+    }
     
-    [self updateIndicatorAtIndex:index selectedType:selectedType];
+    //通知子类刷新当前选中的和将要选中的cellModel
+    CGXVerticalMenuTitleModel *oldModel = (CGXVerticalMenuTitleModel *)self.dataArray[self.selectedIndex];
+    CGXVerticalMenuTitleModel *newModel = (CGXVerticalMenuTitleModel *)self.dataArray[index];
+    [self refreshSelectedCellModel:newModel unselectedCellModel:oldModel];
+    
+    
+    //刷新当前选中的和将要选中的cell
+    CGXVerticalMenuTitleCell *lastCell = (CGXVerticalMenuTitleCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:self.selectedIndex]];
+    [lastCell reloadData:oldModel];
+    CGXVerticalMenuTitleCell *selectedCell = (CGXVerticalMenuTitleCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:index]];
+    [selectedCell reloadData:newModel];
+    
     
     if (self.selectedIndex == index) {
         if (self.isFirstClick) {
             [self updateCellAtIndex:index selectedType:selectedType];
+            
+            [self updateDelegateAtIndex:index selectedType:selectedType];
             self.isFirstClick = NO;
         } else{
-            if (model.isMoreClick) {
+            if (newModel.isMoreClick) {
                 [self updateCellAtIndex:index selectedType:selectedType];
+                
+                [self updateDelegateAtIndex:index selectedType:selectedType];
             }
         }
     } else{
         [self updateCellAtIndex:index selectedType:selectedType];
+        
+        [self updateDelegateAtIndex:index selectedType:selectedType];
     }
     self.isFirstClick = NO;
     self.selectedIndex = index;
@@ -176,7 +199,6 @@
     });
     [CATransaction commit];
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:index] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
-    [self updateDelegateAtIndex:index selectedType:selectedType];
     
 }
 #pragma mark - 更新代理

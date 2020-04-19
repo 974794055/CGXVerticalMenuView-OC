@@ -101,8 +101,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray <UIView<CGXCategoryListIndicatorProtocol> *> *indicators;
 
 @property (nonatomic , strong,readonly) NSMutableArray <CGXVerticalMenuCategoryListModel *> *dataArray;
-
+/*
+ 初始化使用
+ */
 - (void)updateListWithDataArray:(NSMutableArray<CGXVerticalMenuCategoryListModel *> *)dataArray;
+/*
+  更新某个下标数据使用
+*/
+- (void)updateListWistAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuCategoryListModel  *)itemModel;
 
 /* 左侧背景 */
 @property (nonatomic , strong) UIColor *leftBgColor;

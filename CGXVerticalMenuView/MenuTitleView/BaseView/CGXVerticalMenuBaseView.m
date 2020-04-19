@@ -39,6 +39,7 @@
 - (void)initializeData
 {
      self.dataArray = [NSMutableArray array];
+     self.selectedIndex = 0;
 }
 
 - (void)initializeViews
@@ -159,10 +160,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGXVerticalMenuBaseCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([self preferredCellClass]) forIndexPath:indexPath];
+    CGXVerticalMenuBaseModel *model = (CGXVerticalMenuBaseModel *)self.dataArray[indexPath.section];
+    
+    [cell reloadData:model];
     return cell;
 }
-
-
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
     UIResponder *next = newSuperview;
@@ -186,18 +188,58 @@
     }
     [self.dataArray removeAllObjects];
     [self.dataArray addObjectsFromArray:dataArray];
+    
+    if (self.selectedIndex < 0 || self.selectedIndex >= self.dataArray.count) {
+        self.selectedIndex = 0;
+    }
+        for (int i = 0; i<self.dataArray.count; i++) {
+            CGXVerticalMenuBaseModel *cellModel = self.dataArray[i];
+            if (self.selectedIndex==i) {
+                cellModel.selected = YES;
+            } else{
+                cellModel.selected = NO;
+            }
+            [self.dataArray replaceObjectAtIndex:i withObject:cellModel];
+        }
     [self.collectionView reloadData];
 }
 - (void)replaceObjectAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuBaseModel  *)itemModel
 {
-    if (self.dataArray.count==0) {
+    if (self.dataArray.count==0 || index<0) {
         return;
     }
     if (index>self.dataArray.count-1) {
         return;
     }
-    [self.dataArray replaceObjectAtIndex:index withObject:itemModel];
-    [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:index]];
+    CGXVerticalMenuBaseModel *newModel = (CGXVerticalMenuBaseModel *)itemModel;
+    [self.dataArray replaceObjectAtIndex:index withObject:newModel];
+    [self reloadCellAtIndex:index];
+}
+
+- (void)reloadCellAtIndex:(NSInteger)index
+{
+    if (index < 0 || index >= self.dataArray.count) {
+        return;
+    }
+    CGXVerticalMenuBaseModel *cellModel = self.dataArray[index];
+    [self refreshCellModel:cellModel index:index];
+    CGXVerticalMenuBaseCell *cell = (CGXVerticalMenuBaseCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:index]];
+    [cell reloadData:cellModel];
+}
+- (void)refreshCellModel:(CGXVerticalMenuBaseModel *)cellModel index:(NSInteger)index
+{
+   
+}
+/**
+ 选中某个item时，刷新将要选中与取消选中的cellModel
+
+ @param selectedCellModel 将要选中的cellModel
+ @param unselectedCellModel 取消选中的cellModel
+ */
+- (void)refreshSelectedCellModel:(CGXVerticalMenuBaseModel *)selectedCellModel unselectedCellModel:(CGXVerticalMenuBaseModel *)unselectedCellModel
+{
+    selectedCellModel.selected = YES;
+    unselectedCellModel.selected = NO;
 }
 /*
  // Only override drawRect: if you perform custom drawing.

@@ -13,6 +13,7 @@
 {
     self = [super init];
     if (self) {
+        self.selected = NO;
         self.isMoreClick = YES;
         self.rowHeight = 50;
     }

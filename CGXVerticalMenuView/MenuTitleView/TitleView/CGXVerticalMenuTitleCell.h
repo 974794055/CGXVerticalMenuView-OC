@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CGXVerticalMenuTitleCell : CGXVerticalMenuBaseCell
 
-- (void)reloadData:(CGXVerticalMenuTitleModel *)model IsSelect:(BOOL)isSelect;
 
 @end
 

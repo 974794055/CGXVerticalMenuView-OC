@@ -9,7 +9,7 @@
  群名称：
  群   号：
  pod：CGXVerticalMenuView-OC
- 版本： 1.0.5
+ 版本： 1.0.6
  */
 
 #ifndef CGXVerticalMenu_h

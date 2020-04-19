@@ -62,11 +62,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  选中目标index的item
- */
-@property (nonatomic, assign,readonly) NSInteger  selectedIndex;
-
-/**
- 选中目标index的item
  @param index 目标index
  */
 - (void)selectItemAtIndex:(NSInteger)index;

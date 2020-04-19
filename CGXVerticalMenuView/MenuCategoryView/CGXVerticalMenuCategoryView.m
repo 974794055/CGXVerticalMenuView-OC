@@ -104,8 +104,21 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
         [dataArr addObject:itemModel];
     }
     [self.leftView updateMenuWithDataArray:dataArr];
-//    [self.containerView reloadData];
-//
+}
+/*
+  更新某个下标数据使用
+*/
+- (void)updateListWistAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuCategoryListModel  *)itemModel
+{
+    if (self.dataArray.count==0 || index<0) {
+        return;
+    }
+    if (index>self.dataArray.count-1) {
+        return;
+    }
+    
+    [self.dataArray replaceObjectAtIndex:index withObject:itemModel];
+    [self.containerView reloadDataToItemAtIndex:index];
 }
 /**
  选中目标index的item

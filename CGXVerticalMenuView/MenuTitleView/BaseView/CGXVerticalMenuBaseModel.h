@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CGXVerticalMenuBaseModel : NSObject
 
+@property (nonatomic, assign, getter=isSelected) BOOL selected;
+
 // 是否支持多次点击 默认YES
 @property (nonatomic, assign) BOOL isMoreClick;
 // cell高

@@ -142,6 +142,37 @@
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
     NSLog(@"左侧点击 %ld",(long)index);
+    
+    CGXVerticalMenuCategoryListModel *listModel = [[CGXVerticalMenuCategoryListModel alloc] init];
+            
+            CGXVerticalMenuTitleModel *itemModel = [[CGXVerticalMenuTitleModel alloc] init];
+    itemModel.title = [NSString stringWithFormat:@"%ld",arc4random() % 8];
+            itemModel.titleNormalColor = [UIColor blackColor];
+            itemModel.titleSelectedColor = [UIColor redColor];
+            itemModel.titleFont = [UIFont systemFontOfSize:14];
+            itemModel.titleSelectedFont = [UIFont systemFontOfSize:18];
+            listModel.leftModel = itemModel;
+            
+            
+            NSMutableArray *dataRightArr = [NSMutableArray array];
+            for (int i = 0; i<arc4random() % 6 + 2; i++) {
+                CGXVerticalMenuCollectionSectionModel *sectionModel = [[CGXVerticalMenuCollectionSectionModel alloc] init];
+                sectionModel.headerHeight = 30;
+                sectionModel.footerHeight = 10;
+                sectionModel.headerBgColor = [UIColor orangeColor];
+                sectionModel.footerBgColor = [UIColor colorWithWhite:0.93 alpha:1];
+                sectionModel.rowCount = 3;
+                NSMutableArray *rowArr = [NSMutableArray array];
+                for (int j = 0; j<arc4random() % 2 * 3 + 9; j++) {
+                    CGXVerticalMenuCollectionItemModel *itemModel = [[CGXVerticalMenuCollectionItemModel alloc] init];
+                    [rowArr addObject:itemModel];
+                }
+                sectionModel.rowArray = [NSMutableArray arrayWithArray:rowArr];
+                [dataRightArr addObject:sectionModel];
+            }
+            listModel.rightArray = dataRightArr;
+    
+    [categoryView.dataArray replaceObjectAtIndex:index withObject:listModel];
 }
 
 /**  右侧点击
