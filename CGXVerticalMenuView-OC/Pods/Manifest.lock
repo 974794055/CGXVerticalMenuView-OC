@@ -1,22 +1,22 @@
 PODS:
-  - CGXVerticalMenuView-OC (1.0.6):
-    - CGXVerticalMenuView-OC/MenuCategoryView (= 1.0.6)
-    - CGXVerticalMenuView-OC/MenuCollectionView (= 1.0.6)
-    - CGXVerticalMenuView-OC/MenuTitleView (= 1.0.6)
-  - CGXVerticalMenuView-OC/MenuCategoryView (1.0.6):
+  - CGXVerticalMenuView-OC (1.0.7):
+    - CGXVerticalMenuView-OC/MenuCategoryView (= 1.0.7)
+    - CGXVerticalMenuView-OC/MenuCollectionView (= 1.0.7)
+    - CGXVerticalMenuView-OC/MenuTitleView (= 1.0.7)
+  - CGXVerticalMenuView-OC/MenuCategoryView (1.0.7):
     - CGXVerticalMenuView-OC/MenuCollectionView
     - CGXVerticalMenuView-OC/MenuTitleView
-  - CGXVerticalMenuView-OC/MenuCollectionView (1.0.6)
-  - CGXVerticalMenuView-OC/MenuTitleView (1.0.6):
-    - CGXVerticalMenuView-OC/MenuTitleView/BaseView (= 1.0.6)
-    - CGXVerticalMenuView-OC/MenuTitleView/Comond (= 1.0.6)
-    - CGXVerticalMenuView-OC/MenuTitleView/IndicatorView (= 1.0.6)
-    - CGXVerticalMenuView-OC/MenuTitleView/TitleView (= 1.0.6)
-  - CGXVerticalMenuView-OC/MenuTitleView/BaseView (1.0.6)
-  - CGXVerticalMenuView-OC/MenuTitleView/Comond (1.0.6)
-  - CGXVerticalMenuView-OC/MenuTitleView/IndicatorView (1.0.6):
+  - CGXVerticalMenuView-OC/MenuCollectionView (1.0.7)
+  - CGXVerticalMenuView-OC/MenuTitleView (1.0.7):
+    - CGXVerticalMenuView-OC/MenuTitleView/BaseView (= 1.0.7)
+    - CGXVerticalMenuView-OC/MenuTitleView/Comond (= 1.0.7)
+    - CGXVerticalMenuView-OC/MenuTitleView/IndicatorView (= 1.0.7)
+    - CGXVerticalMenuView-OC/MenuTitleView/TitleView (= 1.0.7)
+  - CGXVerticalMenuView-OC/MenuTitleView/BaseView (1.0.7)
+  - CGXVerticalMenuView-OC/MenuTitleView/Comond (1.0.7)
+  - CGXVerticalMenuView-OC/MenuTitleView/IndicatorView (1.0.7):
     - CGXVerticalMenuView-OC/MenuTitleView/Comond
-  - CGXVerticalMenuView-OC/MenuTitleView/TitleView (1.0.6):
+  - CGXVerticalMenuView-OC/MenuTitleView/TitleView (1.0.7):
     - CGXVerticalMenuView-OC/MenuTitleView/BaseView
     - CGXVerticalMenuView-OC/MenuTitleView/Comond
     - CGXVerticalMenuView-OC/MenuTitleView/IndicatorView
@@ -46,7 +46,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXVerticalMenuView-OC: dea21ddb4363c2e8c8c3822628c3a5691f8c477c
+  CGXVerticalMenuView-OC: c9fa7eec94999d3b6bd737e5030c025e5a210ff7
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
