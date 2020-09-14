@@ -1,4 +1,25 @@
 PODS:
+  - CGXVerticalMenuView-OC (1.0.6):
+    - CGXVerticalMenuView-OC/MenuCategoryView (= 1.0.6)
+    - CGXVerticalMenuView-OC/MenuCollectionView (= 1.0.6)
+    - CGXVerticalMenuView-OC/MenuTitleView (= 1.0.6)
+  - CGXVerticalMenuView-OC/MenuCategoryView (1.0.6):
+    - CGXVerticalMenuView-OC/MenuCollectionView
+    - CGXVerticalMenuView-OC/MenuTitleView
+  - CGXVerticalMenuView-OC/MenuCollectionView (1.0.6)
+  - CGXVerticalMenuView-OC/MenuTitleView (1.0.6):
+    - CGXVerticalMenuView-OC/MenuTitleView/BaseView (= 1.0.6)
+    - CGXVerticalMenuView-OC/MenuTitleView/Comond (= 1.0.6)
+    - CGXVerticalMenuView-OC/MenuTitleView/IndicatorView (= 1.0.6)
+    - CGXVerticalMenuView-OC/MenuTitleView/TitleView (= 1.0.6)
+  - CGXVerticalMenuView-OC/MenuTitleView/BaseView (1.0.6)
+  - CGXVerticalMenuView-OC/MenuTitleView/Comond (1.0.6)
+  - CGXVerticalMenuView-OC/MenuTitleView/IndicatorView (1.0.6):
+    - CGXVerticalMenuView-OC/MenuTitleView/Comond
+  - CGXVerticalMenuView-OC/MenuTitleView/TitleView (1.0.6):
+    - CGXVerticalMenuView-OC/MenuTitleView/BaseView
+    - CGXVerticalMenuView-OC/MenuTitleView/Comond
+    - CGXVerticalMenuView-OC/MenuTitleView/IndicatorView
   - Masonry (1.1.0)
   - MJExtension (3.0.15.1)
   - MJRefresh (3.2.0)
@@ -7,6 +28,7 @@ PODS:
   - SDWebImage/Core (4.4.7)
 
 DEPENDENCIES:
+  - CGXVerticalMenuView-OC (from `../`)
   - Masonry
   - MJExtension
   - MJRefresh
@@ -19,12 +41,17 @@ SPEC REPOS:
     - MJRefresh
     - SDWebImage
 
+EXTERNAL SOURCES:
+  CGXVerticalMenuView-OC:
+    :path: "../"
+
 SPEC CHECKSUMS:
+  CGXVerticalMenuView-OC: dea21ddb4363c2e8c8c3822628c3a5691f8c477c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
 
-PODFILE CHECKSUM: 636a25c850c1827891dcb1fbf2787b3d00a88e29
+PODFILE CHECKSUM: f1fe108d23a1af1d5757ba99922794136199da43
 
-COCOAPODS: 1.8.0.beta.1
+COCOAPODS: 1.9.3

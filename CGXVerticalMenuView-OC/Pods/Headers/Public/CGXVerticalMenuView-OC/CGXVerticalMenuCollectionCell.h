@@ -1,0 +1,1 @@
+../../../../../CGXVerticalMenuView/MenuCollectionView/CGXVerticalMenuCollectionCell.h

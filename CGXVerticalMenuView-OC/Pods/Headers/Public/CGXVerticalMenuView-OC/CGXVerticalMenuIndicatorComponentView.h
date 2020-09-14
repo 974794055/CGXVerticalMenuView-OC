@@ -1,0 +1,1 @@
+../../../../../CGXVerticalMenuView/MenuTitleView/IndicatorView/CGXVerticalMenuIndicatorComponentView.h

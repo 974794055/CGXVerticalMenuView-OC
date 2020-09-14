@@ -1,0 +1,80 @@
+{
+  "name": "CGXVerticalMenuView-OC",
+  "version": "1.0.6",
+  "summary": "仿京东、淘宝等主流APP分类切换的滚动视图",
+  "description": "仿京东、淘宝等主流APP分类切换的滚动视图的封装库",
+  "homepage": "https://github.com/974794055/CGXVerticalMenuView-OC",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "974794055": "974794055@qq.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/974794055/CGXVerticalMenuView-OC.git",
+    "tag": "1.0.6"
+  },
+  "requires_arc": true,
+  "frameworks": "UIKit",
+  "source_files": "CGXVerticalMenuView/CGXVerticalMenu.h",
+  "public_header_files": "CGXVerticalMenuView/CGXVerticalMenu.h",
+  "subspecs": [
+    {
+      "name": "MenuTitleView",
+      "subspecs": [
+        {
+          "name": "BaseView",
+          "source_files": "CGXVerticalMenuView/MenuTitleView/BaseView/**/*.{h,m}"
+        },
+        {
+          "name": "Comond",
+          "source_files": "CGXVerticalMenuView/MenuTitleView/Comond/**/*.{h,m}"
+        },
+        {
+          "name": "IndicatorView",
+          "source_files": "CGXVerticalMenuView/MenuTitleView/IndicatorView/**/*.{h,m}",
+          "dependencies": {
+            "CGXVerticalMenuView-OC/MenuTitleView/Comond": [
+
+            ]
+          }
+        },
+        {
+          "name": "TitleView",
+          "source_files": "CGXVerticalMenuView/MenuTitleView/TitleView/**/*.{h,m}",
+          "dependencies": {
+            "CGXVerticalMenuView-OC/MenuTitleView/BaseView": [
+
+            ],
+            "CGXVerticalMenuView-OC/MenuTitleView/Comond": [
+
+            ],
+            "CGXVerticalMenuView-OC/MenuTitleView/IndicatorView": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "MenuCollectionView",
+      "source_files": "CGXVerticalMenuView/MenuCollectionView/**/*.{h,m}"
+    },
+    {
+      "name": "MenuCategoryView",
+      "source_files": "CGXVerticalMenuView/MenuCategoryView/**/*.{h,m}",
+      "dependencies": {
+        "CGXVerticalMenuView-OC/MenuTitleView": [
+
+        ],
+        "CGXVerticalMenuView-OC/MenuCollectionView": [
+
+        ]
+      }
+    }
+  ]
+}
