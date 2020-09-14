@@ -5,7 +5,6 @@
 版本：1.0.7版本
 git地址：https://github.com/974794055/CGXVerticalMenuView-OC.git
 
-
 支持效果：
 1、左侧自定义标签view
 2、右侧多分区滑动

@@ -20,6 +20,7 @@
     
     [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
     [UITabBar appearance].translucent = NO;
+    
     return YES;
 }
 
