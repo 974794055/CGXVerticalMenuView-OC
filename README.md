@@ -10,3 +10,4 @@ git地址：https://github.com/974794055/CGXVerticalMenuView-OC.git
 2、右侧多分区滑动
 3、右侧每个分区定义不同背景色
 4、左右联动，右侧下拉上滑翻页
+
