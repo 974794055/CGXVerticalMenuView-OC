@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "CGXVerticalMenuView-OC"    #存储库名称
-s.version      = "1.0.7"      #版本号，与tag值一致
+s.version      = "1.0.8"      #版本号，与tag值一致
 s.summary      = "仿京东、淘宝等主流APP分类切换的滚动视图"  #简介
 s.description  = "仿京东、淘宝等主流APP分类切换的滚动视图的封装库"  #描述
 s.homepage     = "https://github.com/974794055/CGXVerticalMenuView-OC"      #项目主页，不是git地址
@@ -19,27 +19,6 @@ s.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
 
 s.subspec 'MenuTitleView' do |ss|
    ss.source_files = 'CGXVerticalMenuView/MenuTitleView/**/*.{h,m}'
-
-   ss.subspec 'BaseView' do |sss|
-      sss.source_files = 'CGXVerticalMenuView-OC/MenuTitleView/BaseView/**/*.{h,m}'
-   end
-
-   ss.subspec 'Comond' do |sss|
-      sss.source_files = 'CGXVerticalMenuView-OC/MenuTitleView/Comond/**/*.{h,m}'
-   end
-
-   ss.subspec 'IndicatorView' do |sss|
-      sss.source_files = 'CGXVerticalMenuView-OC/MenuTitleView/IndicatorView/**/*.{h,m}'
-      sss.dependency 'CGXVerticalMenuView-OC/MenuTitleView/Comond'
-   end
-
-   ss.subspec 'TitleView' do |sss|
-      sss.source_files = 'CGXVerticalMenuView-OC/MenuTitleView/TitleView/**/*.{h,m}'
-      sss.dependency 'CGXVerticalMenuView-OC/MenuTitleView/BaseView'
-      sss.dependency 'CGXVerticalMenuView-OC/MenuTitleView/Comond'
-      sss.dependency 'CGXVerticalMenuView-OC/MenuTitleView/IndicatorView'
-   end
-
 end
 
 s.subspec 'MenuCollectionView' do |ss|
