@@ -11,7 +11,6 @@
  pod：CGXVerticalMenuView-OC
  版本： 1.0.8
  git：https://github.com/974794055/CGXVerticalMenuView-OC.git
- 
  */
 
 #ifndef CGXVerticalMenu_h
@@ -36,7 +35,6 @@
 #import "CGXVerticalMenuViewDefines.h"
 #import "CGXVerticalMenuIndicatorProtocol.h"
 
-
 #import "CGXVerticalMenuCollectionView.h"
 #import "CGXVerticalMenuCollectionSectionModel.h"
 #import "CGXVerticalMenuCollectionItemModel.h"
@@ -44,6 +42,7 @@
 
 #import "CGXVerticalMenuCategoryView.h"
 #import "CGXVerticalMenuCategoryListModel.h"
+
 
 
 #endif /* CGXVerticalMenu_h */
