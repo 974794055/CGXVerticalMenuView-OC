@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0440E296232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E28E232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.m */; };
-		0440E297232F183D00E93144 /* CGXVerticalMenuCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E28F232F183D00E93144 /* CGXVerticalMenuCollectionCell.m */; };
-		0440E298232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E290232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.m */; };
-		0440E299232F183D00E93144 /* CGXVerticalMenuCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E291232F183D00E93144 /* CGXVerticalMenuCollectionView.m */; };
-		0440E29B232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E295232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m */; };
 		0440E2A0232F1BC700E93144 /* TitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E29D232F1BC600E93144 /* TitleHeaderView.m */; };
 		0440E2A1232F1BC700E93144 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E29F232F1BC600E93144 /* TitleViewController.m */; };
 		0440E2A4232F1BF500E93144 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E2A3232F1BF500E93144 /* ViewController.m */; };
@@ -20,43 +15,19 @@
 		04B370D5232A27D800DDB62F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B370D4232A27D800DDB62F /* Assets.xcassets */; };
 		04B370D8232A27D800DDB62F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B370D6232A27D800DDB62F /* LaunchScreen.storyboard */; };
 		04B370DB232A27D800DDB62F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370DA232A27D800DDB62F /* main.m */; };
-		04B37100232A360200DDB62F /* CGXVerticalMenuIndicatorComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370E3232A360200DDB62F /* CGXVerticalMenuIndicatorComponentView.m */; };
-		04B37101232A360200DDB62F /* CGXVerticalMenuIndicatorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370E6232A360200DDB62F /* CGXVerticalMenuIndicatorBackgroundView.m */; };
-		04B37102232A360200DDB62F /* CGXVerticalMenuIndicatorLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370E8232A360200DDB62F /* CGXVerticalMenuIndicatorLineView.m */; };
-		04B37103232A360200DDB62F /* CGXVerticalMenuTitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370EC232A360200DDB62F /* CGXVerticalMenuTitleModel.m */; };
-		04B37104232A360200DDB62F /* CGXVerticalMenuTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370EE232A360200DDB62F /* CGXVerticalMenuTitleCell.m */; };
-		04B37105232A360200DDB62F /* CGXVerticalMenuTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370EF232A360200DDB62F /* CGXVerticalMenuTitleView.m */; };
-		04B37106232A360200DDB62F /* CGXVerticalMenuIndicatorParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370F3232A360200DDB62F /* CGXVerticalMenuIndicatorParamsModel.m */; };
-		04B37107232A360200DDB62F /* CGXVerticalMenuIndicatoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370F5232A360200DDB62F /* CGXVerticalMenuIndicatoCollectionView.m */; };
-		04B37108232A360200DDB62F /* CGXVerticalMenuBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370FB232A360200DDB62F /* CGXVerticalMenuBaseCell.m */; };
-		04B37109232A360200DDB62F /* CGXVerticalMenuBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370FC232A360200DDB62F /* CGXVerticalMenuBaseView.m */; };
-		04B3710A232A360200DDB62F /* CGXVerticalMenuBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B370FD232A360200DDB62F /* CGXVerticalMenuBaseModel.m */; };
-		04C406A9233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C406A8233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.m */; };
-		04C406AC233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C406AB233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.m */; };
 		66F071276DDD64383EF07093 /* libPods-CGXVerticalMenuView-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 650CB3317FD028B80982C5AE /* libPods-CGXVerticalMenuView-OC.a */; };
 		9E3F0A31233115B50098DDA8 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F0A30233115B50098DDA8 /* ThreeViewController.m */; };
 		9E3F0A34233116D30098DDA8 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F0A33233116D30098DDA8 /* OneViewController.m */; };
 		9E3F0A37233116DC0098DDA8 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F0A36233116DC0098DDA8 /* TwoViewController.m */; };
-		9E3F0A3A233118360098DDA8 /* CGXVerticalMenuCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F0A39233118360098DDA8 /* CGXVerticalMenuCollectionViewFlowLayout.m */; };
-		9E43376E23362E0E00F4DEB4 /* CGXVerticalMenuCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E43376A23362E0E00F4DEB4 /* CGXVerticalMenuCategoryView.m */; };
-		9E43377223362FD600F4DEB4 /* CGXVerticalMenuContainerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E43377123362FD600F4DEB4 /* CGXVerticalMenuContainerCollectionView.m */; };
-		9E43377523363C4900F4DEB4 /* CGXVerticalMenuContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E43377323363C4800F4DEB4 /* CGXVerticalMenuContainerView.m */; };
 		9E4337B3233679F800F4DEB4 /* CGXRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4337A7233679F800F4DEB4 /* CGXRefreshHeader.m */; };
 		9E4337B4233679F800F4DEB4 /* CGXRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4337A8233679F800F4DEB4 /* CGXRefreshFooter.m */; };
 		9EB89E802337060300A58483 /* CGXRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB89E7F2337060300A58483 /* CGXRefreshBackFooter.m */; };
+		B57FDE48250FB5EF0054A11E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B57FDE45250FB5EF0054A11E /* LICENSE */; };
+		B57FDE49250FB5EF0054A11E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B57FDE46250FB5EF0054A11E /* README.md */; };
+		B57FDE4D250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B57FDE4C250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0440E28A232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionItemModel.h; sourceTree = "<group>"; };
-		0440E28B232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionSectionModel.h; sourceTree = "<group>"; };
-		0440E28C232F183D00E93144 /* CGXVerticalMenuCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionCell.h; sourceTree = "<group>"; };
-		0440E28D232F183D00E93144 /* CGXVerticalMenuCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionView.h; sourceTree = "<group>"; };
-		0440E28E232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionItemModel.m; sourceTree = "<group>"; };
-		0440E28F232F183D00E93144 /* CGXVerticalMenuCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionCell.m; sourceTree = "<group>"; };
-		0440E290232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionSectionModel.m; sourceTree = "<group>"; };
-		0440E291232F183D00E93144 /* CGXVerticalMenuCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionView.m; sourceTree = "<group>"; };
-		0440E293232F183D00E93144 /* CGXVerticalMenuCategoryListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCategoryListModel.h; sourceTree = "<group>"; };
-		0440E295232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCategoryListModel.m; sourceTree = "<group>"; };
 		0440E29C232F1BC600E93144 /* TitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleViewController.h; sourceTree = "<group>"; };
 		0440E29D232F1BC600E93144 /* TitleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleHeaderView.m; sourceTree = "<group>"; };
 		0440E29E232F1BC600E93144 /* TitleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleHeaderView.h; sourceTree = "<group>"; };
@@ -71,36 +42,7 @@
 		04B370D7232A27D800DDB62F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04B370D9232A27D800DDB62F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B370DA232A27D800DDB62F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		04B370E3232A360200DDB62F /* CGXVerticalMenuIndicatorComponentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuIndicatorComponentView.m; sourceTree = "<group>"; };
-		04B370E4232A360200DDB62F /* CGXVerticalMenuIndicatorBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuIndicatorBackgroundView.h; sourceTree = "<group>"; };
-		04B370E5232A360200DDB62F /* CGXVerticalMenuIndicatorLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuIndicatorLineView.h; sourceTree = "<group>"; };
-		04B370E6232A360200DDB62F /* CGXVerticalMenuIndicatorBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuIndicatorBackgroundView.m; sourceTree = "<group>"; };
-		04B370E7232A360200DDB62F /* CGXVerticalMenuIndicatorComponentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuIndicatorComponentView.h; sourceTree = "<group>"; };
-		04B370E8232A360200DDB62F /* CGXVerticalMenuIndicatorLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuIndicatorLineView.m; sourceTree = "<group>"; };
-		04B370EB232A360200DDB62F /* CGXVerticalMenuTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuTitleCell.h; sourceTree = "<group>"; };
-		04B370EC232A360200DDB62F /* CGXVerticalMenuTitleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuTitleModel.m; sourceTree = "<group>"; };
-		04B370ED232A360200DDB62F /* CGXVerticalMenuTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuTitleView.h; sourceTree = "<group>"; };
-		04B370EE232A360200DDB62F /* CGXVerticalMenuTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuTitleCell.m; sourceTree = "<group>"; };
-		04B370EF232A360200DDB62F /* CGXVerticalMenuTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuTitleView.m; sourceTree = "<group>"; };
-		04B370F0232A360200DDB62F /* CGXVerticalMenuTitleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuTitleModel.h; sourceTree = "<group>"; };
-		04B370F1232A360200DDB62F /* CGXVerticalMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenu.h; sourceTree = "<group>"; };
-		04B370F3232A360200DDB62F /* CGXVerticalMenuIndicatorParamsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuIndicatorParamsModel.m; sourceTree = "<group>"; };
-		04B370F4232A360200DDB62F /* CGXVerticalMenuViewDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuViewDefines.h; sourceTree = "<group>"; };
-		04B370F5232A360200DDB62F /* CGXVerticalMenuIndicatoCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuIndicatoCollectionView.m; sourceTree = "<group>"; };
-		04B370F6232A360200DDB62F /* CGXVerticalMenuIndicatoCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuIndicatoCollectionView.h; sourceTree = "<group>"; };
-		04B370F7232A360200DDB62F /* CGXVerticalMenuIndicatorParamsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuIndicatorParamsModel.h; sourceTree = "<group>"; };
-		04B370F8232A360200DDB62F /* CGXVerticalMenuIndicatorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuIndicatorProtocol.h; sourceTree = "<group>"; };
-		04B370FA232A360200DDB62F /* CGXVerticalMenuBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuBaseModel.h; sourceTree = "<group>"; };
-		04B370FB232A360200DDB62F /* CGXVerticalMenuBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuBaseCell.m; sourceTree = "<group>"; };
-		04B370FC232A360200DDB62F /* CGXVerticalMenuBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuBaseView.m; sourceTree = "<group>"; };
-		04B370FD232A360200DDB62F /* CGXVerticalMenuBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuBaseModel.m; sourceTree = "<group>"; };
-		04B370FE232A360200DDB62F /* CGXVerticalMenuBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuBaseCell.h; sourceTree = "<group>"; };
-		04B370FF232A360200DDB62F /* CGXVerticalMenuBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuBaseView.h; sourceTree = "<group>"; };
 		04B3710B232A363100DDB62F /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		04C406A7233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
-		04C406A8233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionViewLayoutAttributes.m; sourceTree = "<group>"; };
-		04C406AA233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionReusableView.h; sourceTree = "<group>"; };
-		04C406AB233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionReusableView.m; sourceTree = "<group>"; };
 		650CB3317FD028B80982C5AE /* libPods-CGXVerticalMenuView-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CGXVerticalMenuView-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3F0A2F233115B50098DDA8 /* ThreeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeViewController.h; sourceTree = "<group>"; };
 		9E3F0A30233115B50098DDA8 /* ThreeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeViewController.m; sourceTree = "<group>"; };
@@ -108,20 +50,15 @@
 		9E3F0A33233116D30098DDA8 /* OneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneViewController.m; sourceTree = "<group>"; };
 		9E3F0A35233116DC0098DDA8 /* TwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
 		9E3F0A36233116DC0098DDA8 /* TwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
-		9E3F0A38233118360098DDA8 /* CGXVerticalMenuCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		9E3F0A39233118360098DDA8 /* CGXVerticalMenuCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCollectionViewFlowLayout.m; sourceTree = "<group>"; };
-		9E43376A23362E0E00F4DEB4 /* CGXVerticalMenuCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuCategoryView.m; sourceTree = "<group>"; };
-		9E43376B23362E0E00F4DEB4 /* CGXVerticalMenuCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuCategoryView.h; sourceTree = "<group>"; };
-		9E43377023362FD600F4DEB4 /* CGXVerticalMenuContainerCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuContainerCollectionView.h; sourceTree = "<group>"; };
-		9E43377123362FD600F4DEB4 /* CGXVerticalMenuContainerCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuContainerCollectionView.m; sourceTree = "<group>"; };
-		9E43377323363C4800F4DEB4 /* CGXVerticalMenuContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXVerticalMenuContainerView.m; sourceTree = "<group>"; };
-		9E43377423363C4900F4DEB4 /* CGXVerticalMenuContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXVerticalMenuContainerView.h; sourceTree = "<group>"; };
 		9E4337A7233679F800F4DEB4 /* CGXRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXRefreshHeader.m; sourceTree = "<group>"; };
 		9E4337A8233679F800F4DEB4 /* CGXRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXRefreshFooter.m; sourceTree = "<group>"; };
 		9E4337AE233679F800F4DEB4 /* CGXRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXRefreshFooter.h; sourceTree = "<group>"; };
 		9E4337AF233679F800F4DEB4 /* CGXRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXRefreshHeader.h; sourceTree = "<group>"; };
 		9EB89E7E2337060200A58483 /* CGXRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXRefreshBackFooter.h; sourceTree = "<group>"; };
 		9EB89E7F2337060300A58483 /* CGXRefreshBackFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXRefreshBackFooter.m; sourceTree = "<group>"; };
+		B57FDE45250FB5EF0054A11E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
+		B57FDE46250FB5EF0054A11E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
+		B57FDE4C250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "CGXVerticalMenuView-OC.podspec"; path = "../../../CGXVerticalMenuView-OC.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C8BA017C439F6CD87DB48131 /* Pods-CGXVerticalMenuView-OC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGXVerticalMenuView-OC.release.xcconfig"; path = "Target Support Files/Pods-CGXVerticalMenuView-OC/Pods-CGXVerticalMenuView-OC.release.xcconfig"; sourceTree = "<group>"; };
 		E0ABF96421F52E90CC5073D4 /* Pods-CGXVerticalMenuView-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGXVerticalMenuView-OC.debug.xcconfig"; path = "Target Support Files/Pods-CGXVerticalMenuView-OC/Pods-CGXVerticalMenuView-OC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,42 +83,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		0440E289232F183D00E93144 /* MenuCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				0440E28D232F183D00E93144 /* CGXVerticalMenuCollectionView.h */,
-				0440E291232F183D00E93144 /* CGXVerticalMenuCollectionView.m */,
-				0440E28C232F183D00E93144 /* CGXVerticalMenuCollectionCell.h */,
-				0440E28F232F183D00E93144 /* CGXVerticalMenuCollectionCell.m */,
-				0440E28A232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.h */,
-				0440E28E232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.m */,
-				0440E28B232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.h */,
-				0440E290232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.m */,
-				04C406AA233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.h */,
-				04C406AB233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.m */,
-				9E3F0A38233118360098DDA8 /* CGXVerticalMenuCollectionViewFlowLayout.h */,
-				9E3F0A39233118360098DDA8 /* CGXVerticalMenuCollectionViewFlowLayout.m */,
-				04C406A7233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.h */,
-				04C406A8233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.m */,
-			);
-			path = MenuCollectionView;
-			sourceTree = "<group>";
-		};
-		0440E2A5232F241E00E93144 /* MenuCategoryView */ = {
-			isa = PBXGroup;
-			children = (
-				0440E293232F183D00E93144 /* CGXVerticalMenuCategoryListModel.h */,
-				0440E295232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m */,
-				9E43376B23362E0E00F4DEB4 /* CGXVerticalMenuCategoryView.h */,
-				9E43376A23362E0E00F4DEB4 /* CGXVerticalMenuCategoryView.m */,
-				9E43377423363C4900F4DEB4 /* CGXVerticalMenuContainerView.h */,
-				9E43377323363C4800F4DEB4 /* CGXVerticalMenuContainerView.m */,
-				9E43377023362FD600F4DEB4 /* CGXVerticalMenuContainerCollectionView.h */,
-				9E43377123362FD600F4DEB4 /* CGXVerticalMenuContainerCollectionView.m */,
-			);
-			path = MenuCategoryView;
-			sourceTree = "<group>";
-		};
 		04B370BF232A27D700DDB62F = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +104,7 @@
 		04B370CA232A27D700DDB62F /* CGXVerticalMenuView-OC */ = {
 			isa = PBXGroup;
 			children = (
+				B57FDE43250FB5D80054A11E /* Podspec Metadata */,
 				04B370CB232A27D700DDB62F /* AppDelegate.h */,
 				04B370CC232A27D700DDB62F /* AppDelegate.m */,
 				0440E2A2232F1BF500E93144 /* ViewController.h */,
@@ -218,7 +120,6 @@
 				0440E29E232F1BC600E93144 /* TitleHeaderView.h */,
 				0440E29D232F1BC600E93144 /* TitleHeaderView.m */,
 				9E4337A5233679F800F4DEB4 /* CGXRefreshHeader */,
-				04B370E1232A360200DDB62F /* CGXVerticalMenuView */,
 				04B370D1232A27D700DDB62F /* Main.storyboard */,
 				04B3710B232A363100DDB62F /* PrefixHeader.pch */,
 				04B370D4232A27D800DDB62F /* Assets.xcassets */,
@@ -229,68 +130,6 @@
 			path = "CGXVerticalMenuView-OC";
 			sourceTree = "<group>";
 		};
-		04B370E1232A360200DDB62F /* CGXVerticalMenuView */ = {
-			isa = PBXGroup;
-			children = (
-				04B370F1232A360200DDB62F /* CGXVerticalMenu.h */,
-				0440E2A5232F241E00E93144 /* MenuCategoryView */,
-				0440E289232F183D00E93144 /* MenuCollectionView */,
-				04B370EA232A360200DDB62F /* MenuTitleView */,
-			);
-			name = CGXVerticalMenuView;
-			path = ../../CGXVerticalMenuView;
-			sourceTree = "<group>";
-		};
-		04B370E2232A360200DDB62F /* IndicatorView */ = {
-			isa = PBXGroup;
-			children = (
-				04B370E5232A360200DDB62F /* CGXVerticalMenuIndicatorLineView.h */,
-				04B370E8232A360200DDB62F /* CGXVerticalMenuIndicatorLineView.m */,
-				04B370E4232A360200DDB62F /* CGXVerticalMenuIndicatorBackgroundView.h */,
-				04B370E6232A360200DDB62F /* CGXVerticalMenuIndicatorBackgroundView.m */,
-				04B370E7232A360200DDB62F /* CGXVerticalMenuIndicatorComponentView.h */,
-				04B370E3232A360200DDB62F /* CGXVerticalMenuIndicatorComponentView.m */,
-			);
-			path = IndicatorView;
-			sourceTree = "<group>";
-		};
-		04B370EA232A360200DDB62F /* MenuTitleView */ = {
-			isa = PBXGroup;
-			children = (
-				9E252089232CF2C8000D3C7F /* TitleView */,
-				04B370F9232A360200DDB62F /* BaseView */,
-				04B370F2232A360200DDB62F /* Comond */,
-				04B370E2232A360200DDB62F /* IndicatorView */,
-			);
-			path = MenuTitleView;
-			sourceTree = "<group>";
-		};
-		04B370F2232A360200DDB62F /* Comond */ = {
-			isa = PBXGroup;
-			children = (
-				04B370F4232A360200DDB62F /* CGXVerticalMenuViewDefines.h */,
-				04B370F6232A360200DDB62F /* CGXVerticalMenuIndicatoCollectionView.h */,
-				04B370F5232A360200DDB62F /* CGXVerticalMenuIndicatoCollectionView.m */,
-				04B370F7232A360200DDB62F /* CGXVerticalMenuIndicatorParamsModel.h */,
-				04B370F3232A360200DDB62F /* CGXVerticalMenuIndicatorParamsModel.m */,
-				04B370F8232A360200DDB62F /* CGXVerticalMenuIndicatorProtocol.h */,
-			);
-			path = Comond;
-			sourceTree = "<group>";
-		};
-		04B370F9232A360200DDB62F /* BaseView */ = {
-			isa = PBXGroup;
-			children = (
-				04B370FF232A360200DDB62F /* CGXVerticalMenuBaseView.h */,
-				04B370FC232A360200DDB62F /* CGXVerticalMenuBaseView.m */,
-				04B370FE232A360200DDB62F /* CGXVerticalMenuBaseCell.h */,
-				04B370FB232A360200DDB62F /* CGXVerticalMenuBaseCell.m */,
-				04B370FA232A360200DDB62F /* CGXVerticalMenuBaseModel.h */,
-				04B370FD232A360200DDB62F /* CGXVerticalMenuBaseModel.m */,
-			);
-			path = BaseView;
-			sourceTree = "<group>";
-		};
 		32053F8BD87B5352804168E4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,19 +137,6 @@
 				C8BA017C439F6CD87DB48131 /* Pods-CGXVerticalMenuView-OC.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		9E252089232CF2C8000D3C7F /* TitleView */ = {
-			isa = PBXGroup;
-			children = (
-				04B370ED232A360200DDB62F /* CGXVerticalMenuTitleView.h */,
-				04B370EF232A360200DDB62F /* CGXVerticalMenuTitleView.m */,
-				04B370EB232A360200DDB62F /* CGXVerticalMenuTitleCell.h */,
-				04B370EE232A360200DDB62F /* CGXVerticalMenuTitleCell.m */,
-				04B370F0232A360200DDB62F /* CGXVerticalMenuTitleModel.h */,
-				04B370EC232A360200DDB62F /* CGXVerticalMenuTitleModel.m */,
-			);
-			path = TitleView;
 			sourceTree = "<group>";
 		};
 		9E4337A5233679F800F4DEB4 /* CGXRefreshHeader */ = {
@@ -324,6 +150,16 @@
 				9EB89E7F2337060300A58483 /* CGXRefreshBackFooter.m */,
 			);
 			path = CGXRefreshHeader;
+			sourceTree = "<group>";
+		};
+		B57FDE43250FB5D80054A11E /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				B57FDE4C250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec */,
+				B57FDE45250FB5EF0054A11E /* LICENSE */,
+				B57FDE46250FB5EF0054A11E /* README.md */,
+			);
+			path = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,9 +221,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B57FDE49250FB5EF0054A11E /* README.md in Resources */,
 				04B370D8232A27D800DDB62F /* LaunchScreen.storyboard in Resources */,
 				04B370D5232A27D800DDB62F /* Assets.xcassets in Resources */,
 				04B370D3232A27D700DDB62F /* Main.storyboard in Resources */,
+				B57FDE48250FB5EF0054A11E /* LICENSE in Resources */,
+				B57FDE4D250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,35 +279,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0440E299232F183D00E93144 /* CGXVerticalMenuCollectionView.m in Sources */,
-				04B3710A232A360200DDB62F /* CGXVerticalMenuBaseModel.m in Sources */,
-				04B37107232A360200DDB62F /* CGXVerticalMenuIndicatoCollectionView.m in Sources */,
-				0440E296232F183D00E93144 /* CGXVerticalMenuCollectionItemModel.m in Sources */,
-				04B37109232A360200DDB62F /* CGXVerticalMenuBaseView.m in Sources */,
-				04B37104232A360200DDB62F /* CGXVerticalMenuTitleCell.m in Sources */,
-				0440E298232F183D00E93144 /* CGXVerticalMenuCollectionSectionModel.m in Sources */,
-				04C406A9233A009F004F7A49 /* CGXVerticalMenuCollectionViewLayoutAttributes.m in Sources */,
-				04B37103232A360200DDB62F /* CGXVerticalMenuTitleModel.m in Sources */,
-				0440E297232F183D00E93144 /* CGXVerticalMenuCollectionCell.m in Sources */,
-				04B37108232A360200DDB62F /* CGXVerticalMenuBaseCell.m in Sources */,
-				9E3F0A3A233118360098DDA8 /* CGXVerticalMenuCollectionViewFlowLayout.m in Sources */,
 				9E4337B3233679F800F4DEB4 /* CGXRefreshHeader.m in Sources */,
-				04B37106232A360200DDB62F /* CGXVerticalMenuIndicatorParamsModel.m in Sources */,
-				04B37105232A360200DDB62F /* CGXVerticalMenuTitleView.m in Sources */,
 				9E3F0A31233115B50098DDA8 /* ThreeViewController.m in Sources */,
 				04B370DB232A27D800DDB62F /* main.m in Sources */,
-				9E43377523363C4900F4DEB4 /* CGXVerticalMenuContainerView.m in Sources */,
-				9E43377223362FD600F4DEB4 /* CGXVerticalMenuContainerCollectionView.m in Sources */,
 				9E3F0A34233116D30098DDA8 /* OneViewController.m in Sources */,
-				04B37102232A360200DDB62F /* CGXVerticalMenuIndicatorLineView.m in Sources */,
-				04B37101232A360200DDB62F /* CGXVerticalMenuIndicatorBackgroundView.m in Sources */,
 				9EB89E802337060300A58483 /* CGXRefreshBackFooter.m in Sources */,
 				9E4337B4233679F800F4DEB4 /* CGXRefreshFooter.m in Sources */,
-				9E43376E23362E0E00F4DEB4 /* CGXVerticalMenuCategoryView.m in Sources */,
-				04C406AC233A0461004F7A49 /* CGXVerticalMenuCollectionReusableView.m in Sources */,
 				0440E2A4232F1BF500E93144 /* ViewController.m in Sources */,
-				0440E29B232F183D00E93144 /* CGXVerticalMenuCategoryListModel.m in Sources */,
-				04B37100232A360200DDB62F /* CGXVerticalMenuIndicatorComponentView.m in Sources */,
 				0440E2A1232F1BC700E93144 /* TitleViewController.m in Sources */,
 				0440E2A0232F1BC700E93144 /* TitleHeaderView.m in Sources */,
 				9E3F0A37233116DC0098DDA8 /* TwoViewController.m in Sources */,

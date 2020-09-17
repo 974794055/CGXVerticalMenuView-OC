@@ -5,11 +5,13 @@
 //  Created by CGX on 2018/05/01.
 //  Copyright © 2019 CGX. All rights reserved.
 //
+
 /*
  群名称：
  群   号：
  pod：CGXVerticalMenuView-OC
- 版本： 1.0.6
+ 版本： 1.0.9
+ git：https://github.com/974794055/CGXVerticalMenuView-OC.git
  */
 
 #ifndef CGXVerticalMenu_h
@@ -34,7 +36,6 @@
 #import "CGXVerticalMenuViewDefines.h"
 #import "CGXVerticalMenuIndicatorProtocol.h"
 
-
 #import "CGXVerticalMenuCollectionView.h"
 #import "CGXVerticalMenuCollectionSectionModel.h"
 #import "CGXVerticalMenuCollectionItemModel.h"
@@ -42,6 +43,7 @@
 
 #import "CGXVerticalMenuCategoryView.h"
 #import "CGXVerticalMenuCategoryListModel.h"
+
 
 
 #endif /* CGXVerticalMenu_h */
