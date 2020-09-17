@@ -853,6 +853,7 @@
 			sourceTree = "<group>";
 		};
 		99A843109EFFA97F604C1E63DB31B278 /* MenuTitleView */ = {
+<<<<<<< HEAD
 			isa = PBXGroup;
 			children = (
 				F390CDA5A7E30059201CEAE8946B7E1A /* BaseView */,
@@ -866,6 +867,21 @@
 		A53B4F8F92A3AC79BD3E80C257343CA1 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+=======
+			isa = PBXGroup;
+			children = (
+				F390CDA5A7E30059201CEAE8946B7E1A /* BaseView */,
+				2A74E3E740885DE565AAFB533C11449F /* Comond */,
+				81DDA1B276A340FCD5D3A4B9DD334948 /* IndicatorView */,
+				6F3AA0753105470848A1543C82868B59 /* TitleView */,
+			);
+			name = MenuTitleView;
+			sourceTree = "<group>";
+		};
+		A53B4F8F92A3AC79BD3E80C257343CA1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 				5A7907D26B2AC911958409A1BF2DE59E /* MJExtension-dummy.m */,
 				8185C5071E7945844C1C669CA5A0BC7B /* MJExtension-prefix.pch */,
 				59B87DFF66B991883190DFCEE5E9A15B /* MJExtension.debug.xcconfig */,
@@ -1405,6 +1421,7 @@
 			name = MJExtension;
 			target = 4D3BA58D0583DF37575CACAB3DDADC85 /* MJExtension */;
 			targetProxy = D142651F0B71766B6B8E4D7F3B9D568F /* PBXContainerItemProxy */;
+<<<<<<< HEAD
 		};
 		48845CF823B547451106FFE671FDA31A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1412,6 +1429,15 @@
 			target = 55AF53E6C77A10ED4985E04D74A8878E /* Masonry */;
 			targetProxy = 4D21E29DB4F0900AEFC350B822489F5C /* PBXContainerItemProxy */;
 		};
+=======
+		};
+		48845CF823B547451106FFE671FDA31A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Masonry;
+			target = 55AF53E6C77A10ED4985E04D74A8878E /* Masonry */;
+			targetProxy = 4D21E29DB4F0900AEFC350B822489F5C /* PBXContainerItemProxy */;
+		};
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 		6070EDE2D28D446CF6975DAA9F9264F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MJRefresh;
@@ -1443,6 +1469,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/CGXVerticalMenuView-OC/CGXVerticalMenuView-OC-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+<<<<<<< HEAD
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -1495,6 +1522,13 @@
 				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_MODULE_NAME = MJRefresh;
 				PRODUCT_NAME = MJRefresh;
+=======
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = CGXVerticalMenuView_OC;
+				PRODUCT_NAME = "CGXVerticalMenuView-OC";
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1504,14 +1538,21 @@
 			};
 			name = Release;
 		};
+<<<<<<< HEAD
 		4EC8EEF683285C863C439962BF338915 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F70709D0F70E16C7EE44D68C931F2A17 /* SDWebImage.debug.xcconfig */;
+=======
+		11EB8E780CDA533F8841C9DB3CF11564 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72C6CC30A63D6C74E396598DC83450BB /* CGXVerticalMenuView-OC.debug.xcconfig */;
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+<<<<<<< HEAD
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "";
@@ -1519,6 +1560,15 @@
 				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_MODULE_NAME = SDWebImage;
 				PRODUCT_NAME = SDWebImage;
+=======
+				GCC_PREFIX_HEADER = "Target Support Files/CGXVerticalMenuView-OC/CGXVerticalMenuView-OC-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = CGXVerticalMenuView_OC;
+				PRODUCT_NAME = "CGXVerticalMenuView-OC";
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1527,9 +1577,15 @@
 			};
 			name = Debug;
 		};
+<<<<<<< HEAD
 		5D8F43AF600C45FC7FC2241902B5C93B /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 146F86B23C604B10EBE16AD7F231675B /* MJExtension.release.xcconfig */;
+=======
+		143D1185388D6FEBFE5C633CAD72F77A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3116011B428DF8BBCB7416863962D921 /* MJRefresh.release.xcconfig */;
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1551,6 +1607,7 @@
 			};
 			name = Release;
 		};
+<<<<<<< HEAD
 		8AEEA5CC30001CB70A788717A32DBAB7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 821760B151D5565E2A33A3063EA8F915 /* Masonry.release.xcconfig */;
@@ -1576,6 +1633,9 @@
 			name = Release;
 		};
 		8DF792B5675818867C95F03EE9A5D3C6 /* Debug */ = {
+=======
+		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1628,7 +1688,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+<<<<<<< HEAD
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+=======
+				MTL_ENABLE_DEBUG_INFO = NO;
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1640,16 +1704,66 @@
 			};
 			name = Debug;
 		};
+<<<<<<< HEAD
 		911112008708C78DB0DF066C7159DA54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 59B87DFF66B991883190DFCEE5E9A15B /* MJExtension.debug.xcconfig */;
+=======
+		4EC8EEF683285C863C439962BF338915 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F70709D0F70E16C7EE44D68C931F2A17 /* SDWebImage.debug.xcconfig */;
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+<<<<<<< HEAD
 				GCC_PREFIX_HEADER = "Target Support Files/MJExtension/MJExtension-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = MJExtension;
+				PRODUCT_NAME = MJExtension;
+=======
+				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SDWebImage;
+				PRODUCT_NAME = SDWebImage;
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+<<<<<<< HEAD
+		B7984D9E05179781197050D51637F6AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55578702F6661E9E6572D80A5C4C7290 /* Pods-CGXVerticalMenuView-OC.debug.xcconfig */;
+=======
+		5D8F43AF600C45FC7FC2241902B5C93B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 146F86B23C604B10EBE16AD7F231675B /* MJExtension.release.xcconfig */;
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+<<<<<<< HEAD
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+=======
+				GCC_PREFIX_HEADER = "Target Support Files/MJExtension/MJExtension-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -1663,28 +1777,11 @@
 			};
 			name = Debug;
 		};
-		B7984D9E05179781197050D51637F6AA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55578702F6661E9E6572D80A5C4C7290 /* Pods-CGXVerticalMenuView-OC.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
+<<<<<<< HEAD
 		CE55861AB8BDFB3786DDE452F83A4836 /* Release */ = {
+=======
+		7EF7227D9B20A1D549000096ACCB23D7 /* Debug */ = {
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1734,7 +1831,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+<<<<<<< HEAD
 				MTL_ENABLE_DEBUG_INFO = NO;
+=======
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -1745,6 +1846,79 @@
 			};
 			name = Release;
 		};
+<<<<<<< HEAD
+		DCB5674ABC6DFAB8E2A756CA9DA6F9C0 /* Release */ = {
+=======
+		8AEEA5CC30001CB70A788717A32DBAB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 821760B151D5565E2A33A3063EA8F915 /* Masonry.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = Masonry;
+				PRODUCT_NAME = Masonry;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		911112008708C78DB0DF066C7159DA54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59B87DFF66B991883190DFCEE5E9A15B /* MJExtension.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/MJExtension/MJExtension-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = MJExtension;
+				PRODUCT_NAME = MJExtension;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B7984D9E05179781197050D51637F6AA /* Debug */ = {
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 063370E5890596E5CAB777D0ABC3AB38 /* SDWebImage.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+<<<<<<< HEAD
+=======
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		DCB5674ABC6DFAB8E2A756CA9DA6F9C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 063370E5890596E5CAB777D0ABC3AB38 /* SDWebImage.release.xcconfig */;
@@ -1753,6 +1927,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "";
@@ -1861,8 +2036,13 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
+<<<<<<< HEAD
 				8DF792B5675818867C95F03EE9A5D3C6 /* Debug */,
 				CE55861AB8BDFB3786DDE452F83A4836 /* Release */,
+=======
+				7EF7227D9B20A1D549000096ACCB23D7 /* Debug */,
+				4BE66A09A74FD25164AAB3C2645B9B93 /* Release */,
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

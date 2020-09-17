@@ -1,4 +1,5 @@
 PODS:
+<<<<<<< HEAD
   - CGXVerticalMenuView-OC (1.0.9):
     - CGXVerticalMenuView-OC/MenuCategoryView (= 1.0.9)
     - CGXVerticalMenuView-OC/MenuCollectionView (= 1.0.9)
@@ -8,6 +9,29 @@ PODS:
     - CGXVerticalMenuView-OC/MenuTitleView
   - CGXVerticalMenuView-OC/MenuCollectionView (1.0.9)
   - CGXVerticalMenuView-OC/MenuTitleView (1.0.9)
+=======
+  - CGXVerticalMenuView-OC (1.0.7):
+    - CGXVerticalMenuView-OC/MenuCategoryView (= 1.0.7)
+    - CGXVerticalMenuView-OC/MenuCollectionView (= 1.0.7)
+    - CGXVerticalMenuView-OC/MenuTitleView (= 1.0.7)
+  - CGXVerticalMenuView-OC/MenuCategoryView (1.0.7):
+    - CGXVerticalMenuView-OC/MenuCollectionView
+    - CGXVerticalMenuView-OC/MenuTitleView
+  - CGXVerticalMenuView-OC/MenuCollectionView (1.0.7)
+  - CGXVerticalMenuView-OC/MenuTitleView (1.0.7):
+    - CGXVerticalMenuView-OC/MenuTitleView/BaseView (= 1.0.7)
+    - CGXVerticalMenuView-OC/MenuTitleView/Comond (= 1.0.7)
+    - CGXVerticalMenuView-OC/MenuTitleView/IndicatorView (= 1.0.7)
+    - CGXVerticalMenuView-OC/MenuTitleView/TitleView (= 1.0.7)
+  - CGXVerticalMenuView-OC/MenuTitleView/BaseView (1.0.7)
+  - CGXVerticalMenuView-OC/MenuTitleView/Comond (1.0.7)
+  - CGXVerticalMenuView-OC/MenuTitleView/IndicatorView (1.0.7):
+    - CGXVerticalMenuView-OC/MenuTitleView/Comond
+  - CGXVerticalMenuView-OC/MenuTitleView/TitleView (1.0.7):
+    - CGXVerticalMenuView-OC/MenuTitleView/BaseView
+    - CGXVerticalMenuView-OC/MenuTitleView/Comond
+    - CGXVerticalMenuView-OC/MenuTitleView/IndicatorView
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
   - Masonry (1.1.0)
   - MJExtension (3.0.15.1)
   - MJRefresh (3.2.0)
@@ -34,7 +58,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+<<<<<<< HEAD
   CGXVerticalMenuView-OC: 9a680e15cd32875a02dc0a2b14392f5cad5c78b5
+=======
+  CGXVerticalMenuView-OC: c9fa7eec94999d3b6bd737e5030c025e5a210ff7
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
@@ -42,4 +70,8 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f1fe108d23a1af1d5757ba99922794136199da43
 
+<<<<<<< HEAD
 COCOAPODS: 1.10.0.rc.1
+=======
+COCOAPODS: 1.9.3
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0

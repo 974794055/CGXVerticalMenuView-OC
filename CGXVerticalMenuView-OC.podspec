@@ -17,7 +17,14 @@ s.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
 
 
 s.subspec 'MenuTitleView' do |ss|
+<<<<<<< HEAD
    ss.source_files = 'CGXVerticalMenuView/MenuTitleView/**/*.{h,m}'
+=======
+   ss.source_files = 'CGXVerticalMenuView/MenuTitleView/BaseView/**/*.{h,m}',
+                     'CGXVerticalMenuView/MenuTitleView/Comond/**/*.{h,m}',
+                     'CGXVerticalMenuView/MenuTitleView/IndicatorView/**/*.{h,m}',
+                     'CGXVerticalMenuView/MenuTitleView/TitleView/**/*.{h,m}'
+>>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
 end
 
 s.subspec 'MenuCollectionView' do |ss|
