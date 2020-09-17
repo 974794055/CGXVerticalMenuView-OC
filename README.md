@@ -2,7 +2,7 @@
 
 ## 仿京东、淘宝等主流APP分类切换的滚动视图的封装库
 
-- 最新版本：1.0.8版本
+- 最新版本：1.0.9
 - git地址：https://github.com/974794055/CGXVerticalMenuView-OC.git
 
 支持效果：

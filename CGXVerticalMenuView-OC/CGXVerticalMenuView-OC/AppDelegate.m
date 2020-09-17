@@ -22,7 +22,6 @@
     [UITabBar appearance].translucent = NO;
     
     
-    
     return YES;
 }
 

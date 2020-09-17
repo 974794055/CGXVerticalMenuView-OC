@@ -1,6 +1,6 @@
 {
   "name": "CGXVerticalMenuView-OC",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "summary": "仿京东、淘宝等主流APP分类切换的滚动视图",
   "description": "仿京东、淘宝等主流APP分类切换的滚动视图的封装库",
   "homepage": "https://github.com/974794055/CGXVerticalMenuView-OC",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/974794055/CGXVerticalMenuView-OC.git",
-    "tag": "1.0.7"
+    "tag": "1.0.8"
   },
   "requires_arc": true,
   "frameworks": "UIKit",
@@ -25,40 +25,11 @@
   "subspecs": [
     {
       "name": "MenuTitleView",
-      "source_files": "CGXVerticalMenuView/MenuTitleView/**/*.{h,m}",
-      "subspecs": [
-        {
-          "name": "BaseView",
-          "source_files": "CGXVerticalMenuView-OC/MenuTitleView/BaseView/**/*.{h,m}"
-        },
-        {
-          "name": "Comond",
-          "source_files": "CGXVerticalMenuView-OC/MenuTitleView/Comond/**/*.{h,m}"
-        },
-        {
-          "name": "IndicatorView",
-          "source_files": "CGXVerticalMenuView-OC/MenuTitleView/IndicatorView/**/*.{h,m}",
-          "dependencies": {
-            "CGXVerticalMenuView-OC/MenuTitleView/Comond": [
-
-            ]
-          }
-        },
-        {
-          "name": "TitleView",
-          "source_files": "CGXVerticalMenuView-OC/MenuTitleView/TitleView/**/*.{h,m}",
-          "dependencies": {
-            "CGXVerticalMenuView-OC/MenuTitleView/BaseView": [
-
-            ],
-            "CGXVerticalMenuView-OC/MenuTitleView/Comond": [
-
-            ],
-            "CGXVerticalMenuView-OC/MenuTitleView/IndicatorView": [
-
-            ]
-          }
-        }
+      "source_files": [
+        "CGXVerticalMenuView/MenuTitleView/BaseView/**/*.{h,m}",
+        "CGXVerticalMenuView/MenuTitleView/Comond/**/*.{h,m}",
+        "CGXVerticalMenuView/MenuTitleView/IndicatorView/**/*.{h,m}",
+        "CGXVerticalMenuView/MenuTitleView/TitleView/**/*.{h,m}"
       ]
     },
     {

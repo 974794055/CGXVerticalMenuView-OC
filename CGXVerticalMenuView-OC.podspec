@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "CGXVerticalMenuView-OC"    #存储库名称
-s.version      = "1.0.8"      #版本号，与tag值一致
+s.version      = "1.0.9"      #版本号，与tag值一致
 s.summary      = "仿京东、淘宝等主流APP分类切换的滚动视图"  #简介
 s.description  = "仿京东、淘宝等主流APP分类切换的滚动视图的封装库"  #描述
 s.homepage     = "https://github.com/974794055/CGXVerticalMenuView-OC"      #项目主页，不是git地址

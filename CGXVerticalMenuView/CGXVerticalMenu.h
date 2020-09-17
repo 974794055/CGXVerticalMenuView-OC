@@ -10,7 +10,7 @@
  群名称：
  群   号：
  pod：CGXVerticalMenuView-OC
- 版本： 1.0.8
+ 版本： 1.0.9
  git：https://github.com/974794055/CGXVerticalMenuView-OC.git
  */
 
