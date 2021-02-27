@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CGXVerticalMenuCollectionSectionModel.h"
+#import "CGXVerticalMenuCollectionItemModel.h"
 #import "CGXVerticalMenuCollectionCell.h"
-#import "CGXVerticalMenuCollectionViewFlowLayout.h"
-#import "CGXVerticalMenuCollectionReusableView.h"
+
 NS_ASSUME_NONNULL_BEGIN
 @class CGXVerticalMenuCollectionView;
 
@@ -19,9 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  每个分区自定义cell
  */
 - (UICollectionViewCell *)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
-
 @optional
-
 /**
  每个分区头自定义view
  */
@@ -30,12 +28,14 @@ NS_ASSUME_NONNULL_BEGIN
  每个分区脚自定义view
  */
 - (UICollectionReusableView *)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView KindFootAtIndexPath:(NSIndexPath *)indexPath;
-
 /**
  每个分区背景颜色  默认背景色
  */
 - (UIColor *)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView BackgroundColorForSection:(NSInteger)section;
-
+/**
+ 每个分区的高度 不实现  默认宽高相等
+ */
+- (CGFloat)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView sizeForItemAtSection:(NSInteger)section ItemWidth:(CGFloat)itemWidth;
 
 @end
 
@@ -51,16 +51,27 @@ NS_ASSUME_NONNULL_BEGIN
  @param indexPath 选中的index
  */
 - (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView didClickSelectedItemAtIndexPath:(NSIndexPath *)indexPath;
-
+/**
+ 背景图点击事件
+ @param categoryView categoryView description
+ @param indexPath 点击背景图的indexPath
+ */
+- (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView didSelectDecorationViewAtIndexPath:(NSIndexPath *)indexPath;
 - (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView dropUpDownDidChanged:(CGPoint)contentOffset;
 
+/**滚动情况才会调用该方法*/
+- (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView
+      ScrollViewDidScroll:(UIScrollView *)scrollView;
 
-/**滚动选中的情况才会调用该方法*/
-- (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView ScrollViewDidScroll:(UIScrollView *)scrollView;
 // CollectionView分区标题即将展示
-- (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath;
+- (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView willDisplaySupplementaryView:(UICollectionReusableView *)view
+           forElementKind:(NSString *)elementKind
+              atIndexPath:(NSIndexPath *)indexPath;
 // CollectionView分区标题展示结束
-- (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath;
+- (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view
+         forElementOfKind:(NSString *)elementKind
+              atIndexPath:(NSIndexPath *)indexPath;
+
 
 -(void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView scrollViewWillBeginDragging:(UIScrollView *)scrollView;
 -(void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView;
@@ -71,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface CGXVerticalMenuCollectionView : UIView<UICollectionViewDataSource,UICollectionViewDelegate,CGXVerticalMenuCollectionViewFlowLayoutDelegate>
+@interface CGXVerticalMenuCollectionView : UIView<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -79,8 +90,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<CGXVerticalMenuCollectionViewDelegate> delegate;
 @property (nonatomic, weak) id<CGXVerticalMenuCollectionViewDataSouce> dataSouce;
-// 是否悬浮在顶部 默认NO
-@property (nonatomic , assign) BOOL stopTop;
 
 /*
  自定义cell 必须实现

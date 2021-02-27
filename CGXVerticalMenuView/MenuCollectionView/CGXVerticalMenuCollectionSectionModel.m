@@ -17,6 +17,7 @@
         self.rowArray = [NSMutableArray array];
         self.rowCount = 3;
         self.insets =UIEdgeInsetsMake(10, 10, 10, 10);
+        self.borderInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         self.minimumLineSpacing = 10;
         self.minimumInteritemSpacing = 10;
         self.footerHeight = 10;
@@ -24,6 +25,11 @@
         self.footerBgColor = [UIColor colorWithWhite:0.93 alpha:1];
         self.headerBgColor= [UIColor whiteColor];
          self.sectionColor= [UIColor blackColor];
+        self.headersHovering = NO;
+        self.headersHoveringTopEdging = 0;
+        self.roundModel = [[CGXVerticalMenuRoundModel alloc] init];
+        self.roundModel.isCalculateHeader = YES;
+        self.roundModel.isCalculateFooter = YES;
     }
     return self;
 }

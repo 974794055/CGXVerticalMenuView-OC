@@ -75,7 +75,7 @@
             NSMutableArray *rowArr = [NSMutableArray array];
             for (int j = 0; j<6; j++) {
                 CGXVerticalMenuCollectionItemModel *itemModel = [[CGXVerticalMenuCollectionItemModel alloc] init];
-                itemModel.bgColor = APPRandomColor;
+                itemModel.itemBgColor = APPRandomColor;
                 [rowArr addObject:itemModel];
             }
             sectionModel.rowArray = [NSMutableArray arrayWithArray:rowArr];
@@ -139,7 +139,15 @@
 {
     NSLog(@"右侧点击 %ld--%ld",(long)indexPath.section,(long)indexPath.row);
 }
-
+/**
+ 背景图点击事件
+ @param categoryView categoryView description
+ @param indexPath 点击背景图的indexPath
+ */
+- (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectDecorationViewAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"右侧背景图点击 %ld--%ld",(long)indexPath.section,(long)indexPath.row);
+}
 /**  将要显示
  点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description

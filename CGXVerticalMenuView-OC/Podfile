@@ -1,16 +1,12 @@
-<<<<<<< HEAD
-=======
-source 'https://github.com/CocoaPods/Specs.git'
->>>>>>> 6919a533262f59eae100e1c4dd40d0fa1868fbc0
+#source 'https://github.com/CocoaPods/Specs.git'
 platform:ios,'8.0'
 target "CGXVerticalMenuView-OC" do
 
 pod 'CGXVerticalMenuView-OC', :path => '../'
 
-pod 'Masonry'
 pod 'MJRefresh'
 pod 'SDWebImage'
 pod 'MJExtension'
-
+pod 'Masonry'
 
 end

@@ -37,7 +37,21 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
 @end
 
 @implementation CGXVerticalMenuCategoryView
-
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+    
+    UIResponder *next = newSuperview;
+    while (next != nil) {
+        if ([next isKindOfClass:[UIViewController class]]) {
+            UIViewController *vc = (UIViewController *)next;
+            if (@available(iOS 11.0, *)) {
+                vc.automaticallyAdjustsScrollViewInsets = NO;
+            }
+            break;
+        }
+        next = next.nextResponder;
+    }
+}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -116,7 +130,6 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
     if (index>self.dataArray.count-1) {
         return;
     }
-    
     [self.dataArray replaceObjectAtIndex:index withObject:itemModel];
     [self.containerView reloadDataToItemAtIndex:index];
 }
@@ -182,6 +195,18 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
     }
     return rightView;
 }
+- (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView didClickSelectedItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuView:didSelectedItemDetailsAtIndexPath:)]) {
+        [self.delegate verticalMenuView:self didSelectedItemDetailsAtIndexPath:indexPath];
+    }
+}
+- (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView didSelectDecorationViewAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuView:didSelectDecorationViewAtIndexPath:)]) {
+        [self.delegate verticalMenuView:self didSelectDecorationViewAtIndexPath:indexPath];
+    }
+}
 - (void)verticalListContainerView:(CGXVerticalMenuContainerView *)listContainerView willDisplayCellAtRow:(NSInteger)row
 {
     if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuView:willDisplayCellAtRow:)]) {
@@ -195,7 +220,6 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
         [self.delegate verticalMenuView:self didEndDisplayingCellAtRow:row];
     }
 }
-#pragma mark --  右侧代理
 - (UICollectionViewCell *)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(verticalMenuView:ListView:cellForItemAtIndexPath:listViewInRow:)]) {
@@ -232,14 +256,31 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
     CGXVerticalMenuCollectionSectionModel *sectionModel = categoryView.dataArray[section];
     return sectionModel.sectionColor;
 }
-- (UIViewController*)viewController:(UIView *)view {
-    for (UIView* next = [view superview]; next; next = next.superview) {
-        UIResponder* nextResponder = [next nextResponder];
-        if ([nextResponder isKindOfClass:[UINavigationController class]] || [nextResponder isKindOfClass:[UIViewController class]]) {
-            return (UIViewController*)nextResponder;
-        }
+- (CGFloat)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView sizeForItemAtSection:(NSInteger)section ItemWidth:(CGFloat)itemWidth
+{
+    CGFloat height = itemWidth;
+    if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(verticalMenuView:sizeForItemAtSection:ItemWidth:)]) {
+        height = [self.dataSouce verticalMenuView:self sizeForItemAtSection:section ItemWidth:itemWidth];
     }
-    return nil;
+    return height;
+}
+// CollectionView分区标题即将展示
+- (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView willDisplaySupplementaryView:(UICollectionReusableView *)view
+           forElementKind:(NSString *)elementKind
+              atIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuView:willDisplaViewElementKind:atIndexPath:)]) {
+        [self.delegate verticalMenuView:self willDisplaViewElementKind:elementKind atIndexPath:indexPath];
+    }
+}
+// CollectionView分区标题展示结束
+- (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view
+         forElementOfKind:(NSString *)elementKind
+              atIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuView:didEndDisplayingElementKind:atIndexPath:)]) {
+        [self.delegate verticalMenuView:self didEndDisplayingElementKind:elementKind atIndexPath:indexPath];
+    }
 }
 
 @end

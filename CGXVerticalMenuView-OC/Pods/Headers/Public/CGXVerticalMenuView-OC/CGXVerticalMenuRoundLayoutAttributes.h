@@ -1,0 +1,1 @@
+../../../../../CGXVerticalMenuView/MenuRoundLayout/CGXVerticalMenuRoundLayoutAttributes.h

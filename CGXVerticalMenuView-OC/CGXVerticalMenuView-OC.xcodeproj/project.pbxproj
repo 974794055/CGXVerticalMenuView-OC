@@ -173,7 +173,7 @@
 				04B370C4232A27D700DDB62F /* Sources */,
 				04B370C5232A27D700DDB62F /* Frameworks */,
 				04B370C6232A27D700DDB62F /* Resources */,
-				9D394D737D0A7BD4138F517D /* [CP] Copy Pods Resources */,
+				E7A673A935559AB2578FDCD7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,23 +233,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9D394D737D0A7BD4138F517D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CGXVerticalMenuView-OC/Pods-CGXVerticalMenuView-OC-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CGXVerticalMenuView-OC/Pods-CGXVerticalMenuView-OC-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CGXVerticalMenuView-OC/Pods-CGXVerticalMenuView-OC-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B3A49C4A069E7405E3B19F55 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,6 +253,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7A673A935559AB2578FDCD7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CGXVerticalMenuView-OC/Pods-CGXVerticalMenuView-OC-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CGXVerticalMenuView-OC/Pods-CGXVerticalMenuView-OC-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CGXVerticalMenuView-OC/Pods-CGXVerticalMenuView-OC-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -433,7 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 424D9G4X35;
+				DEVELOPMENT_TEAM = AA9R26989C;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CGXVerticalMenuView-OC/PrefixHeader.pch";
 				INFOPLIST_FILE = "CGXVerticalMenuView-OC/Info.plist";
@@ -442,7 +442,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cgx.work.CGXVerticalMenuView-OC";
+				PRODUCT_BUNDLE_IDENTIFIER = "CGX.CGXVerticalMenuView-OC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -454,7 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 424D9G4X35;
+				DEVELOPMENT_TEAM = AA9R26989C;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CGXVerticalMenuView-OC/PrefixHeader.pch";
 				INFOPLIST_FILE = "CGXVerticalMenuView-OC/Info.plist";
@@ -463,7 +463,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cgx.work.CGXVerticalMenuView-OC";
+				PRODUCT_BUNDLE_IDENTIFIER = "CGX.CGXVerticalMenuView-OC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

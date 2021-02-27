@@ -38,13 +38,16 @@ NS_ASSUME_NONNULL_BEGIN
  @param row 选中的row
  */
 - (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView ListView:(CGXVerticalMenuCollectionView *)listView KindFootAtIndexPath:(NSIndexPath *)indexPath listViewInRow:(NSInteger)row;
-
-
 /**
  每个分区背景颜色  默认背景色
  实现此代理时 CGXVerticalMenuCollectionSectionModel 内的配置sectionColor无效
  */
 - (UIColor *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView BackgroundColorForSection:(NSInteger)section;
+
+/**
+ 每个分区的高度 不实现  默认宽高相等
+ */
+- (CGFloat)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView sizeForItemAtSection:(NSInteger)section ItemWidth:(CGFloat)itemWidth;
 
 @end
 
@@ -67,6 +70,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemDetailsAtIndexPath:(NSIndexPath *)indexPath;
 
+/**
+ 背景图点击事件
+ @param categoryView categoryView description
+ @param indexPath 点击背景图的indexPath
+ */
+- (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectDecorationViewAtIndexPath:(NSIndexPath *)indexPath;
 /**  将要显示
  点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
@@ -80,14 +89,27 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didEndDisplayingCellAtRow:(NSInteger)row;
 
+/**  将要显示的右侧分区
+ 点击选中、滚动选中的情况才会调用该方法
+ */
+- (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView willDisplaViewElementKind:(NSString *)elementKind
+   atIndexPath:(NSIndexPath *)indexPath;
+
+/**  将要消失的右侧分区
+ 点击选中、滚动选中的情况才会调用该方法
+ */
+- (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didEndDisplayingElementKind:(NSString *)elementKind
+   atIndexPath:(NSIndexPath *)indexPath;
+
 /**  右侧自定义下拉view
  点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param scrollView 右侧滚动的view
  @param row 选中的row 左侧选中的下标
  */
-- (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView RefreshScrollView:(UIScrollView *)scrollView listViewInRow:(NSInteger)row;
-
+- (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView
+       RefreshScrollView:(UIScrollView *)scrollView
+           listViewInRow:(NSInteger)row;
 
 @end
 
@@ -96,7 +118,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<CGXVerticalMenuCategoryViewDelegate> delegate;
 
 @property (nonatomic, weak) id<CGXVerticalMenuCategoryViewDataSouce> dataSouce;
-
 
 @property (nonatomic, strong) NSArray <UIView<CGXCategoryListIndicatorProtocol> *> *indicators;
 

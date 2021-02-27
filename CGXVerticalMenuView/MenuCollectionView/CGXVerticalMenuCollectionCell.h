@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CGXVerticalMenuCollectionCell : UICollectionViewCell
 
 @property (nonatomic , strong) UIImageView *urlImageView;
-
+@property (nonatomic , strong) UILabel *titleLabel;
 - (void)reloadData:(CGXVerticalMenuCollectionItemModel *)model;
 
 @end

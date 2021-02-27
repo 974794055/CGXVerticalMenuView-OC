@@ -1,1 +1,0 @@
-../../../../../CGXVerticalMenuView/MenuCollectionView/CGXVerticalMenuCollectionViewLayoutAttributes.h

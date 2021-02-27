@@ -14,6 +14,7 @@
     self = [super init];
     if (self) {
         self.rightArray = [NSMutableArray array];
+        self.leftModel = [[CGXVerticalMenuTitleModel alloc] init];
     }
     return self;
 }

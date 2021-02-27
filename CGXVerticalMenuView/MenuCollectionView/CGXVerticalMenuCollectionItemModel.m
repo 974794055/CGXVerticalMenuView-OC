@@ -8,24 +8,33 @@
 
 #import "CGXVerticalMenuCollectionItemModel.h"
 
+@interface CGXVerticalMenuCollectionItemModel()
+
+
+@end
+
 @implementation CGXVerticalMenuCollectionItemModel
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.rowHeight = 80;
-        self.cellClass = [UICollectionViewCell class];
-        self.cornerRadius = 8;
-        self.borderWidth = 0.5*2;
-        self.borderColor = [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1];
-        self.bgColor = [UIColor colorWithWhite:0.93 alpha:1];
+       
+        [self initializeData];
     }
     return self;
 }
-
-- (NSString *)cellIdentifier
+- (void)initializeData
 {
-    NSAssert(![self.cellClass isKindOfClass:[UICollectionViewCell class]], @"cell必须是UICollectionViewCell类型");
-    return [NSString stringWithFormat:@"%@", self.cellClass];
+    self.itemSpace = 0;
+    self.itemCornerRadius = 10;
+    self.itemBborderWidth = 0;
+    self.itemBorderColor = [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1];
+    self.itemBgColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
+    self.itemColor = [UIColor blackColor];
+    self.itemFont = [UIFont systemFontOfSize:12];
+    self.numberOfLines = 1;
+    self.itemHeight = 30;
 }
+
 @end

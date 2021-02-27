@@ -7,7 +7,7 @@
 //
 
 #import "TitleHeaderView.h"
-#import "CGXVerticalMenuCollectionViewLayoutAttributes.h"
+
 @implementation TitleHeaderView
 
 
@@ -35,12 +35,4 @@
       self.urlImageView.frame = self.bounds;
 }
 
-- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
-{
-    [super applyLayoutAttributes:layoutAttributes];
-    if ([layoutAttributes isKindOfClass:[CGXVerticalMenuCollectionViewLayoutAttributes class]]) {
-        CGXVerticalMenuCollectionViewLayoutAttributes *attr = (CGXVerticalMenuCollectionViewLayoutAttributes *)layoutAttributes;
-        self.backgroundColor = attr.backgroundColor;
-    }
-}
 @end
