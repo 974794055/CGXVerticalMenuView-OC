@@ -38,7 +38,6 @@ s.subspec 'MenuCategoryView' do |ss|
    ss.dependency 'CGXVerticalMenuView-OC/ContainerView'
 end
 
-
 end
 
 
