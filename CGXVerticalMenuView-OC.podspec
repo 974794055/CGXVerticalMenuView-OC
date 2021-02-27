@@ -21,16 +21,13 @@ end
 s.subspec 'MenuRoundLayout' do |ss|
    ss.source_files = 'CGXVerticalMenuView/MenuRoundLayout/**/*.{h,m}'
 end
-
 s.subspec 'MenuCollectionView' do |ss|
    ss.source_files = 'CGXVerticalMenuView/MenuCollectionView/**/*.{h,m}'
    ss.dependency 'CGXVerticalMenuView-OC/MenuRoundLayout'
 end
-
 s.subspec 'ContainerView' do |ss|
    ss.source_files = 'CGXVerticalMenuView/ContainerView/**/*.{h,m}'
 end
-
 s.subspec 'MenuCategoryView' do |ss|
    ss.source_files = 'CGXVerticalMenuView/MenuCategoryView/**/*.{h,m}'
    ss.dependency 'CGXVerticalMenuView-OC/MenuTitleView'

@@ -14,7 +14,6 @@
  - QQ号 ：974794055
  - 版本 ： 1.1.0
  - git ：https://github.com/974794055/CGXVerticalMenuView-OC.git
- 
 - 支持效果：
 - 1、左侧自定义标签view
 - 2、右侧多分区滑动
