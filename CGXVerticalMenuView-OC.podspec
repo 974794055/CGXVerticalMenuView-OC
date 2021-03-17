@@ -32,7 +32,6 @@ s.subspec 'MenuCustom' do |ss|
       sss.source_files = 'CGXVerticalMenuView/MenuCustom/ListContainerView/**/*.{h,m}'
       sss.public_header_files = 'CGXVerticalMenuView/MenuCustom/ListContainerView/**/*.{h,m}'
    end
-   
 end
 s.subspec 'MenuTitleView' do |ss|
    ss.source_files = 'CGXVerticalMenuView/MenuTitleView/**/*.{h,m}'
