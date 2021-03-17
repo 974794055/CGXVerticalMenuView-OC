@@ -10,12 +10,13 @@
 #import "OneViewController.h"
 #import "TwoViewController.h"
 #import "ThreeViewController.h"
-
+#import "MoreViewController.h"
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
+
 @property (nonatomic , strong) UITableView *tableView;
 
-
 @property (nonatomic , strong) NSMutableArray *dataArray;
+
 @end
 
 @implementation ViewController
@@ -32,7 +33,8 @@
     [self creatTableView];
     self.dataArray = [NSMutableArray arrayWithObjects:@"不联动，点击左侧切换右侧",
                       @"联动",
-//                      @"联动",
+                      @"UITableview联动",
+                      @"UICollectionView联动",
                       nil];
     [self.tableView reloadData];
     
@@ -99,7 +101,7 @@
     UITableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
     NSString *title = self.dataArray[indexPath.row];
     cell.textLabel.text = title;
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -114,6 +116,10 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row==2){
         ThreeViewController *vc = [[ThreeViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else{
+        MoreViewController *vc = [[MoreViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }

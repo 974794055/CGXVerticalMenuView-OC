@@ -14,8 +14,6 @@
 
 @property (nonatomic, assign) CGFloat isFirstClick;//是否第一次点击
 
-
-
 @end
 
 @implementation CGXVerticalMenuTitleView
@@ -23,17 +21,13 @@
 - (void)initializeData
 {
     [super initializeData];
-   
     self.isFirstClick = YES;
     self.timeDuration = 0;
-   
-  
     self.clickedPosition = CGXCategoryListCellClickedPosition_Left;
 }
 - (void)initializeViews
 {
     [super initializeViews];
-    
     CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
     backgroundView.backgroundViewColor = [UIColor orangeColor];
     backgroundView.backgroundViewCornerRadius = 0;
@@ -149,19 +143,16 @@
     if (self.selectedIndex == index) {
         if (self.isFirstClick) {
             [self updateCellAtIndex:index selectedType:selectedType];
-            
             [self updateDelegateAtIndex:index selectedType:selectedType];
             self.isFirstClick = NO;
         } else{
             if (newModel.isMoreClick) {
                 [self updateCellAtIndex:index selectedType:selectedType];
-                
                 [self updateDelegateAtIndex:index selectedType:selectedType];
             }
         }
     } else{
         [self updateCellAtIndex:index selectedType:selectedType];
-        
         [self updateDelegateAtIndex:index selectedType:selectedType];
     }
     self.isFirstClick = NO;
@@ -220,7 +211,6 @@
         [self.delegate verticalMenuTitleView:self didSelectedItemAtIndex:index];
     }
 }
-
 /*
  // Only override drawRect: if you perform custom drawing.
  // An empty implementation adversely affects performance during animation.

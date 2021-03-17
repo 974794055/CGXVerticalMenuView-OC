@@ -40,6 +40,7 @@
         listView.backgroundColor = [UIColor colorWithRed:29.0/255.0f green:35.0/255.0f blue:69.0/255.0f alpha:1.0];
         [self.view addSubview:listView];
         listView.tag =  10000+i;
+//        listView.showsVerticalScrollIndicator = YES;
         CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
         backgroundView.backgroundViewColor = [UIColor orangeColor];
         if (i==0) {

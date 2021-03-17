@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "CGXVerticalMenuView-OC"    #存储库名称
-s.version      = "1.1.0"      #版本号，与tag值一致
+s.version      = "1.1.1"      #版本号，与tag值一致
 s.summary      = "仿京东、淘宝等主流APP分类切换的滚动视图"  #简介
 s.description  = "仿京东、淘宝等主流APP分类切换的滚动视图的封装库"  #描述
 s.homepage     = "https://github.com/974794055/CGXVerticalMenuView-OC"      #项目主页，不是git地址
@@ -15,25 +15,52 @@ s.source_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
 #开源库头文件
 s.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
 
+s.subspec 'MenuCustom' do |ss|
+   ss.subspec 'Custom' do |sss|
+      sss.source_files = 'CGXVerticalMenuView/MenuCustom/Custom/**/*.{h,m}'
+      sss.public_header_files = 'CGXVerticalMenuView/MenuCustom/Custom/**/*.{h,m}'
+   end
+   ss.subspec 'RoundLayout' do |sss|
+      sss.source_files = 'CGXVerticalMenuView/MenuCustom/RoundLayout/**/*.{h,m}'
+      sss.public_header_files = 'CGXVerticalMenuView/MenuCustom/RoundLayout/**/*.{h,m}'
+   end
+   ss.subspec 'ContainerView' do |sss|
+      sss.source_files = 'CGXVerticalMenuView/MenuCustom/ContainerView/**/*.{h,m}'
+      sss.public_header_files = 'CGXVerticalMenuView/MenuCustom/ContainerView/**/*.{h,m}'
+   end
+   ss.subspec 'ListContainerView' do |sss|
+      sss.source_files = 'CGXVerticalMenuView/MenuCustom/ListContainerView/**/*.{h,m}'
+      sss.public_header_files = 'CGXVerticalMenuView/MenuCustom/ListContainerView/**/*.{h,m}'
+   end
+   
+end
 s.subspec 'MenuTitleView' do |ss|
    ss.source_files = 'CGXVerticalMenuView/MenuTitleView/**/*.{h,m}'
-end
-s.subspec 'MenuRoundLayout' do |ss|
-   ss.source_files = 'CGXVerticalMenuView/MenuRoundLayout/**/*.{h,m}'
+   ss.dependency 'CGXVerticalMenuView-OC/MenuCustom'
 end
 s.subspec 'MenuCollectionView' do |ss|
    ss.source_files = 'CGXVerticalMenuView/MenuCollectionView/**/*.{h,m}'
-   ss.dependency 'CGXVerticalMenuView-OC/MenuRoundLayout'
-end
-s.subspec 'ContainerView' do |ss|
-   ss.source_files = 'CGXVerticalMenuView/ContainerView/**/*.{h,m}'
+   ss.dependency 'CGXVerticalMenuView-OC/MenuCustom'
 end
 s.subspec 'MenuCategoryView' do |ss|
    ss.source_files = 'CGXVerticalMenuView/MenuCategoryView/**/*.{h,m}'
+   ss.dependency 'CGXVerticalMenuView-OC/MenuCustom'
    ss.dependency 'CGXVerticalMenuView-OC/MenuTitleView'
    ss.dependency 'CGXVerticalMenuView-OC/MenuCollectionView'
-   ss.dependency 'CGXVerticalMenuView-OC/ContainerView'
 end
+s.subspec 'MenuCategoryMoreView' do |ss|
+   ss.source_files = 'CGXVerticalMenuView/MenuCategoryMoreView/**/*.{h,m}'
+
+   ss.subspec 'ListView' do |sss|
+      sss.source_files = 'CGXVerticalMenuView/MenuCategoryView/ListView/**/*.{h,m}'
+      sss.dependency 'CGXVerticalMenuView-OC/MenuCustom'
+      sss.dependency 'CGXVerticalMenuView-OC/MenuTitleView'
+      sss.dependency 'CGXVerticalMenuView-OC/MenuCollectionView'
+   end
+
+   
+end
+
 
 end
 

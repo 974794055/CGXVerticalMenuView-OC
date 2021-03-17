@@ -10,16 +10,17 @@
 #import "CGXVerticalMenuCollectionSectionModel.h"
 #import "CGXVerticalMenuCollectionItemModel.h"
 #import "CGXVerticalMenuCollectionCell.h"
-
+#import "CGXVerticalMenuCustomCollectionView.h"
 NS_ASSUME_NONNULL_BEGIN
 @class CGXVerticalMenuCollectionView;
 
 @protocol CGXVerticalMenuCollectionViewDataSouce <NSObject>
+
+@optional
 /**
  每个分区自定义cell
  */
 - (UICollectionViewCell *)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
-@optional
 /**
  每个分区头自定义view
  */
@@ -57,6 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param indexPath 点击背景图的indexPath
  */
 - (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView didSelectDecorationViewAtIndexPath:(NSIndexPath *)indexPath;
+
 - (void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView dropUpDownDidChanged:(CGPoint)contentOffset;
 
 /**滚动情况才会调用该方法*/
@@ -79,12 +81,11 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
 -(void)categoryRightView:(CGXVerticalMenuCollectionView *)categoryView scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 
-
 @end
 
 @interface CGXVerticalMenuCollectionView : UIView<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong,readonly) CGXVerticalMenuCustomCollectionView *collectionView;
 
 @property (nonatomic, strong,readonly) NSMutableArray <CGXVerticalMenuCollectionSectionModel *> *dataArray;
 

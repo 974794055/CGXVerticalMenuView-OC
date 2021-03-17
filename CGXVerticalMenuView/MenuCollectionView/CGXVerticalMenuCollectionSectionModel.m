@@ -30,6 +30,7 @@
         self.roundModel = [[CGXVerticalMenuRoundModel alloc] init];
         self.roundModel.isCalculateHeader = YES;
         self.roundModel.isCalculateFooter = YES;
+        self.headNameModel = [[CGXVerticalMenuCustomTextModel alloc] init];
     }
     return self;
 }

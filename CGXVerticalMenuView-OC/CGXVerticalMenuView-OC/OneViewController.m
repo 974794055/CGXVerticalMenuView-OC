@@ -9,8 +9,7 @@
 #import "OneViewController.h"
 
 
-#import "CGXVerticalMenu.h"
-#import "TitleHeaderView.h"
+
 
 @interface OneViewController ()<CGXVerticalMenuCategoryViewDelegate,CGXVerticalMenuCategoryViewDataSouce>
 
@@ -82,17 +81,17 @@
         CGXVerticalMenuCollectionSectionModel *sectionModel = [[CGXVerticalMenuCollectionSectionModel alloc] init];
         sectionModel.headerHeight = 30;
         sectionModel.footerHeight = 0;
-//        sectionModel.headerBgColor = [[UIColor orangeColor] colorWithAlphaComponent:0.7];;
-//        sectionModel.footerBgColor = [[UIColor redColor] colorWithAlphaComponent:0.4];;
+        //        sectionModel.headerBgColor = [[UIColor orangeColor] colorWithAlphaComponent:0.7];;
+        //        sectionModel.footerBgColor = [[UIColor redColor] colorWithAlphaComponent:0.4];;
         
-                sectionModel.headerBgColor = [[UIColor orangeColor] colorWithAlphaComponent:0];;
-                sectionModel.footerBgColor = [[UIColor redColor] colorWithAlphaComponent:0];;
+        sectionModel.headerBgColor = [[UIColor orangeColor] colorWithAlphaComponent:0];;
+        sectionModel.footerBgColor = [[UIColor redColor] colorWithAlphaComponent:0];;
         sectionModel.rowCount = arc4random() % 2+3;
         sectionModel.borderInsets = UIEdgeInsetsMake(10, 10, 0, 10);
         sectionModel.insets = UIEdgeInsetsMake(10, 10, 10, 10);;
-        if (i==0) {
-        sectionModel.headersHovering = YES;
-        }
+        //        if (i==0) {
+//        sectionModel.headersHovering = YES;
+//        }
         
         CGXVerticalMenuRoundModel *roundModel = [[CGXVerticalMenuRoundModel alloc] init];
         roundModel.borderColor = [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1];
@@ -113,10 +112,10 @@
             CGXVerticalMenuCollectionItemModel *itemModel = [[CGXVerticalMenuCollectionItemModel alloc] init];
             itemModel.itemCornerRadius = 10;
             itemModel.itemText = @"花生油";
-            itemModel.itemUrlStr = @"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.ewebweb.com%2Fuploads%2F20191224%2F22%2F1577196989-uEbmQBWcyP.jpg&refer=http%3A%2F%2Fimg.ewebweb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616852474&t=655390d70cbf2cd161aec3c824dcdbbc";
-            
+            itemModel.itemUrlStr = @"HotIcon0";
             itemModel.menu_ImageCallback = ^(UIImageView * _Nonnull hotImageView, NSURL * _Nonnull hotImageURL) {
                 [hotImageView sd_setImageWithURL:hotImageURL];
+                hotImageView.image = [UIImage imageNamed:@"HotIcon0"];
             };
             [rowArr addObject:itemModel];
         }

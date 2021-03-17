@@ -8,10 +8,13 @@
 
 #import "CGXVerticalMenuCollectionView.h"
 #import "CGXVerticalMenuRoundFlowLayout.h"
-
+#import "CGXVerticalMenuCollectionSectionTextView.h"
 @interface CGXVerticalMenuCollectionView()<CGXVerticalMenuRoundFlowLayoutDelegate>
 
 @property (nonatomic, strong,readwrite) NSMutableArray <CGXVerticalMenuCollectionSectionModel *> *dataArray;
+
+@property (nonatomic, strong,readwrite) CGXVerticalMenuCustomCollectionView *collectionView;
+
 
 @end
 @implementation CGXVerticalMenuCollectionView
@@ -53,7 +56,7 @@
 }
 - (void)initializeViews
 {
-    self.collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:[self preferredLayout]];
+    self.collectionView = [[CGXVerticalMenuCustomCollectionView alloc] initWithFrame:self.bounds collectionViewLayout:[self preferredLayout]];
     self.collectionView.backgroundColor = self.backgroundColor;
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
@@ -64,6 +67,7 @@
     [self.collectionView registerClass:[CGXVerticalMenuCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionCell class])];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([UICollectionReusableView class])];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([UICollectionReusableView class])];
+    [self.collectionView registerClass:[CGXVerticalMenuCollectionSectionTextView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionSectionTextView class])];
     if (@available(iOS 11.0, *)) {
         self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
@@ -154,6 +158,23 @@
             headerView.frame = frame;
             headerView.backgroundColor = sectionModel.headerBgColor;
             [view addSubview:headerView];
+        } else{
+            CGXVerticalMenuCollectionSectionTextView *textView = [[CGXVerticalMenuCollectionSectionTextView alloc] init];
+            textView.frame = CGRectMake(0, 0, CGRectGetWidth(collectionView.frame), sectionModel.headerHeight);;
+            CGRect frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
+            if (view.frame.size.height > sectionModel.borderInsets.top) {
+                frame.origin.y = sectionModel.borderInsets.top;
+                frame.size.height = view.frame.size.height-sectionModel.borderInsets.top;
+            }
+            if (sectionModel.roundModel.isCalculateHeader) {
+                frame.origin.x = sectionModel.borderInsets.left;
+                frame.size.width = view.frame.size.width-sectionModel.borderInsets.left-sectionModel.borderInsets.right;
+            }
+            textView.frame = frame;
+            
+            textView.backgroundColor = sectionModel.headerBgColor;
+            [textView updateWithTextModel:sectionModel.headNameModel];
+            [view addSubview:textView];
         }
         return view;
     } else {
@@ -174,6 +195,8 @@
             footerView.frame = frame;
             footerView.backgroundColor = sectionModel.footerBgColor;
             [view addSubview:footerView];
+        } else{
+            view.backgroundColor = sectionModel.footerBgColor;
         }
         return view;
     }
@@ -249,7 +272,14 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self.dataSouce categoryRightView:self cellForItemAtIndexPath:indexPath];
+    if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(categoryRightView:cellForItemAtIndexPath:)]) {
+        return [self.dataSouce categoryRightView:self cellForItemAtIndexPath:indexPath];
+    }
+    CGXVerticalMenuCollectionCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionCell class]) forIndexPath:indexPath];
+    CGXVerticalMenuCollectionSectionModel *sectionModel = self.dataArray[indexPath.section];
+    CGXVerticalMenuCollectionItemModel *itemModel = sectionModel.rowArray[indexPath.row];
+    [cell reloadData:itemModel];
+    return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {

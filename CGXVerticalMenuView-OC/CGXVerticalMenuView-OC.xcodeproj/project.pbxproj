@@ -25,6 +25,12 @@
 		B57FDE48250FB5EF0054A11E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B57FDE45250FB5EF0054A11E /* LICENSE */; };
 		B57FDE49250FB5EF0054A11E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B57FDE46250FB5EF0054A11E /* README.md */; };
 		B57FDE4D250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B57FDE4C250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec */; };
+		B5892EA025EB585400FB677D /* CustomTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5892E9E25EB585400FB677D /* CustomTitleView.m */; };
+		B589A99B25F1143C0008B6EA /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B589A99A25F1143C0008B6EA /* MoreViewController.m */; };
+		B589A9A625F1174B0008B6EA /* ListOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B589A9A525F1174B0008B6EA /* ListOneViewController.m */; };
+		B5F6AE982600E53800BFF1D4 /* MoreViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F6AE972600E53800BFF1D4 /* MoreViewCell.m */; };
+		B5F6AEB02600F3E900BFF1D4 /* MoreSectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F6AEAF2600F3E900BFF1D4 /* MoreSectionHeadView.m */; };
+		B5F6AEB42600F3F700BFF1D4 /* MoreSectionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F6AEB32600F3F700BFF1D4 /* MoreSectionFootView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +65,18 @@
 		B57FDE45250FB5EF0054A11E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
 		B57FDE46250FB5EF0054A11E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
 		B57FDE4C250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "CGXVerticalMenuView-OC.podspec"; path = "../../../CGXVerticalMenuView-OC.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B5892E9E25EB585400FB677D /* CustomTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTitleView.m; sourceTree = "<group>"; };
+		B5892E9F25EB585400FB677D /* CustomTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTitleView.h; sourceTree = "<group>"; };
+		B589A99925F1143C0008B6EA /* MoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		B589A99A25F1143C0008B6EA /* MoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		B589A9A425F1174B0008B6EA /* ListOneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListOneViewController.h; sourceTree = "<group>"; };
+		B589A9A525F1174B0008B6EA /* ListOneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListOneViewController.m; sourceTree = "<group>"; };
+		B5F6AE962600E53700BFF1D4 /* MoreViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewCell.h; sourceTree = "<group>"; };
+		B5F6AE972600E53800BFF1D4 /* MoreViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewCell.m; sourceTree = "<group>"; };
+		B5F6AEAE2600F3E900BFF1D4 /* MoreSectionHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreSectionHeadView.h; sourceTree = "<group>"; };
+		B5F6AEAF2600F3E900BFF1D4 /* MoreSectionHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreSectionHeadView.m; sourceTree = "<group>"; };
+		B5F6AEB22600F3F700BFF1D4 /* MoreSectionFootView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreSectionFootView.h; sourceTree = "<group>"; };
+		B5F6AEB32600F3F700BFF1D4 /* MoreSectionFootView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreSectionFootView.m; sourceTree = "<group>"; };
 		C8BA017C439F6CD87DB48131 /* Pods-CGXVerticalMenuView-OC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGXVerticalMenuView-OC.release.xcconfig"; path = "Target Support Files/Pods-CGXVerticalMenuView-OC/Pods-CGXVerticalMenuView-OC.release.xcconfig"; sourceTree = "<group>"; };
 		E0ABF96421F52E90CC5073D4 /* Pods-CGXVerticalMenuView-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGXVerticalMenuView-OC.debug.xcconfig"; path = "Target Support Files/Pods-CGXVerticalMenuView-OC/Pods-CGXVerticalMenuView-OC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,10 +133,22 @@
 				9E3F0A36233116DC0098DDA8 /* TwoViewController.m */,
 				9E3F0A2F233115B50098DDA8 /* ThreeViewController.h */,
 				9E3F0A30233115B50098DDA8 /* ThreeViewController.m */,
+				B589A99925F1143C0008B6EA /* MoreViewController.h */,
+				B589A99A25F1143C0008B6EA /* MoreViewController.m */,
+				B5F6AE962600E53700BFF1D4 /* MoreViewCell.h */,
+				B5F6AE972600E53800BFF1D4 /* MoreViewCell.m */,
+				B5F6AEAE2600F3E900BFF1D4 /* MoreSectionHeadView.h */,
+				B5F6AEAF2600F3E900BFF1D4 /* MoreSectionHeadView.m */,
+				B5F6AEB22600F3F700BFF1D4 /* MoreSectionFootView.h */,
+				B5F6AEB32600F3F700BFF1D4 /* MoreSectionFootView.m */,
+				B589A9A425F1174B0008B6EA /* ListOneViewController.h */,
+				B589A9A525F1174B0008B6EA /* ListOneViewController.m */,
 				0440E29C232F1BC600E93144 /* TitleViewController.h */,
 				0440E29F232F1BC600E93144 /* TitleViewController.m */,
 				0440E29E232F1BC600E93144 /* TitleHeaderView.h */,
 				0440E29D232F1BC600E93144 /* TitleHeaderView.m */,
+				B5892E9F25EB585400FB677D /* CustomTitleView.h */,
+				B5892E9E25EB585400FB677D /* CustomTitleView.m */,
 				9E4337A5233679F800F4DEB4 /* CGXRefreshHeader */,
 				04B370D1232A27D700DDB62F /* Main.storyboard */,
 				04B3710B232A363100DDB62F /* PrefixHeader.pch */,
@@ -279,17 +309,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5892EA025EB585400FB677D /* CustomTitleView.m in Sources */,
+				B5F6AEB42600F3F700BFF1D4 /* MoreSectionFootView.m in Sources */,
 				9E4337B3233679F800F4DEB4 /* CGXRefreshHeader.m in Sources */,
 				9E3F0A31233115B50098DDA8 /* ThreeViewController.m in Sources */,
 				04B370DB232A27D800DDB62F /* main.m in Sources */,
 				9E3F0A34233116D30098DDA8 /* OneViewController.m in Sources */,
+				B5F6AEB02600F3E900BFF1D4 /* MoreSectionHeadView.m in Sources */,
 				9EB89E802337060300A58483 /* CGXRefreshBackFooter.m in Sources */,
 				9E4337B4233679F800F4DEB4 /* CGXRefreshFooter.m in Sources */,
+				B589A99B25F1143C0008B6EA /* MoreViewController.m in Sources */,
 				0440E2A4232F1BF500E93144 /* ViewController.m in Sources */,
+				B5F6AE982600E53800BFF1D4 /* MoreViewCell.m in Sources */,
 				0440E2A1232F1BC700E93144 /* TitleViewController.m in Sources */,
 				0440E2A0232F1BC700E93144 /* TitleHeaderView.m in Sources */,
 				9E3F0A37233116DC0098DDA8 /* TwoViewController.m in Sources */,
 				04B370CD232A27D700DDB62F /* AppDelegate.m in Sources */,
+				B589A9A625F1174B0008B6EA /* ListOneViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

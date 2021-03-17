@@ -22,39 +22,18 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuBaseViewSelectType) {
 
 @interface CGXVerticalMenuBaseView : UIView<UICollectionViewDataSource,UICollectionViewDelegate>
 
-@property (nonatomic, strong) CGXVerticalMenuIndicatoCollectionView *collectionView;
+@property (nonatomic, strong,readonly) CGXVerticalMenuIndicatoCollectionView *collectionView;
 
 @property (nonatomic, strong) NSMutableArray <CGXVerticalMenuBaseModel *> *dataArray;
 
 @property (nonatomic, strong) NSArray <UIView<CGXCategoryListIndicatorProtocol> *> *indicators;
 
+// 滚动条 默认无
+@property (nonatomic, assign) BOOL showsVerticalScrollIndicator;
 /**
  选中目标index的item
  */
 @property (nonatomic, assign) NSInteger  selectedIndex;
-
-- (void)initializeData NS_REQUIRES_SUPER;
-
-- (void)initializeViews NS_REQUIRES_SUPER;
-
-- (Class)preferredCellClass;
-- (UICollectionViewFlowLayout *)preferredFlowLayout;
-
-/*
- 自定义cell 必须实现
- */
-- (void)registerCell:(Class)classCell IsXib:(BOOL)isXib;
-- (void)registerFooter:(Class)footer IsXib:(BOOL)isXib;
-- (void)registerHeader:(Class)header IsXib:(BOOL)isXib;
-
-/*
- 初始化使用
- */
-- (void)updateMenuWithDataArray:(NSMutableArray<CGXVerticalMenuBaseModel *> *)dataArray NS_REQUIRES_SUPER;
-/*
-  更新某个下标数据使用
-*/
-- (void)replaceObjectAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuBaseModel  *)itemModel NS_REQUIRES_SUPER;
 
 /**
 刷新指定的index的cell
@@ -64,6 +43,33 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuBaseViewSelectType) {
 */
 - (void)reloadCellAtIndex:(NSInteger)index;
 
+- (void)initializeViews NS_REQUIRES_SUPER;
+
+
+
+/*
+ 初始化使用
+ */
+- (void)updateMenuWithDataArray:(NSMutableArray<CGXVerticalMenuBaseModel *> *)dataArray NS_REQUIRES_SUPER;
+/*
+  更新某个下标数据使用
+*/
+- (void)replaceObjectAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuBaseModel *)itemModel NS_REQUIRES_SUPER;
+/*
+ 自定义cell 必须实现
+ */
+- (void)registerCell:(Class)classCell IsXib:(BOOL)isXib;
+- (void)registerFooter:(Class)footer IsXib:(BOOL)isXib;
+- (void)registerHeader:(Class)header IsXib:(BOOL)isXib;
+
+@end
+
+#pragma mark - Subclass Override
+@interface CGXVerticalMenuBaseView (BaseHooks)
+
+- (void)initializeData ;
+- (Class)preferredCellClass;
+- (UICollectionViewFlowLayout *)preferredFlowLayout;
 /**
 refreshState时调用，重置cellModel的状态
 

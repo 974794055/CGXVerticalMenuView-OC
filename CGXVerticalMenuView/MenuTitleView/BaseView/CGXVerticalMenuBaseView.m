@@ -10,7 +10,7 @@
 
 @interface CGXVerticalMenuBaseView()
 
-
+@property (nonatomic, strong,readwrite) CGXVerticalMenuIndicatoCollectionView *collectionView;
 @end
 
 @implementation CGXVerticalMenuBaseView
@@ -36,18 +36,13 @@
     return self;
 }
 
-- (void)initializeData
-{
-     self.dataArray = [NSMutableArray array];
-     self.selectedIndex = 0;
-}
 
 - (void)initializeViews
 {
     self.collectionView = [[CGXVerticalMenuIndicatoCollectionView alloc] initWithFrame:self.bounds collectionViewLayout:[self preferredFlowLayout]];
     self.collectionView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
     self.collectionView.showsHorizontalScrollIndicator = NO;
-    self.collectionView.showsVerticalScrollIndicator = NO;
+    self.collectionView.showsVerticalScrollIndicator = self.showsVerticalScrollIndicator;
     self.collectionView.scrollsToTop = NO;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
@@ -59,7 +54,11 @@
         self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     [self addSubview:self.collectionView];
-    
+}
+- (void)setShowsVerticalScrollIndicator:(BOOL)showsVerticalScrollIndicator
+{
+    _showsVerticalScrollIndicator = showsVerticalScrollIndicator;
+    self.collectionView.showsVerticalScrollIndicator = showsVerticalScrollIndicator;
 }
 - (void)layoutSubviews
 {
@@ -71,15 +70,7 @@
     _indicators = indicators;
     self.collectionView.indicators = indicators;
 }
-- (UICollectionViewFlowLayout *)preferredFlowLayout
-{
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    return layout;
-}
-- (Class)preferredCellClass {
-    return CGXVerticalMenuBaseCell.class;
-}
+
 - (Class)preferredHeadClass {
     return UICollectionReusableView.class;
 }
@@ -192,15 +183,15 @@
     if (self.selectedIndex < 0 || self.selectedIndex >= self.dataArray.count) {
         self.selectedIndex = 0;
     }
-        for (int i = 0; i<self.dataArray.count; i++) {
-            CGXVerticalMenuBaseModel *cellModel = self.dataArray[i];
-            if (self.selectedIndex==i) {
-                cellModel.selected = YES;
-            } else{
-                cellModel.selected = NO;
-            }
-            [self.dataArray replaceObjectAtIndex:i withObject:cellModel];
+    for (int i = 0; i<self.dataArray.count; i++) {
+        CGXVerticalMenuBaseModel *cellModel = self.dataArray[i];
+        if (self.selectedIndex==i) {
+            cellModel.selected = YES;
+        } else{
+            cellModel.selected = NO;
         }
+        [self.dataArray replaceObjectAtIndex:i withObject:cellModel];
+    }
     [self.collectionView reloadData];
 }
 - (void)replaceObjectAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuBaseModel  *)itemModel
@@ -226,21 +217,7 @@
     CGXVerticalMenuBaseCell *cell = (CGXVerticalMenuBaseCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:index]];
     [cell reloadData:cellModel];
 }
-- (void)refreshCellModel:(CGXVerticalMenuBaseModel *)cellModel index:(NSInteger)index
-{
-   
-}
-/**
- 选中某个item时，刷新将要选中与取消选中的cellModel
 
- @param selectedCellModel 将要选中的cellModel
- @param unselectedCellModel 取消选中的cellModel
- */
-- (void)refreshSelectedCellModel:(CGXVerticalMenuBaseModel *)selectedCellModel unselectedCellModel:(CGXVerticalMenuBaseModel *)unselectedCellModel
-{
-    selectedCellModel.selected = YES;
-    unselectedCellModel.selected = NO;
-}
 /*
  // Only override drawRect: if you perform custom drawing.
  // An empty implementation adversely affects performance during animation.
@@ -251,3 +228,40 @@
 
 @end
 
+@implementation CGXVerticalMenuBaseView (BaseHooks)
+
+- (UICollectionViewFlowLayout *)preferredFlowLayout
+{
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    return layout;
+}
+- (Class)preferredCellClass
+{
+    return CGXVerticalMenuBaseCell.class;
+}
+- (void)initializeData
+{
+    self.dataArray = [NSMutableArray array];
+    self.selectedIndex = 0;
+    self.showsVerticalScrollIndicator = NO;
+}
+
+
+- (void)refreshCellModel:(CGXVerticalMenuBaseModel *)cellModel index:(NSInteger)index
+{
+    
+}
+/**
+ 选中某个item时，刷新将要选中与取消选中的cellModel
+ 
+ @param selectedCellModel 将要选中的cellModel
+ @param unselectedCellModel 取消选中的cellModel
+ */
+- (void)refreshSelectedCellModel:(CGXVerticalMenuBaseModel *)selectedCellModel unselectedCellModel:(CGXVerticalMenuBaseModel *)unselectedCellModel
+{
+    selectedCellModel.selected = YES;
+    unselectedCellModel.selected = NO;
+}
+
+@end

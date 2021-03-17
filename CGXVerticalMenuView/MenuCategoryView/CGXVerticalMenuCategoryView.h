@@ -6,7 +6,7 @@
 //  Copyright © 2019 CGX. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CGXVerticalMenuCustomBaseView.h"
 
 #import "CGXVerticalMenuCategoryListModel.h"
 #import "CGXVerticalMenuTitleView.h"
@@ -113,7 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface CGXVerticalMenuCategoryView : UIView
+@interface CGXVerticalMenuCategoryView : CGXVerticalMenuCustomBaseView
 
 @property (nonatomic, weak) id<CGXVerticalMenuCategoryViewDelegate> delegate;
 

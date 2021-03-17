@@ -56,7 +56,7 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
 {
     self = [super initWithFrame:frame];
     if (self) {
-         self.leftBgColor = [UIColor colorWithWhite:0.93 alpha:1];;
+        self.leftBgColor = [UIColor colorWithWhite:0.93 alpha:1];;
         self.rightBgColor = [UIColor whiteColor];
         self.dropUpDown = CGXVerticalMenuCategoryViewDropUpDownNodel;
         self.titleWidth = 100;
@@ -83,6 +83,12 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
     }
     return self;
 }
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.leftView.frame = CGRectMake(0, 0, self.titleWidth, CGRectGetHeight(self.bounds));
+    self.containerView.frame = CGRectMake(self.titleWidth, 0, CGRectGetWidth(self.bounds)-self.titleWidth, CGRectGetHeight(self.bounds));
+}
 - (void)setSpaceLeft:(CGFloat)spaceLeft
 {
     _spaceLeft = spaceLeft;
@@ -91,7 +97,7 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
 - (void)setSpaceRight:(CGFloat)spaceRight
 {
     _spaceRight = spaceRight;
-     self.containerView.spaceRight = spaceRight;
+    self.containerView.spaceRight = spaceRight;
 }
 - (void)setLeftBgColor:(UIColor *)leftBgColor
 {
@@ -120,8 +126,8 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
     [self.leftView updateMenuWithDataArray:dataArr];
 }
 /*
-  更新某个下标数据使用
-*/
+ 更新某个下标数据使用
+ */
 - (void)updateListWistAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuCategoryListModel  *)itemModel
 {
     if (self.dataArray.count==0 || index<0) {
@@ -166,13 +172,13 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
 - (void)verticalMenuTitleView:(CGXVerticalMenuTitleView *)categoryView didScrollerSelectedItemAtIndex:(NSInteger)index
 {
     self.currentInteger = index;
-     self.isClickScroll = NO;
+    self.isClickScroll = NO;
 }
 - (void)verticalMenuTitleView:(CGXVerticalMenuTitleView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
     self.currentInteger = index;
-     self.containerView.isClickScroll = self.isClickScroll;
-     self.containerView.animated = self.scrollAnimated;
+    self.containerView.isClickScroll = self.isClickScroll;
+    self.containerView.animated = self.scrollAnimated;
     [self.containerView reloadDataToItemAtIndex:index];
     if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuView:didSelectedItemAtIndex:)]) {
         [self.delegate verticalMenuView:self didSelectedItemAtIndex:index];

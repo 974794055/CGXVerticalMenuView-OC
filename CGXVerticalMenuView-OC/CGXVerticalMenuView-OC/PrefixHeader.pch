@@ -55,6 +55,10 @@
 #import "CGXRefreshHeader.h"
 #import "CGXRefreshFooter.h"
 #import "CGXRefreshBackFooter.h"
+
+#import "CGXVerticalMenu.h"
+#import "TitleHeaderView.h"
+
 //弱引用/强引用  可配对引用在外面用MPWeakSelf(self)，block用MPStrongSelf(self)  也可以单独引用在外面用MPWeakSelf(self) block里面用weakself
 #define MPWeakSelf(type)  __weak typeof(type) weak##type = type;
 #define MPStrongSelf(type)  __strong typeof(type) type = weak##type;

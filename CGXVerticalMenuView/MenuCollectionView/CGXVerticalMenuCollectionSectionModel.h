@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "CGXVerticalMenuCollectionItemModel.h"
 #import "CGXVerticalMenuRoundModel.h"
+#import "CGXVerticalMenuCustomTextModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CGXVerticalMenuCollectionSectionModel : NSObject
@@ -20,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , assign) NSInteger minimumInteritemSpacing;//默认是10
 @property (nonatomic) UIEdgeInsets insets;//默认是UIEdgeInsetsMake(10, 10, 10, 10);
 @property (nonatomic) UIEdgeInsets borderInsets;//默认是UIEdgeInsetsMake(0, 0, 0, 0);
+
 @property (nonatomic , strong) id footerData;
 @property (nonatomic , assign) CGFloat footerHeight;
 @property (nonatomic , strong) UIColor *footerBgColor;
@@ -27,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , strong) id headerData;
 @property (nonatomic , assign) CGFloat headerHeight;
 @property (nonatomic , strong) UIColor *headerBgColor;
+/*
+ 分区名称 
+ */
+@property (nonatomic , strong) CGXVerticalMenuCustomTextModel *headNameModel;
 
 // 每个分区颜色 默认无色
 @property (nonatomic , strong) UIColor *sectionColor;
