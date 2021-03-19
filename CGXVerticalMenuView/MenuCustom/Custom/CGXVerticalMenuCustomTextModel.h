@@ -15,10 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *text;
 /** 文字label颜色  [UIColor blackColor]; */
 @property (nonatomic, strong) UIColor *textColor;
-/** 文字背景颜 默认无 [UIColor whiteColor]; */
-@property (nonatomic, strong) UIColor *bgColor;
-/** 文字背景颜 默认无 [UIColor whiteColor]; */
-@property (nonatomic, strong) UIColor *bgSelectColor;
+/** 文字背景颜 默认无  */
+@property (nonatomic, strong) UIColor *textBgColor;
 /** 文字字体大小  [UIFont systemFontOfSize:14] */
 @property (nonatomic, strong) UIFont  *textFont;
 /** 文字上间距  默认 0 */

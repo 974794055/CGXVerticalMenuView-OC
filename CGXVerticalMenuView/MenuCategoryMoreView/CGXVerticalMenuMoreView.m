@@ -25,48 +25,37 @@
 @end
 
 @implementation CGXVerticalMenuMoreView
-- (void)willMoveToSuperview:(UIView *)newSuperview {
-    [super willMoveToSuperview:newSuperview];
-    
-    UIResponder *next = newSuperview;
-    while (next != nil) {
-        if ([next isKindOfClass:[UIViewController class]]) {
-            UIViewController *vc = (UIViewController *)next;
-            if (@available(iOS 11.0, *)) {
-                vc.automaticallyAdjustsScrollViewInsets = NO;
-            }
-            break;
-        }
-        next = next.nextResponder;
-    }
-}
-- (instancetype)initWithFrame:(CGRect)frame
+- (void)initializeData
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-       self.leftBgColor = [UIColor colorWithWhite:0.93 alpha:1];;
-       self.rightBgColor = [UIColor whiteColor];
-       self.titleWidth = 100;
-       self.currentInteger = 0;
-        self.leftView = [[CGXVerticalMenuTitleView alloc] initWithFrame:CGRectMake(0, 0, self.titleWidth, CGRectGetHeight(self.bounds))];
-        self.leftView.delegate = self;
-        self.leftView.backgroundColor = self.leftBgColor;
-        [self addSubview:self.leftView];
+    [super initializeData];
+    self.leftBgColor = [UIColor colorWithWhite:0.93 alpha:1];;
+    self.rightBgColor = [UIColor whiteColor];
+    self.titleWidth = 100;
+    self.currentInteger = 0;
+}
+- (void)initializeViews
+{
+    [super initializeViews];
+    
+    self.leftView = [[CGXVerticalMenuTitleView alloc] initWithFrame:CGRectMake(0, 0, self.titleWidth, CGRectGetHeight(self.bounds))];
+    self.leftView.delegate = self;
+    self.leftView.backgroundColor = self.leftBgColor;
+    [self addSubview:self.leftView];
+    
+    CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
+    backgroundView.backgroundViewColor = [UIColor whiteColor];
+    backgroundView.backgroundViewCornerRadius = 0;
+    CGXVerticalMenuIndicatorLineView *lineView = [[CGXVerticalMenuIndicatorLineView alloc] init];
+    lineView.backgroundColor = [UIColor redColor];
+    lineView.positionType = CGXVerticalMenuIndicatorLinePosition_Left;
+    self.leftView.indicators = @[lineView,backgroundView];
+    
+    self.listContainerView = [[CGXVerticalMenuListContainerView alloc] initWithDelegate:self];
+    self.listContainerView.backgroundColor = self.rightBgColor;
+    self.listContainerView.isHorizontal = YES;
+    self.listContainerView.collectionView.scrollEnabled = NO;
+    [self addSubview:self.listContainerView];
 
-        CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
-        backgroundView.backgroundViewColor = [UIColor whiteColor];
-        backgroundView.backgroundViewCornerRadius = 0;
-        CGXVerticalMenuIndicatorLineView *lineView = [[CGXVerticalMenuIndicatorLineView alloc] init];
-        lineView.backgroundColor = [UIColor redColor];
-        lineView.positionType = CGXVerticalMenuIndicatorLinePosition_Left;
-        self.leftView.indicators = @[lineView,backgroundView];
-
-        self.listContainerView = [[CGXVerticalMenuListContainerView alloc] initWithType:CGXVerticalMenuListContainerType_CollectionView delegate:self];
-        self.listContainerView.isHorizontal = YES;
-        self.listContainerView.scrollView.scrollEnabled = NO;
-        [self addSubview:self.listContainerView];
-    }
-    return self;
 }
 - (void)layoutSubviews
 {
@@ -74,6 +63,7 @@
     
     self.leftView.frame = CGRectMake(0, 0, self.titleWidth, CGRectGetHeight(self.frame));
     self.listContainerView.frame = CGRectMake(self.titleWidth, 0, CGRectGetWidth(self.frame)-self.titleWidth, CGRectGetHeight(self.frame));;
+    [self reloadData];
 }
 
 - (NSMutableArray<CGXVerticalMenuMoreListModel *> *)dataArray
@@ -109,6 +99,20 @@
         [self.delegate verticalMenuMoreView:self didSelectedItemAtIndex:index];
     }
     [self.listContainerView scrollSelectedItemAtIndex:index];
+}
+/**
+ 正在滚动中的回调
+ @param categoryView categoryView对象
+ @param leftIndex 正在滚动中，相对位置处于左边的index
+ @param rightIndex 正在滚动中，相对位置处于右边的index
+ @param ratio 从左往右计算的百分比
+ */
+- (void)verticalMenuTitleView:(CGXVerticalMenuTitleView *)categoryView
+       scrollingFromLeftIndex:(NSInteger)leftIndex
+                 toRightIndex:(NSInteger)rightIndex
+                        ratio:(CGFloat)ratio
+{
+    
 }
 - (NSInteger)numberOfListsInlistContainerView:(CGXVerticalMenuListContainerView *)listContainerView
 {
@@ -205,6 +209,7 @@
         [dataArr addObject:itemModel];
     }
     [self.leftView updateMenuWithDataArray:dataArr];
+    [self.listContainerView reloadData];
 }
 /*
   更新某个下标数据使用

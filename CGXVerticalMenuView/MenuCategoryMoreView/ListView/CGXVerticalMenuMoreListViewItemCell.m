@@ -100,12 +100,12 @@
     self.hotImageLeft.constant = 0;;
     self.hotImageRight.constant = 0;
     self.hotImageBottom.constant = 0;
-
+    
     self.hotTitleHeight.constant = titleHeight;
     self.hotTitleleft.constant = 0;
     self.hotTitleRight.constant = 0;
     self.hotTitleBottom.constant = 0;
-
+    
     self.titleLabel.hidden = YES;
     if (titleHeight > 0) {
         self.titleLabel.hidden = NO;
@@ -122,21 +122,23 @@
             model.menu_ImageCallback(weakSelf.urlImageView, [NSURL URLWithString:model.itemUrlStr]);
         }
     } else{
-        UIImage *image = [UIImage imageNamed:model.itemUrlStr];
-        if (!image) {
-            image = [UIImage imageWithContentsOfFile:model.itemUrlStr];
-            self.urlImageView.image = image;
+        if (model.itemUrlStr) {
+            UIImage *image = [UIImage imageNamed:model.itemUrlStr];
+            if (!image) {
+                image = [UIImage imageWithContentsOfFile:model.itemUrlStr];
+                self.urlImageView.image = image;
+            }
         }
         if (model.menu_ImageCallback) {
             model.menu_ImageCallback(weakSelf.urlImageView, [NSURL URLWithString:@""]);
         }
         
     }
-
+    
     self.titleLabel.text = model.itemText;
     self.titleLabel.textColor = model.itemColor;
     self.titleLabel.font = model.itemFont;
     self.titleLabel.numberOfLines = model.numberOfLines;
-
+    
 }
 @end

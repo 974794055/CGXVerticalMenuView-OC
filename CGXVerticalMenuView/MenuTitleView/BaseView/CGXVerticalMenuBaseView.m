@@ -7,7 +7,7 @@
 //
 
 #import "CGXVerticalMenuBaseView.h"
-
+#import "CGXVerticalMenuBaseCell.h"
 @interface CGXVerticalMenuBaseView()
 
 @property (nonatomic, strong,readwrite) CGXVerticalMenuIndicatoCollectionView *collectionView;

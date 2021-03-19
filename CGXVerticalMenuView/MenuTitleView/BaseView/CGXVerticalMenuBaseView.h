@@ -10,7 +10,7 @@
 #import "CGXVerticalMenuIndicatoCollectionView.h"
 #import "CGXVerticalMenuViewDefines.h"
 #import "CGXVerticalMenuBaseModel.h"
-#import "CGXVerticalMenuBaseCell.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, CGXVerticalMenuBaseViewSelectType) {

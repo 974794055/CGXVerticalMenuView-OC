@@ -13,7 +13,6 @@
 @property (nonatomic , strong) CGXVerticalMenuMoreListSectionItemModel *model;
 
 
-
 @end
 @implementation MoreViewCell
 

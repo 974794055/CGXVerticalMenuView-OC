@@ -27,7 +27,7 @@
 		B57FDE4D250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B57FDE4C250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec */; };
 		B5892EA025EB585400FB677D /* CustomTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5892E9E25EB585400FB677D /* CustomTitleView.m */; };
 		B589A99B25F1143C0008B6EA /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B589A99A25F1143C0008B6EA /* MoreViewController.m */; };
-		B589A9A625F1174B0008B6EA /* ListOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B589A9A525F1174B0008B6EA /* ListOneViewController.m */; };
+		B58CBD9E2603817600269679 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B58CBD9D2603817600269679 /* CustomCollectionViewCell.m */; };
 		B5F6AE982600E53800BFF1D4 /* MoreViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F6AE972600E53800BFF1D4 /* MoreViewCell.m */; };
 		B5F6AEB02600F3E900BFF1D4 /* MoreSectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F6AEAF2600F3E900BFF1D4 /* MoreSectionHeadView.m */; };
 		B5F6AEB42600F3F700BFF1D4 /* MoreSectionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F6AEB32600F3F700BFF1D4 /* MoreSectionFootView.m */; };
@@ -69,9 +69,9 @@
 		B5892E9F25EB585400FB677D /* CustomTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTitleView.h; sourceTree = "<group>"; };
 		B589A99925F1143C0008B6EA /* MoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		B589A99A25F1143C0008B6EA /* MoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
-		B589A9A425F1174B0008B6EA /* ListOneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListOneViewController.h; sourceTree = "<group>"; };
-		B589A9A525F1174B0008B6EA /* ListOneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListOneViewController.m; sourceTree = "<group>"; };
-		B5F6AE962600E53700BFF1D4 /* MoreViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewCell.h; sourceTree = "<group>"; };
+		B58CBD9A26037E8200269679 /* MoreViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewCell.h; sourceTree = "<group>"; };
+		B58CBD9C2603817600269679 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		B58CBD9D2603817600269679 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
 		B5F6AE972600E53800BFF1D4 /* MoreViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewCell.m; sourceTree = "<group>"; };
 		B5F6AEAE2600F3E900BFF1D4 /* MoreSectionHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreSectionHeadView.h; sourceTree = "<group>"; };
 		B5F6AEAF2600F3E900BFF1D4 /* MoreSectionHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreSectionHeadView.m; sourceTree = "<group>"; };
@@ -135,20 +135,9 @@
 				9E3F0A30233115B50098DDA8 /* ThreeViewController.m */,
 				B589A99925F1143C0008B6EA /* MoreViewController.h */,
 				B589A99A25F1143C0008B6EA /* MoreViewController.m */,
-				B5F6AE962600E53700BFF1D4 /* MoreViewCell.h */,
-				B5F6AE972600E53800BFF1D4 /* MoreViewCell.m */,
-				B5F6AEAE2600F3E900BFF1D4 /* MoreSectionHeadView.h */,
-				B5F6AEAF2600F3E900BFF1D4 /* MoreSectionHeadView.m */,
-				B5F6AEB22600F3F700BFF1D4 /* MoreSectionFootView.h */,
-				B5F6AEB32600F3F700BFF1D4 /* MoreSectionFootView.m */,
-				B589A9A425F1174B0008B6EA /* ListOneViewController.h */,
-				B589A9A525F1174B0008B6EA /* ListOneViewController.m */,
 				0440E29C232F1BC600E93144 /* TitleViewController.h */,
 				0440E29F232F1BC600E93144 /* TitleViewController.m */,
-				0440E29E232F1BC600E93144 /* TitleHeaderView.h */,
-				0440E29D232F1BC600E93144 /* TitleHeaderView.m */,
-				B5892E9F25EB585400FB677D /* CustomTitleView.h */,
-				B5892E9E25EB585400FB677D /* CustomTitleView.m */,
+				B56E5F182604F42800E829D0 /* CustomView */,
 				9E4337A5233679F800F4DEB4 /* CGXRefreshHeader */,
 				04B370D1232A27D700DDB62F /* Main.storyboard */,
 				04B3710B232A363100DDB62F /* PrefixHeader.pch */,
@@ -180,6 +169,25 @@
 				9EB89E7F2337060300A58483 /* CGXRefreshBackFooter.m */,
 			);
 			path = CGXRefreshHeader;
+			sourceTree = "<group>";
+		};
+		B56E5F182604F42800E829D0 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				B58CBD9A26037E8200269679 /* MoreViewCell.h */,
+				B5F6AE972600E53800BFF1D4 /* MoreViewCell.m */,
+				B58CBD9C2603817600269679 /* CustomCollectionViewCell.h */,
+				B58CBD9D2603817600269679 /* CustomCollectionViewCell.m */,
+				B5F6AEAE2600F3E900BFF1D4 /* MoreSectionHeadView.h */,
+				B5F6AEAF2600F3E900BFF1D4 /* MoreSectionHeadView.m */,
+				B5F6AEB22600F3F700BFF1D4 /* MoreSectionFootView.h */,
+				B5F6AEB32600F3F700BFF1D4 /* MoreSectionFootView.m */,
+				0440E29E232F1BC600E93144 /* TitleHeaderView.h */,
+				0440E29D232F1BC600E93144 /* TitleHeaderView.m */,
+				B5892E9F25EB585400FB677D /* CustomTitleView.h */,
+				B5892E9E25EB585400FB677D /* CustomTitleView.m */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		B57FDE43250FB5D80054A11E /* Podspec Metadata */ = {
@@ -324,8 +332,8 @@
 				0440E2A1232F1BC700E93144 /* TitleViewController.m in Sources */,
 				0440E2A0232F1BC700E93144 /* TitleHeaderView.m in Sources */,
 				9E3F0A37233116DC0098DDA8 /* TwoViewController.m in Sources */,
+				B58CBD9E2603817600269679 /* CustomCollectionViewCell.m in Sources */,
 				04B370CD232A27D700DDB62F /* AppDelegate.m in Sources */,
-				B589A9A625F1174B0008B6EA /* ListOneViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

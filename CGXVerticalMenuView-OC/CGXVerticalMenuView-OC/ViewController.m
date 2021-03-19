@@ -31,10 +31,11 @@
     self.dataArray =  [NSMutableArray array];
     
     [self creatTableView];
-    self.dataArray = [NSMutableArray arrayWithObjects:@"不联动，点击左侧切换右侧",
-                      @"联动",
-                      @"UITableview联动",
-                      @"UICollectionView联动",
+    self.dataArray = [NSMutableArray arrayWithObjects:
+                      @"不联动，点击左侧切换右侧",
+                      @"联动，点击左侧切换右侧",
+                      @"UICollectionView单列联动",
+                      @"UICollectionView多列联动",
                       nil];
     [self.tableView reloadData];
     
@@ -44,7 +45,7 @@
     UITableView *myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kVCHeight) style:UITableViewStyleGrouped];
     myTableView.dataSource = self;
     myTableView.delegate = self;
-    //    [myTableView  setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [myTableView  setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     myTableView.estimatedRowHeight = 0;
     myTableView.backgroundColor = [UIColor whiteColor];
     myTableView.estimatedSectionFooterHeight  = 0;

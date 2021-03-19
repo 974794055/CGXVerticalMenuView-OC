@@ -9,6 +9,7 @@
 #import "CGXVerticalMenuCollectionView.h"
 #import "CGXVerticalMenuRoundFlowLayout.h"
 #import "CGXVerticalMenuCollectionSectionTextView.h"
+#import "CGXVerticalMenuCollectionCell.h"
 @interface CGXVerticalMenuCollectionView()<CGXVerticalMenuRoundFlowLayoutDelegate>
 
 @property (nonatomic, strong,readwrite) NSMutableArray <CGXVerticalMenuCollectionSectionModel *> *dataArray;
@@ -144,7 +145,7 @@
         [view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [obj removeFromSuperview];
         }];
-        if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(categoryRightView:KindHeadAtIndexPath:)]) {
+        if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(categoryRightView:KindHeadAtIndexPath:)] && [self.dataSouce categoryRightView:self KindHeadAtIndexPath:indexPath]) {
             UICollectionReusableView *headerView =[self.dataSouce categoryRightView:self KindHeadAtIndexPath:indexPath];
             CGRect frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
             if (view.frame.size.height > sectionModel.borderInsets.top) {
@@ -171,7 +172,6 @@
                 frame.size.width = view.frame.size.width-sectionModel.borderInsets.left-sectionModel.borderInsets.right;
             }
             textView.frame = frame;
-            
             textView.backgroundColor = sectionModel.headerBgColor;
             [textView updateWithTextModel:sectionModel.headNameModel];
             [view addSubview:textView];
@@ -182,7 +182,7 @@
         [view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [obj removeFromSuperview];
         }];
-        if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(categoryRightView:KindFootAtIndexPath:)]) {
+        if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(categoryRightView:KindFootAtIndexPath:)] && [self.dataSouce categoryRightView:self KindFootAtIndexPath:indexPath]) {
             UICollectionReusableView *footerView = [self.dataSouce categoryRightView:self KindFootAtIndexPath:indexPath];
             CGRect frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
             if (view.frame.size.height > sectionModel.borderInsets.bottom) {
@@ -272,7 +272,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(categoryRightView:cellForItemAtIndexPath:)]) {
+    if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(categoryRightView:cellForItemAtIndexPath:)] && [self.dataSouce categoryRightView:self cellForItemAtIndexPath:indexPath]) {
         return [self.dataSouce categoryRightView:self cellForItemAtIndexPath:indexPath];
     }
     CGXVerticalMenuCollectionCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionCell class]) forIndexPath:indexPath];
@@ -357,7 +357,15 @@
 
 
 
-
+- (void)setDataSouce:(id<CGXVerticalMenuCollectionViewDataSouce>)dataSouce
+{
+    _dataSouce = dataSouce;
+    if ([self.dataSouce respondsToSelector:@selector(customcategoryRightViewCollectionViewCellClass)] && [self.dataSouce customcategoryRightViewCollectionViewCellClass]) {
+        [self registerCell:[self.dataSouce customcategoryRightViewCollectionViewCellClass] IsXib:NO];
+    }else if ([self.dataSouce respondsToSelector:@selector(customcategoryRightViewCollectionViewCellNib)] && [self.dataSouce customcategoryRightViewCollectionViewCellNib]) {
+        [self registerCell:[self.dataSouce customcategoryRightViewCollectionViewCellNib] IsXib:YES];
+    }
+}
 - (void)dealloc
 {
     if (self.collectionView) {

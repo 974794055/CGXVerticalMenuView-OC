@@ -12,9 +12,12 @@
 #import "CGXVerticalMenuMoreListTitleView.h"
 
 @interface CGXVerticalMenuMoreListView ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate,CGXVerticalMenuMoreListViewCellDelegate>
-
+{
+    CGSize imageSize;
+}
 @property (strong ,nonatomic) UITableView *mainTable;
-
+@property (strong ,nonatomic) UIView *headerView;
+@property (strong ,nonatomic) UIImageView *ppImageView;
 @property (strong ,nonatomic) CGXVerticalMenuMoreListTitleView *titleView;
 @property (nonatomic , assign) NSInteger selectedIndex;
 @property (nonatomic , assign) NSInteger selectedTitleIndex;
@@ -34,85 +37,46 @@
         self.selectedIndex = 0;
         self.selectedTitleIndex = 0;
         self.dataArray = [NSMutableArray array];
-        _mainTable = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+        _mainTable = [[UITableView alloc] initWithFrame:self.bounds style:UITableViewStylePlain];
         _mainTable.delegate = self;
         _mainTable.dataSource = self;
         _mainTable.bounces = YES;
         _mainTable.alwaysBounceVertical = YES;
         _mainTable.showsVerticalScrollIndicator = YES;
         _mainTable.showsHorizontalScrollIndicator = NO;
+        _mainTable.tableHeaderView = [[UIView alloc] init];
+        _mainTable.tableFooterView = [[UIView alloc] init];
         [_mainTable registerClass:[CGXVerticalMenuMoreListViewCell class] forCellReuseIdentifier:NSStringFromClass([CGXVerticalMenuMoreListViewCell class])];
         [self addSubview:_mainTable];
+        [_mainTable reloadData];
+
     }
     return self;
 }
-
-- (void)layoutSubviews
+- (void)setListDelegate:(id<CGXVerticalMenuMoreListViewDelegate>)listDelegate
 {
-    [super layoutSubviews];
-    _mainTable.frame = self.bounds;
-    _mainTable.backgroundColor = self.backgroundColor;
-    
+    _listDelegate = listDelegate;
+ 
+}
+- (void)refreshHeaderView
+{
     if (self.listDelegate && [self.listDelegate respondsToSelector:@selector(verticalMenuMoreListView:HeaderAtIndex:)] && [self.listDelegate verticalMenuMoreListView:self HeaderAtIndex:self.selectedIndex]) {
-        UIView *headerView = [self.listDelegate verticalMenuMoreListView:self HeaderAtIndex:self.selectedIndex];
-        headerView.backgroundColor = self.listModel.headColor;
-        self.mainTable.tableHeaderView = headerView;
+        self.headerView = [self.listDelegate verticalMenuMoreListView:self HeaderAtIndex:self.selectedIndex];
+        self.headerView.backgroundColor = self.listModel.headColor;
+        self.mainTable.tableHeaderView = self.headerView;
     } else{
-        UIView *headerView = [[UIView alloc] init];
-        headerView.backgroundColor = self.listModel.headColor;
-        UIImageView *ppImageView = [[UIImageView alloc] init];
-        ppImageView.contentMode = UIViewContentModeScaleAspectFit;
-        ppImageView.layer.masksToBounds = YES;
-        ppImageView.clipsToBounds = YES;
-        ppImageView.layer.borderColor = [self.listModel.headBorderColor CGColor];
-        ppImageView.layer.borderWidth = self.listModel.headBorderWidth;
-        ppImageView.layer.cornerRadius = self.listModel.headCornerRadius;
-        [headerView addSubview:ppImageView];
-        CGSize imageSize;
-        if ([self.listModel.headUrl hasPrefix:@"http:"] || [self.listModel.headUrl hasPrefix:@"https:"]) {
-            NSURL *url = [NSURL URLWithString:self.listModel.headUrl];
-           __block BOOL open = NO;
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-            [request setHTTPMethod:@"HEAD"];
-            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-            NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                if (error) {
-                    open = NO;
-                }else{
-                    open = YES;
-                }
-            }];
-            [task resume];
-            
-            if (open) {
-                NSData *data = [NSData dataWithContentsOfURL:url];
-                UIImage *image = [UIImage imageWithData:data];
-                imageSize = image.size;
-                if (self.menu_ImageCallback) {
-                    self.menu_ImageCallback(ppImageView, url);
-                }
-            }
-        } else{
-            UIImage *image = [UIImage imageNamed:self.listModel.headUrl];
-            if (!image) {
-                image = [UIImage imageWithContentsOfFile:self.listModel.headUrl];
-                ppImageView.image = image;
-            }
-            imageSize = image.size;
-            if (self.menu_ImageCallback) {
-                self.menu_ImageCallback(ppImageView, [NSURL URLWithString:@""]);
-            }
-        }
-        if (imageSize.width > 0 && imageSize.height > 0) {
-            CGFloat width = CGRectGetWidth(self.frame)-self.listModel.headEdgeInsets.left-self.listModel.headEdgeInsets.right;
-            CGFloat height = ceil(imageSize.height / imageSize.width * width);
-            
-            ppImageView.frame = CGRectMake(self.listModel.headEdgeInsets.left, self.listModel.headEdgeInsets.top, CGRectGetWidth(self.frame)-self.listModel.headEdgeInsets.left-self.listModel.headEdgeInsets.right, height);
-            headerView.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), height+self.listModel.headEdgeInsets.top+self.listModel.headEdgeInsets.bottom);
-        }
-        self.mainTable.tableHeaderView = headerView;
+        self.headerView = [[UIView alloc] init];
+        self.headerView.backgroundColor = self.listModel.headColor;
+        self.ppImageView = [[UIImageView alloc] init];
+        self.ppImageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.ppImageView.layer.masksToBounds = YES;
+        self.ppImageView.clipsToBounds = YES;
+        self.ppImageView.layer.borderColor = [self.listModel.headBorderColor CGColor];
+        self.ppImageView.layer.borderWidth = self.listModel.headBorderWidth;
+        self.ppImageView.layer.cornerRadius = self.listModel.headCornerRadius;
+        [self.headerView addSubview:self.ppImageView];
+        self.mainTable.tableHeaderView = self.headerView;
     }
-    
     if (self.listDelegate && [self.listDelegate respondsToSelector:@selector(verticalMenuMoreListView:FooterAtIndex:)] && [self.listDelegate verticalMenuMoreListView:self FooterAtIndex:self.selectedIndex]) {
         UIView *footerView = [self.listDelegate verticalMenuMoreListView:self FooterAtIndex:self.selectedIndex];
         footerView.backgroundColor = self.backgroundColor;
@@ -120,7 +84,54 @@
     } else{
         _mainTable.tableFooterView = [UIView new];
     }
+}
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    _mainTable.frame = self.bounds;
+    _mainTable.backgroundColor = self.backgroundColor;
+
+    if ([self.listModel.headUrl hasPrefix:@"http:"] || [self.listModel.headUrl hasPrefix:@"https:"]) {
+        NSURL *url = [NSURL URLWithString:self.listModel.headUrl];
+       __block BOOL open = NO;
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        [request setHTTPMethod:@"HEAD"];
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if (error) {
+                open = NO;
+            }else{
+                open = YES;
+            }
+        }];
+        [task resume];
+        if (open) {
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            UIImage *image = [UIImage imageWithData:data];
+            imageSize = image.size;
+            if (self.menu_ImageCallback) {
+                self.menu_ImageCallback(self.ppImageView, url);
+            }
+        }
+    } else{
+        UIImage *image = [UIImage imageNamed:self.listModel.headUrl];
+        if (!image) {
+            image = [UIImage imageWithContentsOfFile:self.listModel.headUrl];
+            self.ppImageView.image = image;
+        }
+        imageSize = image.size;
+        if (self.menu_ImageCallback) {
+            self.menu_ImageCallback(self.ppImageView, [NSURL URLWithString:@""]);
+        }
+    }
+    if (imageSize.width > 0 && imageSize.height > 0) {
+        CGFloat width = CGRectGetWidth(_mainTable.frame)-self.listModel.headEdgeInsets.left-self.listModel.headEdgeInsets.right;
+        CGFloat height = ceil(imageSize.height / imageSize.width * width);
+        self.ppImageView.frame = CGRectMake(self.listModel.headEdgeInsets.left, self.listModel.headEdgeInsets.top, CGRectGetWidth(self.frame)-self.listModel.headEdgeInsets.left-self.listModel.headEdgeInsets.right, height);
+        self.headerView.frame = CGRectMake(0, 0, CGRectGetWidth(_mainTable.frame), height+self.listModel.headEdgeInsets.top+self.listModel.headEdgeInsets.bottom);
+    }
     [_mainTable reloadData];
+    
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -179,7 +190,7 @@
         [headerView.contentView addSubview:titleView];
         NSMutableArray *titieArr = [NSMutableArray array];
         for (CGXVerticalMenuMoreListSectionModel *listM in self.dataArray) {
-            [titieArr addObject:listM.headerText];
+            [titieArr addObject:listM.headNameModel.text];
         }
         [titleView updateDataTitieArray:titieArr TitleModel:self.listModel.titleModel Inter:self.selectedTitleIndex];
         titleView.titieSelectBlock = ^(NSInteger integer) {
@@ -201,6 +212,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CGXVerticalMenuMoreListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([CGXVerticalMenuMoreListViewCell class]) forIndexPath:indexPath];
+    cell.contentView.backgroundColor = tableView.backgroundColor;
     CGXVerticalMenuMoreListSectionModel *listModel = self.dataArray[indexPath.row];
     [cell updateWithListModel:listModel];
     cell.delegate = self;
@@ -296,6 +308,7 @@
     [self.dataArray removeAllObjects];
     [self.dataArray addObjectsFromArray:listModel.dataArray];
     [self.mainTable reloadData];
+    [self refreshHeaderView];
 }
 
 @end

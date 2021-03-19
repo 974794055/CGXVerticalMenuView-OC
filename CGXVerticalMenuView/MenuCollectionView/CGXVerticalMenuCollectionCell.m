@@ -123,10 +123,12 @@
             model.menu_ImageCallback(weakSelf.urlImageView, [NSURL URLWithString:model.itemUrlStr]);
         }
     } else{
-        UIImage *image = [UIImage imageNamed:model.itemUrlStr];
-        if (!image) {
-            image = [UIImage imageWithContentsOfFile:model.itemUrlStr];
-            self.urlImageView.image = image;
+        if (model.itemUrlStr) {
+            UIImage *image = [UIImage imageNamed:model.itemUrlStr];
+            if (!image) {
+                image = [UIImage imageWithContentsOfFile:model.itemUrlStr];
+                self.urlImageView.image = image;
+            }
         }
         if (model.menu_ImageCallback) {
             model.menu_ImageCallback(weakSelf.urlImageView, [NSURL URLWithString:@""]);

@@ -38,7 +38,7 @@
     self.titleLabel.layer.borderWidth = textModel.borderWidth;
     self.titleLabel.layer.borderColor = textModel.borderColor.CGColor;
     self.titleLabel.layer.cornerRadius = textModel.borderRadius;
-    self.titleLabel.backgroundColor = textModel.bgColor;
+    self.titleLabel.backgroundColor = textModel.textBgColor;
     
     NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.titleLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:textModel.spaceTop];
     NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.titleLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:textModel.spaceLeft];

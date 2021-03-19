@@ -17,9 +17,7 @@
      self = [super init];
     if (self) {
         self.textColor = [UIColor blackColor];
-        self.bgColor = [[UIColor whiteColor] colorWithAlphaComponent:0];;
-        self.bgSelectColor = [[UIColor whiteColor] colorWithAlphaComponent:0];;
-        
+        self.textBgColor = [[UIColor whiteColor] colorWithAlphaComponent:0];;
         self.textFont = [UIFont systemFontOfSize:14];
         self.spaceLeft = 10;
         self.spaceRight = 10;

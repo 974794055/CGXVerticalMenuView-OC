@@ -51,14 +51,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIView *)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView AtIndex:(NSInteger)index KindFootAtIndexPath:(NSIndexPath *)indexPath;
 
 /** 左侧点击
- 点击选中、滚动选中的情况才会调用该方法
  @param moreView categoryView description
  @param index 选中的index
  */
 - (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView didSelectedItemAtIndex:(NSInteger)index;
 
 /**  右侧点击
- 点击选中、滚动选中的情况才会调用该方法
  @param moreView categoryView description
  @param indexPath 选中的indexPath
  */

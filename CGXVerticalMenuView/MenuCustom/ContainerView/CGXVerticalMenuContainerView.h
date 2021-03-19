@@ -53,6 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)reloadDataToItemAtIndex:(NSInteger)integer;
 
+- (void)reloadData;
+
 @end
 
 NS_ASSUME_NONNULL_END

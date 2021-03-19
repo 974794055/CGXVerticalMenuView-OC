@@ -81,7 +81,8 @@
             sectionModel.rowCount = 3;
             sectionModel.insets = UIEdgeInsetsMake(10, 10, 10, 10);;
             sectionModel.borderInsets = UIEdgeInsetsMake(10, 10, 10, 10);;
-            sectionModel.headerText = [NSString stringWithFormat:@"%@-%d",titleArr[i],j];
+            
+            sectionModel.headNameModel.text = [NSString stringWithFormat:@"%@-%d",titleArr[i],j];
             
             
             sectionModel.roundModel.backgroundColor = APPRandomColor;
@@ -193,17 +194,16 @@
 }
 
 /** 左侧点击
- 点击选中、滚动选中的情况才会调用该方法
  @param moreView categoryView description
  @param index 选中的index
  */
 - (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView didSelectedItemAtIndex:(NSInteger)index
 {
     NSLog(@"didSelectedItemAtIndex--:%ld",index);
+    
 }
 
 /**  右侧点击
- 点击选中、滚动选中的情况才会调用该方法
  @param moreView categoryView description
  @param indexPath 选中的indexPath
  */

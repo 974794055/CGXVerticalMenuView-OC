@@ -33,7 +33,7 @@
     self.currentInteger = 0;
     self.spaceLeft = 0;
     self.spaceRight = 0;
-   self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
+    self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
@@ -44,7 +44,7 @@
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.pagingEnabled = YES;
     self.collectionView.scrollsToTop = NO;
-     self.collectionView.scrollEnabled = NO;
+    self.collectionView.scrollEnabled = NO;
     self.collectionView.bounces = NO;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -61,7 +61,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-     self.collectionView.frame = self.bounds;
+    self.collectionView.frame = self.bounds;
     if (!CGRectEqualToRect(self.collectionView.frame, self.bounds)) {
         self.collectionView.frame = self.bounds;
         [self.collectionView.collectionViewLayout invalidateLayout];
@@ -76,20 +76,6 @@
     }
 }
 
-- (void)reloadDataToItemAtIndex:(NSInteger)integer
-{
-     [self.collectionView reloadData];
-    
-    if (self.dataSouce == nil) {
-        return;
-    }
-    if (integer >= [self.dataSouce numberOfRowsInListContainerView:self]) {
-        return;
-    }
-    self.currentInteger = integer;
-    [self.collectionView reloadData];
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentInteger inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:(self.isClickScroll ? NO:self.animated)];
-}
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
@@ -107,20 +93,20 @@
         [view removeFromSuperview];
     }
     UIView *listView = [self.dataSouce verticalListContainerView:self listViewInRow:indexPath.item];
-    listView.frame = CGRectMake(self.spaceLeft, 0,  cell.bounds.size.width-self.spaceLeft-self.spaceRight, cell.bounds.size.height);
+    listView.frame = CGRectMake(self.spaceLeft, 0,  cell.contentView.bounds.size.width-self.spaceLeft-self.spaceRight, cell.contentView.bounds.size.height);
     [cell.contentView addSubview:listView];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.delegate && [self.delegate respondsToSelector:@selector(verticalListContainerView:willDisplayCellAtRow:)]) {
-    [self.delegate verticalListContainerView:self willDisplayCellAtRow:indexPath.item];
+        [self.delegate verticalListContainerView:self willDisplayCellAtRow:indexPath.item];
     }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.delegate && [self.delegate respondsToSelector:@selector(verticalListContainerView:didEndDisplayingCellAtRow:)]) {
-    [self.delegate verticalListContainerView:self didEndDisplayingCellAtRow:indexPath.item];
+        [self.delegate verticalListContainerView:self didEndDisplayingCellAtRow:indexPath.item];
     }
 }
 
@@ -130,13 +116,30 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return self.bounds.size;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)reloadDataToItemAtIndex:(NSInteger)integer
+{
+    [self.collectionView reloadData];
+    
+    if (self.dataSouce == nil) {
+        return;
+    }
+    if (integer >= [self.dataSouce numberOfRowsInListContainerView:self]) {
+        return;
+    }
+    self.currentInteger = integer;
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentInteger inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:(self.isClickScroll ? NO:self.animated)];
+    [self.collectionView reloadData];
 }
-*/
+- (void)reloadData
+{
+    [self.collectionView reloadData];
+}
+/*
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end

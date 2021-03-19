@@ -23,6 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @optional
+/** 如果你需要自定义cell样式，请在实现此代理方法返回你的自定义cell的class。 */
+- (Class)verticalMenuViewCustomCollectionViewCellClass;
+
+/** 如果你需要自定义cell样式，请在实现此代理方法返回你的自定义cell的Nib。 */
+- (Class)verticalMenuViewCustomCollectionViewCellNib;
+
 /** 右侧自定义cell样式
  @param categoryView categoryView description
  @param row 选中的row
@@ -57,14 +63,12 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 /** 左侧点击
- 点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param index 选中的index
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemAtIndex:(NSInteger)index;
 
 /**  右侧点击
- 点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param indexPath 选中的indexPath
  */
@@ -77,32 +81,27 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectDecorationViewAtIndexPath:(NSIndexPath *)indexPath;
 /**  将要显示
- 点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param row 选中的row
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView willDisplayCellAtRow:(NSInteger)row;
 /**  将要消失
- 点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param row 选中的row
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didEndDisplayingCellAtRow:(NSInteger)row;
 
 /**  将要显示的右侧分区
- 点击选中、滚动选中的情况才会调用该方法
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView willDisplaViewElementKind:(NSString *)elementKind
    atIndexPath:(NSIndexPath *)indexPath;
 
 /**  将要消失的右侧分区
- 点击选中、滚动选中的情况才会调用该方法
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didEndDisplayingElementKind:(NSString *)elementKind
    atIndexPath:(NSIndexPath *)indexPath;
 
 /**  右侧自定义下拉view
- 点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param scrollView 右侧滚动的view
  @param row 选中的row 左侧选中的下标
@@ -130,6 +129,8 @@ NS_ASSUME_NONNULL_BEGIN
   更新某个下标数据使用
 */
 - (void)updateListWistAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuCategoryListModel  *)itemModel;
+
+- (void)reloadData;
 
 /* 左侧背景 */
 @property (nonatomic , strong) UIColor *leftBgColor;

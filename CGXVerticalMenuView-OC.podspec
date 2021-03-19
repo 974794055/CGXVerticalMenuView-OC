@@ -56,10 +56,7 @@ s.subspec 'MenuCategoryMoreView' do |ss|
       sss.dependency 'CGXVerticalMenuView-OC/MenuTitleView'
       sss.dependency 'CGXVerticalMenuView-OC/MenuCollectionView'
    end
-
-   
 end
-
 
 end
 

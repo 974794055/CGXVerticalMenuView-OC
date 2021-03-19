@@ -7,9 +7,9 @@
 //
 
 #import "CGXVerticalMenuMoreListViewCell.h"
-#import "CGXVerticalMenuMoreListViewHeaderView.h"
 #import "CGXVerticalMenuMoreListViewItemCell.h"
 #import "CGXVerticalMenuRoundFlowLayout.h"
+#import "CGXVerticalMenuCollectionSectionTextView.h"
 @interface CGXVerticalMenuMoreListViewCell()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CGXVerticalMenuRoundFlowLayoutDelegate>
 
 @property (nonatomic , strong) UICollectionView *collectionView;
@@ -42,7 +42,7 @@
         //给collection注册脚分区的id
         [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([UICollectionReusableView class])];
         
-        [self.collectionView registerClass:[CGXVerticalMenuMoreListViewHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([CGXVerticalMenuMoreListViewHeaderView class])];
+        [self.collectionView registerClass:[CGXVerticalMenuCollectionSectionTextView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionSectionTextView class])];
         if (@available(iOS 11.0, *)) {
             self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
@@ -139,7 +139,7 @@
             view.backgroundColor = self.listModel.headerBgColor;
             [headView addSubview:view];
         } else{
-            CGXVerticalMenuMoreListViewHeaderView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass([CGXVerticalMenuMoreListViewHeaderView class]) forIndexPath:indexPath];
+            CGXVerticalMenuCollectionSectionTextView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionSectionTextView class]) forIndexPath:indexPath];
             CGRect frame = CGRectMake(0, 0, headView.frame.size.width, headView.frame.size.height);
             if (self.listModel.roundModel.isCalculateHeader) {
                 frame.origin.y = self.listModel.borderInsets.top;
@@ -149,7 +149,7 @@
             }
             view.frame = frame;
             view.backgroundColor = self.listModel.headerBgColor;
-            [view updateWithSectionModel:self.listModel];
+            [view updateWithTextModel:self.listModel.headNameModel];
             [headView addSubview:view];
         }
         return headView;
@@ -232,8 +232,7 @@
 - (void)updateWithListModel:(CGXVerticalMenuMoreListSectionModel *)listModel
 {
     self.listModel = listModel;
-    self.contentView.backgroundColor = listModel.sectionColor;
-    self.collectionView.backgroundColor = listModel.sectionColor;
+    self.collectionView.backgroundColor = listModel.roundModel.backgroundColor;
     [self.collectionView reloadData];
 }
 - (void)awakeFromNib {

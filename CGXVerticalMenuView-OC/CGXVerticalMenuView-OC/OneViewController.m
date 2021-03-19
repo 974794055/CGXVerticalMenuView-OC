@@ -9,7 +9,7 @@
 #import "OneViewController.h"
 
 
-
+#import "CustomCollectionViewCell.h"
 
 @interface OneViewController ()<CGXVerticalMenuCategoryViewDelegate,CGXVerticalMenuCategoryViewDataSouce>
 
@@ -17,6 +17,8 @@
 @property (nonatomic , strong) CGXVerticalMenuCategoryView *menuView;
 
 @property (nonatomic , assign) BOOL sectionClick;
+
+@property (nonatomic, assign) BOOL selectBO;
 
 @end
 
@@ -30,7 +32,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.sectionClick = NO;
-    
+    self.selectBO = NO;
     self.menuView = [[CGXVerticalMenuCategoryView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kSafeVCHeight)];
     self.menuView.backgroundColor = [UIColor whiteColor];
     self.menuView.delegate = self;
@@ -62,67 +64,72 @@
         itemModel.titleFont = [UIFont systemFontOfSize:14];
         itemModel.titleSelectedFont = [UIFont systemFontOfSize:18];
         listModel.leftModel = itemModel;
-        listModel.rightArray = [self rightDataArr];
+        
+        NSMutableArray *dataRightArr = [NSMutableArray array];
+        for (int j = 0; j<arc4random() % 6 + 6; j++) {
+            CGXVerticalMenuCollectionSectionModel *sectionModel = [[CGXVerticalMenuCollectionSectionModel alloc] init];
+            sectionModel.headerHeight = 30;
+            sectionModel.footerHeight = 0;
+            //        sectionModel.headerBgColor = [[UIColor orangeColor] colorWithAlphaComponent:0.7];;
+            //        sectionModel.footerBgColor = [[UIColor redColor] colorWithAlphaComponent:0.4];;
+            
+            sectionModel.headerBgColor = [[UIColor orangeColor] colorWithAlphaComponent:0];;
+            sectionModel.footerBgColor = [[UIColor redColor] colorWithAlphaComponent:0];;
+            sectionModel.rowCount = arc4random() % 2+3;
+            sectionModel.borderInsets = UIEdgeInsetsMake(10, 10, 0, 10);
+            sectionModel.insets = UIEdgeInsetsMake(10, 10, 10, 10);;
+            //        if (i==0) {
+            //        sectionModel.headersHovering = YES;
+            //        }
+            
+            sectionModel.headNameModel.text = [NSString stringWithFormat:@"%@-%d",titleArr[i],j];
+            
+            CGXVerticalMenuRoundModel *roundModel = [[CGXVerticalMenuRoundModel alloc] init];
+            roundModel.borderColor = [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1];
+            roundModel.borderWidth = 1;
+            roundModel.cornerRadius = 10;
+            roundModel.backgroundColor = [UIColor redColor];
+            roundModel.isCalculateHeader = YES;
+            roundModel.isCalculateFooter = YES;
+            roundModel.hotStr = @"";
+            roundModel.backgroundColor = APPRandomColor;
+            roundModel.menu_ImageCallback = ^(UIImageView * _Nonnull hotImageView, NSURL * _Nonnull hotURL) {
+                [hotImageView sd_setImageWithURL:hotURL];
+            };
+            sectionModel.roundModel = roundModel;
+            
+            NSMutableArray *rowArr = [NSMutableArray array];
+            for (int k = 0; k<arc4random() % 2 * 3 + 9; k++) {
+                CGXVerticalMenuCollectionItemModel *itemModel = [[CGXVerticalMenuCollectionItemModel alloc] init];
+                itemModel.itemCornerRadius = 10;
+                itemModel.itemText = [NSString stringWithFormat:@"%@-%d-%d",titleArr[i],j,k];;
+                itemModel.itemUrlStr = @"HotIcon0";
+                itemModel.menu_ImageCallback = ^(UIImageView * _Nonnull hotImageView, NSURL * _Nonnull hotImageURL) {
+                    [hotImageView sd_setImageWithURL:hotImageURL];
+                    hotImageView.image = [UIImage imageNamed:@"HotIcon0"];
+                };
+                [rowArr addObject:itemModel];
+            }
+            sectionModel.rowArray = [NSMutableArray arrayWithArray:rowArr];
+            [dataRightArr addObject:sectionModel];
+        }
+        
+        listModel.rightArray = dataRightArr;
         [dataArr addObject:listModel];
     }
     [self.menuView updateListWithDataArray:dataArr];
     
+    UIBarButtonItem *item0 = [[UIBarButtonItem alloc] initWithTitle:@"是否自定义" style:UIBarButtonItemStyleDone target:self action:@selector(update)];
     UIBarButtonItem *item1  =[[UIBarButtonItem alloc] initWithTitle:@"白色" style:UIBarButtonItemStyleDone target:self action:@selector(sectionLeftClick:)];
     
     UIBarButtonItem *item2 =[[UIBarButtonItem alloc] initWithTitle:@"随机色" style:UIBarButtonItemStyleDone target:self action:@selector(sectionRightClick:)];
     UIBarButtonItem *item3  =[[UIBarButtonItem alloc] initWithTitle:@"背景图" style:UIBarButtonItemStyleDone target:self action:@selector(sectionThreeClick:)];
-    self.navigationItem.rightBarButtonItems = @[item1,item2,item3];
+    self.navigationItem.rightBarButtonItems = @[item0,item1,item2,item3];
 }
-
-- (NSMutableArray<CGXVerticalMenuCollectionSectionModel *> *)rightDataArr
+- (void)update
 {
-    NSMutableArray *dataRightArr = [NSMutableArray array];
-    for (int i = 0; i<arc4random() % 6 + 6; i++) {
-        CGXVerticalMenuCollectionSectionModel *sectionModel = [[CGXVerticalMenuCollectionSectionModel alloc] init];
-        sectionModel.headerHeight = 30;
-        sectionModel.footerHeight = 0;
-        //        sectionModel.headerBgColor = [[UIColor orangeColor] colorWithAlphaComponent:0.7];;
-        //        sectionModel.footerBgColor = [[UIColor redColor] colorWithAlphaComponent:0.4];;
-        
-        sectionModel.headerBgColor = [[UIColor orangeColor] colorWithAlphaComponent:0];;
-        sectionModel.footerBgColor = [[UIColor redColor] colorWithAlphaComponent:0];;
-        sectionModel.rowCount = arc4random() % 2+3;
-        sectionModel.borderInsets = UIEdgeInsetsMake(10, 10, 0, 10);
-        sectionModel.insets = UIEdgeInsetsMake(10, 10, 10, 10);;
-        //        if (i==0) {
-//        sectionModel.headersHovering = YES;
-//        }
-        
-        CGXVerticalMenuRoundModel *roundModel = [[CGXVerticalMenuRoundModel alloc] init];
-        roundModel.borderColor = [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1];
-        roundModel.borderWidth = 1;
-        roundModel.cornerRadius = 10;
-        roundModel.backgroundColor = [UIColor redColor];
-        roundModel.isCalculateHeader = YES;
-        roundModel.isCalculateFooter = YES;
-        roundModel.hotStr = @"";
-        roundModel.backgroundColor = APPRandomColor;
-        roundModel.menu_ImageCallback = ^(UIImageView * _Nonnull hotImageView, NSURL * _Nonnull hotURL) {
-            [hotImageView sd_setImageWithURL:hotURL];
-        };
-        sectionModel.roundModel = roundModel;
-        
-        NSMutableArray *rowArr = [NSMutableArray array];
-        for (int j = 0; j<arc4random() % 2 * 3 + 9; j++) {
-            CGXVerticalMenuCollectionItemModel *itemModel = [[CGXVerticalMenuCollectionItemModel alloc] init];
-            itemModel.itemCornerRadius = 10;
-            itemModel.itemText = @"花生油";
-            itemModel.itemUrlStr = @"HotIcon0";
-            itemModel.menu_ImageCallback = ^(UIImageView * _Nonnull hotImageView, NSURL * _Nonnull hotImageURL) {
-                [hotImageView sd_setImageWithURL:hotImageURL];
-                hotImageView.image = [UIImage imageNamed:@"HotIcon0"];
-            };
-            [rowArr addObject:itemModel];
-        }
-        sectionModel.rowArray = [NSMutableArray arrayWithArray:rowArr];
-        [dataRightArr addObject:sectionModel];
-    }
-    return dataRightArr;
+    self.selectBO = !self.selectBO;
+    [self.menuView reloadData];
 }
 
 - (void)sectionLeftClick:(UIBarButtonItem *)bar
@@ -166,24 +173,42 @@
         [self.menuView updateListWistAtIndex:i ItemModel:listModel];
     }
 }
+/** 如果你需要自定义cell样式，请在实现此代理方法返回你的自定义cell的class。 */
+- (Class)verticalMenuViewCustomCollectionViewCellClass
+{
+    if (self.selectBO) {
+        return [CustomCollectionViewCell class];
+    }
+    return nil;
+}
+
+///** 如果你需要自定义cell样式，请在实现此代理方法返回你的自定义cell的Nib。 */
+//- (Class)verticalMenuViewCustomCollectionViewCellNib;
 - (UICollectionViewCell *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView ListView:(CGXVerticalMenuCollectionView *)listView cellForItemAtIndexPath:(NSIndexPath *)indexPath listViewInRow:(NSInteger)row;
 {
-    CGXVerticalMenuCollectionCell *cell = [listView.collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionCell class]) forIndexPath:indexPath];
-    CGXVerticalMenuCollectionSectionModel *sectionModel = listView.dataArray[indexPath.section];
-    CGXVerticalMenuCollectionItemModel *itemModel = sectionModel.rowArray[indexPath.row];
-    [cell reloadData:itemModel];
-    return cell;
+    if (self.selectBO) {
+        CustomCollectionViewCell *cell = [listView.collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CustomCollectionViewCell class]) forIndexPath:indexPath];
+        cell.contentView.backgroundColor = APPRandomColor;
+        return cell;
+    }
+    return nil;
 }
 - (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView ListView:(CGXVerticalMenuCollectionView *)listView KindHeadAtIndexPath:(NSIndexPath *)indexPath listViewInRow:(NSInteger)row
 {
-    TitleHeaderView *titleView = [[TitleHeaderView alloc] init];
-    CGXVerticalMenuCategoryListModel *listModel = categoryView.dataArray[row];
-    titleView.titleLabel.text = [NSString stringWithFormat:@"%@--%ld",listModel.leftModel.title,(long)indexPath.section];
-    return titleView;
+    if (self.selectBO) {
+        TitleHeaderView *titleView = [[TitleHeaderView alloc] init];
+        CGXVerticalMenuCategoryListModel *listModel = categoryView.dataArray[row];
+        titleView.titleLabel.text = [NSString stringWithFormat:@"自定义%@--%ld",listModel.leftModel.title,(long)indexPath.section];
+        return titleView;
+    }
+    return nil;
 }
 - (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView ListView:(CGXVerticalMenuCollectionView *)listView KindFootAtIndexPath:(NSIndexPath *)indexPath listViewInRow:(NSInteger)row
 {
-    return [[UICollectionReusableView alloc] init];
+    if (self.selectBO) {
+        return [[UICollectionReusableView alloc] init];
+    }
+    return nil;
 }
 /**
  每个分区背景颜色  默认背景色
@@ -205,20 +230,15 @@
     return itemWidth+30;
 }
 /** 左侧点击
- 点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param index 选中的index
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
     NSLog(@"左侧点击 %ld",(long)index);
-    CGXVerticalMenuCategoryListModel *listModel = categoryView.dataArray[index];
-    listModel.rightArray = [self rightDataArr];
-    [categoryView.dataArray replaceObjectAtIndex:index withObject:listModel];
 }
 
 /**  右侧点击
- 点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param indexPath 选中的indexPath
  */
@@ -231,7 +251,6 @@
     NSLog(@"右侧空白点击 %ld--%ld",(long)indexPath.section,(long)indexPath.row);
 }
 /**  将要显示
- 点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param row 选中的row
  */
@@ -240,7 +259,6 @@
     NSLog(@"将要显示 %ld",(long)row);
 }
 /**  将要消失
- 点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param row 选中的row
  */
@@ -250,19 +268,17 @@
 }
 
 /**  将要显示的右侧分区
- 点击选中、滚动选中的情况才会调用该方法
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView willDisplaViewElementKind:(NSString *)elementKind
-   atIndexPath:(NSIndexPath *)indexPath
+             atIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"将要显示的右侧分区--%ld" , indexPath.section);
 }
 
 /**  将要消失的右侧分区
- 点击选中、滚动选中的情况才会调用该方法
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView didEndDisplayingElementKind:(NSString *)elementKind
-   atIndexPath:(NSIndexPath *)indexPath
+             atIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"将要消失的右侧分区--%ld" , indexPath.section);
 }

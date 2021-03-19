@@ -24,19 +24,26 @@
         self.headerHeight = 0;
         self.footerBgColor = [UIColor colorWithWhite:0.93 alpha:1];
         self.headerBgColor= [UIColor whiteColor];
-         self.sectionColor= [UIColor whiteColor];
+
         self.itemHeight = 0;
         self.itemSpace = 1;
         
-        self.headerTextFont = [UIFont systemFontOfSize:14];
-        self.headerTextColor = [UIColor blackColor];
-        self.headertextAlignment = NSTextAlignmentLeft;
-        self.headTextEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+        
         
         self.roundModel = [[CGXVerticalMenuRoundModel alloc] init];
         self.roundModel.isCalculateHeader = NO;
         self.roundModel.isCalculateFooter = NO;
+        self.roundModel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
         self.borderInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+        self.headNameModel = [[CGXVerticalMenuCustomTextModel alloc] init];
+        self.headNameModel.textFont = [UIFont systemFontOfSize:14];
+        self.headNameModel.textColor = [UIColor blackColor];
+        self.headNameModel.textAlignment = NSTextAlignmentLeft;
+        self.headNameModel.spaceTop = 10;
+        self.headNameModel.spaceBottom = 10;
+        self.headNameModel.spaceLeft = 10;
+        self.headNameModel.spaceRight = 10;
+     
     }
     return self;
 }

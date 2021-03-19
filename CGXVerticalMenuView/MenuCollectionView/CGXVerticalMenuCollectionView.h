@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CGXVerticalMenuCollectionSectionModel.h"
 #import "CGXVerticalMenuCollectionItemModel.h"
-#import "CGXVerticalMenuCollectionCell.h"
+
 #import "CGXVerticalMenuCustomCollectionView.h"
 NS_ASSUME_NONNULL_BEGIN
 @class CGXVerticalMenuCollectionView;
@@ -17,6 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol CGXVerticalMenuCollectionViewDataSouce <NSObject>
 
 @optional
+/** 如果你需要自定义cell样式，请在实现此代理方法返回你的自定义cell的class。 */
+- (Class)customcategoryRightViewCollectionViewCellClass;
+
+/** 如果你需要自定义cell样式，请在实现此代理方法返回你的自定义cell的Nib。 */
+- (Class)customcategoryRightViewCollectionViewCellNib;
 /**
  每个分区自定义cell
  */

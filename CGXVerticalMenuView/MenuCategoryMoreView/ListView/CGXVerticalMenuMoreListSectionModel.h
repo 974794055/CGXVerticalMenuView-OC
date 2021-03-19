@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CGXVerticalMenuMoreListSectionItemModel.h"
 #import "CGXVerticalMenuRoundModel.h"
+#import "CGXVerticalMenuCustomTextModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CGXVerticalMenuMoreListSectionModel : NSObject
@@ -29,16 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , assign) CGFloat headerHeight;
 @property (nonatomic , strong) UIColor *headerBgColor;
 
-// 头标题文字
-@property (nonatomic, strong) NSString *headerText;
-/** 头标题颜色  [UIColor blackColor]; */
-@property (nonatomic, strong) UIColor *headerTextColor;
-/** 头标题字体大小  [UIFont systemFontOfSize:14] */
-@property (nonatomic, strong) UIFont  *headerTextFont;
-@property (nonatomic, assign) NSTextAlignment headertextAlignment;
-@property (nonatomic, assign) UIEdgeInsets headTextEdgeInsets;
-// 每个分区颜色 默认无色
-@property (nonatomic , strong) UIColor *sectionColor;
+
+/*
+ 分区名称 头标题文字
+ */
+@property (nonatomic , strong) CGXVerticalMenuCustomTextModel *headNameModel;
 
 // 每个分区颜色 默认无色
 @property (nonatomic , strong) CGXVerticalMenuRoundModel *roundModel;

@@ -42,7 +42,7 @@
     CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
     backgroundView.backgroundViewColor = [UIColor orangeColor];
     backgroundView.backgroundViewHeight = 30;
-    backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0;
+    backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0-20;
     CGXVerticalMenuIndicatorLineView *lineView = [[CGXVerticalMenuIndicatorLineView alloc] init];
     lineView.backgroundColor = [UIColor redColor];
     lineView.positionType = CGXVerticalMenuIndicatorLinePosition_Left;
@@ -52,7 +52,6 @@
     NSMutableArray *dataArr = [NSMutableArray array];
     for (int i = 0; i<titleArr.count; i++) {
         CGXVerticalMenuCategoryListModel *listModel = [[CGXVerticalMenuCategoryListModel alloc] init];
-        
         CGXVerticalMenuTitleModel *itemModel = [[CGXVerticalMenuTitleModel alloc] init];
         //            itemModel.isMoreClick = NO;
         itemModel.title = titleArr[i];
@@ -60,22 +59,30 @@
         itemModel.titleSelectedColor = [UIColor redColor];
         itemModel.titleFont = [UIFont systemFontOfSize:14];
         itemModel.titleSelectedFont = [UIFont systemFontOfSize:16];
-        //                    [dataArr addObject:itemModel];
+
         listModel.leftModel = itemModel;
         
         
         NSMutableArray *dataRightArr = [NSMutableArray array];
-        for (int i = 0; i<arc4random() % 2 + 3; i++) {
+        for (int j = 0; j<arc4random() % 2 + 3; j++) {
             CGXVerticalMenuCollectionSectionModel *sectionModel = [[CGXVerticalMenuCollectionSectionModel alloc] init];
             sectionModel.headerHeight = 30;
             sectionModel.footerHeight = 10;
             sectionModel.headerBgColor = [UIColor orangeColor];
             sectionModel.footerBgColor = [UIColor colorWithWhite:0.93 alpha:1];
             sectionModel.rowCount = arc4random() % 2 + 2;
+            
+            sectionModel.headNameModel.text = [NSString stringWithFormat:@"%@-%d",titleArr[i],j];
             NSMutableArray *rowArr = [NSMutableArray array];
-            for (int j = 0; j<6; j++) {
+            for (int k = 0; k<6; k++) {
                 CGXVerticalMenuCollectionItemModel *itemModel = [[CGXVerticalMenuCollectionItemModel alloc] init];
-                itemModel.itemBgColor = APPRandomColor;
+//                itemModel.itemBgColor = APPRandomColor;
+                itemModel.itemText = [NSString stringWithFormat:@"%@-%d-%d",titleArr[i],j,k];
+                itemModel.itemUrlStr = @"HotIcon0";
+                itemModel.menu_ImageCallback = ^(UIImageView * _Nonnull hotImageView, NSURL * _Nonnull hotImageURL) {
+                    [hotImageView sd_setImageWithURL:hotImageURL];
+                    hotImageView.image = [UIImage imageNamed:@"HotIcon0"];
+                };
                 [rowArr addObject:itemModel];
             }
             sectionModel.rowArray = [NSMutableArray arrayWithArray:rowArr];
@@ -121,7 +128,6 @@
     }
 }
 /** 左侧点击
- 点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param index 选中的index
  */
@@ -131,7 +137,6 @@
 }
 
 /**  右侧点击
- 点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param indexPath 选中的indexPath
  */
@@ -149,7 +154,6 @@
     NSLog(@"右侧背景图点击 %ld--%ld",(long)indexPath.section,(long)indexPath.row);
 }
 /**  将要显示
- 点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param row 选中的row
  */
@@ -158,7 +162,6 @@
     NSLog(@"将要显示 %ld",(long)row);
 }
 /**  将要消失
- 点击选中、滚动选中的情况才会调用该方法
  @param categoryView categoryView description
  @param row 选中的row
  */
@@ -166,25 +169,9 @@
 {
     NSLog(@"将要消失 %ld",(long)row);
 }
-
-- (UICollectionViewCell *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView ListView:(CGXVerticalMenuCollectionView *)listView cellForItemAtIndexPath:(NSIndexPath *)indexPath listViewInRow:(NSInteger)row;
+- (CGFloat)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView sizeForItemAtSection:(NSInteger)section ItemWidth:(CGFloat)itemWidth
 {
-    CGXVerticalMenuCollectionCell *cell = [listView.collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CGXVerticalMenuCollectionCell class]) forIndexPath:indexPath];
-    CGXVerticalMenuCollectionSectionModel *sectionModel = listView.dataArray[indexPath.section];
-    CGXVerticalMenuCollectionItemModel *itemModel = sectionModel.rowArray[indexPath.row];
-    [cell reloadData:itemModel];
-    return cell;
-}
-- (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView ListView:(CGXVerticalMenuCollectionView *)listView KindHeadAtIndexPath:(NSIndexPath *)indexPath listViewInRow:(NSInteger)row
-{
-    TitleHeaderView *titleView = [[TitleHeaderView alloc] init];
-    CGXVerticalMenuCategoryListModel *listModel = categoryView.dataArray[row];
-    titleView.titleLabel.text = [NSString stringWithFormat:@"%@--%ld",listModel.leftModel.title,(long)indexPath.section];
-    return titleView;
-}
-- (UICollectionReusableView *)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView ListView:(CGXVerticalMenuCollectionView *)listView KindFootAtIndexPath:(NSIndexPath *)indexPath listViewInRow:(NSInteger)row
-{
-    return [[UICollectionReusableView alloc] init];
+    return itemWidth+30;
 }
 /**
  每个分区背景颜色  默认背景色
