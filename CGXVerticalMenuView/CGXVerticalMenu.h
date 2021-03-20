@@ -45,7 +45,6 @@
 #import "CGXVerticalMenuCategoryView.h"
 #import "CGXVerticalMenuCategoryListModel.h"
 
-
 #import "CGXVerticalMenuMoreView.h"
 #import "CGXVerticalMenuListContainerView.h"
 

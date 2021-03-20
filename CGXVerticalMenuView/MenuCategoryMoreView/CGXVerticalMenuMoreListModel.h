@@ -19,7 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 右侧自定义头部数据
 @property (nonatomic , strong) NSObject *headModel;
-
 @property (nonatomic , assign) UIEdgeInsets headEdgeInsets;
 @property (nonatomic , strong) UIColor *headColor;
 @property (nonatomic , assign) CGFloat headCornerRadius;
@@ -37,6 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , assign) CGFloat titleSpace;
 // 是否有标题菜单 默认有
 @property (nonatomic , assign) BOOL haveTitleView;
+
 @property (nonatomic, strong) NSMutableArray<CGXVerticalMenuMoreListSectionModel *> *dataArray;
 
 @end
