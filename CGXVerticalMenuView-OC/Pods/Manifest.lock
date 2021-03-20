@@ -15,15 +15,7 @@ PODS:
     - CGXVerticalMenuView-OC/MenuTitleView
   - CGXVerticalMenuView-OC/MenuCollectionView (1.2.0):
     - CGXVerticalMenuView-OC/MenuCustom
-  - CGXVerticalMenuView-OC/MenuCustom (1.2.0):
-    - CGXVerticalMenuView-OC/MenuCustom/ContainerView (= 1.2.0)
-    - CGXVerticalMenuView-OC/MenuCustom/Custom (= 1.2.0)
-    - CGXVerticalMenuView-OC/MenuCustom/ListContainerView (= 1.2.0)
-    - CGXVerticalMenuView-OC/MenuCustom/RoundLayout (= 1.2.0)
-  - CGXVerticalMenuView-OC/MenuCustom/ContainerView (1.2.0)
-  - CGXVerticalMenuView-OC/MenuCustom/Custom (1.2.0)
-  - CGXVerticalMenuView-OC/MenuCustom/ListContainerView (1.2.0)
-  - CGXVerticalMenuView-OC/MenuCustom/RoundLayout (1.2.0)
+  - CGXVerticalMenuView-OC/MenuCustom (1.2.0)
   - CGXVerticalMenuView-OC/MenuTitleView (1.2.0):
     - CGXVerticalMenuView-OC/MenuCustom
   - Masonry (1.1.0)
@@ -52,7 +44,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXVerticalMenuView-OC: ecbefd0951920bf36c3571e0af4b9a48c280a093
+  CGXVerticalMenuView-OC: 4e3d3d49fb6001a7070f00b122071d54a7b5c1a6
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 88e0900751b6cac8de1cf724ca9838a0b28d5acb
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16

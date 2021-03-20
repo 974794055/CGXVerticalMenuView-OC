@@ -266,7 +266,6 @@
 {
     NSLog(@"将要消失 %ld",(long)row);
 }
-
 /**  将要显示的右侧分区
  */
 - (void)verticalMenuView:(CGXVerticalMenuCategoryView *)categoryView willDisplaViewElementKind:(NSString *)elementKind
