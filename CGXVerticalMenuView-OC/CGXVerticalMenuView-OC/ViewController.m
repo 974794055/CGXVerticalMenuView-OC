@@ -29,7 +29,6 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.dataArray =  [NSMutableArray array];
-    
     [self creatTableView];
     self.dataArray = [NSMutableArray arrayWithObjects:
                       @"不联动，点击左侧切换右侧",
@@ -38,7 +37,6 @@
                       @"UICollectionView多列联动",
                       nil];
     [self.tableView reloadData];
-    
 }
 - (void)creatTableView
 {
