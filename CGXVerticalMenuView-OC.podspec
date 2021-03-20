@@ -16,22 +16,18 @@ s.source_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
 s.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
 
 s.subspec 'MenuCustom' do |ss|
-    ss.source_files = 'CGXVerticalMenuView-OC/MenuCustom/**/*.{h,m}'
+    ss.public_header_files = 'CGXVerticalMenuView-OC/MenuCustom/**/*.{h,m}'
    ss.subspec 'Custom' do |sss|
       sss.source_files = 'CGXVerticalMenuView-OC/MenuCustom/Custom/**/*.{h,m}'
-      sss.public_header_files = 'CGXVerticalMenuView-OC/MenuCustom/Custom/**/*.{h,m}'
    end
    ss.subspec 'RoundLayout' do |sss|
       sss.source_files = 'CGXVerticalMenuView-OC/MenuCustom/RoundLayout/**/*.{h,m}'
-      sss.public_header_files = 'CGXVerticalMenuView-OC/MenuCustom/RoundLayout/**/*.{h,m}'
    end
    ss.subspec 'ContainerView' do |sss|
       sss.source_files = 'CGXVerticalMenuView-OC/MenuCustom/ContainerView/**/*.{h,m}'
-      sss.public_header_files = 'CGXVerticalMenuView-OC/MenuCustom/ContainerView/**/*.{h,m}'
    end
    ss.subspec 'ListContainerView' do |sss|
       sss.source_files = 'CGXVerticalMenuView-OC/MenuCustom/ListContainerView/**/*.{h,m}'
-      sss.public_header_files = 'CGXVerticalMenuView-OC/MenuCustom/ListContainerView/**/*.{h,m}'
    end
 end
 s.subspec 'MenuTitleView' do |ss|
