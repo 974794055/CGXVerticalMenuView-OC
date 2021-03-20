@@ -45,7 +45,6 @@ s.subspec 'MenuCategoryView' do |ss|
 end
 s.subspec 'MenuCategoryMoreView' do |ss|
   ss.source_files = 'CGXVerticalMenuView/MenuCategoryMoreView/**/*.{h,m}'
-  ss.dependency 'CGXVerticalMenuView-OC/MenuCategoryMoreView/ListView'
    ss.subspec 'ListView' do |sss|
       sss.source_files = 'CGXVerticalMenuView-OC/MenuCategoryView/ListView/**/*.{h,m}'
       sss.dependency 'CGXVerticalMenuView-OC/MenuCustom'
