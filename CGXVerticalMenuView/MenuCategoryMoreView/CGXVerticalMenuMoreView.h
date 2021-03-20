@@ -36,7 +36,6 @@ NS_ASSUME_NONNULL_BEGIN
  自定义头部 需要设置frame
  */
 - (UIView *)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView HeadAtIndex:(NSInteger)index;
-
 /**
  自定义脚部 需要设置frame
  */
@@ -49,21 +48,16 @@ NS_ASSUME_NONNULL_BEGIN
  每个分区脚自定义view
  */
 - (UIView *)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView AtIndex:(NSInteger)index KindFootAtIndexPath:(NSIndexPath *)indexPath;
-
 /** 左侧点击
- @param moreView categoryView description
+ @param moreView moreView description
  @param index 选中的index
  */
 - (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView didSelectedItemAtIndex:(NSInteger)index;
-
 /**  右侧点击
- @param moreView categoryView description
+ @param moreView moreView description
  @param indexPath 选中的indexPath
  */
 - (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView AtIndex:(NSInteger)index didSelectedItemDetailsAtIndexPath:(NSIndexPath *)indexPath;
-
-
-
 @end
 
 @interface CGXVerticalMenuMoreView : CGXVerticalMenuCustomBaseView
@@ -88,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
   更新某个下标数据使用
 */
 - (void)updateListWistAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuMoreListModel  *)itemModel;
-
+// 刷新数据
 - (void)reloadData;
 
 @end

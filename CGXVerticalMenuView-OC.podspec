@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name         = "CGXVerticalMenuView-OC"    #存储库名称
 s.version      = "1.1.1"      #版本号，与tag值一致
-s.summary      = "仿京东、淘宝等主流APP分类切换的滚动视图"  #简介
+s.summary      = "仿京东、淘宝等主流APP分类切换滚动视图"  #简介
 s.description  = "仿京东、淘宝等主流APP分类切换的滚动视图的封装库"  #描述
 s.homepage     = "https://github.com/974794055/CGXVerticalMenuView-OC"      #项目主页，不是git地址
 s.license      = { :type => "MIT", :file => "LICENSE" }   #开源协议
@@ -16,7 +16,6 @@ s.source_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
 s.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
 
 s.subspec 'MenuCustom' do |ss|
-    ss.public_header_files = 'CGXVerticalMenuView-OC/MenuCustom/**/*.{h,m}'
    ss.subspec 'Custom' do |sss|
       sss.source_files = 'CGXVerticalMenuView-OC/MenuCustom/Custom/**/*.{h,m}'
    end
