@@ -16,42 +16,43 @@ s.source_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
 s.public_header_files = 'CGXVerticalMenuView/CGXVerticalMenu.h'
 
 s.subspec 'MenuCustom' do |ss|
+    ss.source_files = 'CGXVerticalMenuView-OC/MenuCustom/**/*.{h,m}'
    ss.subspec 'Custom' do |sss|
-      sss.source_files = 'CGXVerticalMenuView/MenuCustom/Custom/**/*.{h,m}'
-      sss.public_header_files = 'CGXVerticalMenuView/MenuCustom/Custom/**/*.{h,m}'
+      sss.source_files = 'CGXVerticalMenuView-OC/MenuCustom/Custom/**/*.{h,m}'
+      sss.public_header_files = 'CGXVerticalMenuView-OC/MenuCustom/Custom/**/*.{h,m}'
    end
    ss.subspec 'RoundLayout' do |sss|
-      sss.source_files = 'CGXVerticalMenuView/MenuCustom/RoundLayout/**/*.{h,m}'
-      sss.public_header_files = 'CGXVerticalMenuView/MenuCustom/RoundLayout/**/*.{h,m}'
+      sss.source_files = 'CGXVerticalMenuView-OC/MenuCustom/RoundLayout/**/*.{h,m}'
+      sss.public_header_files = 'CGXVerticalMenuView-OC/MenuCustom/RoundLayout/**/*.{h,m}'
    end
    ss.subspec 'ContainerView' do |sss|
-      sss.source_files = 'CGXVerticalMenuView/MenuCustom/ContainerView/**/*.{h,m}'
-      sss.public_header_files = 'CGXVerticalMenuView/MenuCustom/ContainerView/**/*.{h,m}'
+      sss.source_files = 'CGXVerticalMenuView-OC/MenuCustom/ContainerView/**/*.{h,m}'
+      sss.public_header_files = 'CGXVerticalMenuView-OC/MenuCustom/ContainerView/**/*.{h,m}'
    end
    ss.subspec 'ListContainerView' do |sss|
-      sss.source_files = 'CGXVerticalMenuView/MenuCustom/ListContainerView/**/*.{h,m}'
-      sss.public_header_files = 'CGXVerticalMenuView/MenuCustom/ListContainerView/**/*.{h,m}'
+      sss.source_files = 'CGXVerticalMenuView-OC/MenuCustom/ListContainerView/**/*.{h,m}'
+      sss.public_header_files = 'CGXVerticalMenuView-OC/MenuCustom/ListContainerView/**/*.{h,m}'
    end
 end
 s.subspec 'MenuTitleView' do |ss|
-   ss.source_files = 'CGXVerticalMenuView/MenuTitleView/**/*.{h,m}'
+   ss.source_files = 'CGXVerticalMenuView-OC/MenuTitleView/**/*.{h,m}'
    ss.dependency 'CGXVerticalMenuView-OC/MenuCustom'
 end
 s.subspec 'MenuCollectionView' do |ss|
-   ss.source_files = 'CGXVerticalMenuView/MenuCollectionView/**/*.{h,m}'
+   ss.source_files = 'CGXVerticalMenuView-OC/MenuCollectionView/**/*.{h,m}'
    ss.dependency 'CGXVerticalMenuView-OC/MenuCustom'
 end
 s.subspec 'MenuCategoryView' do |ss|
-   ss.source_files = 'CGXVerticalMenuView/MenuCategoryView/**/*.{h,m}'
+   ss.source_files = 'CGXVerticalMenuView-OC/MenuCategoryView/**/*.{h,m}'
    ss.dependency 'CGXVerticalMenuView-OC/MenuCustom'
    ss.dependency 'CGXVerticalMenuView-OC/MenuTitleView'
    ss.dependency 'CGXVerticalMenuView-OC/MenuCollectionView'
 end
 s.subspec 'MenuCategoryMoreView' do |ss|
-   ss.source_files = 'CGXVerticalMenuView/MenuCategoryMoreView/**/*.{h,m}'
+   ss.source_files = 'CGXVerticalMenuView-OC/MenuCategoryMoreView/**/*.{h,m}'
 
    ss.subspec 'ListView' do |sss|
-      sss.source_files = 'CGXVerticalMenuView/MenuCategoryView/ListView/**/*.{h,m}'
+      sss.source_files = 'CGXVerticalMenuView-OC/MenuCategoryView/ListView/**/*.{h,m}'
       sss.dependency 'CGXVerticalMenuView-OC/MenuCustom'
       sss.dependency 'CGXVerticalMenuView-OC/MenuTitleView'
       sss.dependency 'CGXVerticalMenuView-OC/MenuCollectionView'
