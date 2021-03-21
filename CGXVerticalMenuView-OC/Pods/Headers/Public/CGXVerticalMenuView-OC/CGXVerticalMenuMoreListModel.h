@@ -1,1 +1,1 @@
-../../../../../CGXVerticalMenuView/MenuCategoryMoreView/CGXVerticalMenuMoreListModel.h
+../../../../../CGXVerticalMenuView/MenuMoreView/CGXVerticalMenuMoreListModel.h

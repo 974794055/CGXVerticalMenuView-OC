@@ -6,7 +6,5 @@ pod 'CGXVerticalMenuView-OC', :path => '../'
 
 pod 'MJRefresh'
 pod 'SDWebImage'
-pod 'MJExtension'
-pod 'Masonry'
 
 end

@@ -2,7 +2,7 @@
 //  MoreViewCell.m
 //  CGXVerticalMenuView-OC
 //
-//  Created by MacMini-1 on 2021/3/16.
+//  Created by CGX on 2018/05/01.
 //  Copyright © 2021 CGX. All rights reserved.
 //
 

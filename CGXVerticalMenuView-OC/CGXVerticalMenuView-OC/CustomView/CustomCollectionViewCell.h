@@ -2,7 +2,7 @@
 //  CustomCollectionViewCell.h
 //  CGXVerticalMenuView-OC
 //
-//  Created by CGX on 2021/3/18.
+//  Created by CGX on 2018/05/01.
 //  Copyright © 2021 CGX. All rights reserved.
 //
 

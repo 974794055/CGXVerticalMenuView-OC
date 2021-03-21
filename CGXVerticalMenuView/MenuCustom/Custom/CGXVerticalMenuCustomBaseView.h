@@ -2,7 +2,8 @@
 //  CGXVerticalMenuCustomBaseView.h
 //  CGXVerticalMenuView-OC
 //
-//  Created by CGX on 2021/3/9.
+//  Created by CGX on 2018/05/01.
+//  Copyright © 2019 CGX. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

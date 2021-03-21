@@ -1,6 +1,6 @@
 {
   "name": "CGXVerticalMenuView-OC",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "summary": "仿京东、淘宝等主流APP分类切换滚动视图",
   "description": "仿京东、淘宝等主流APP分类切换的滚动视图的封装库",
   "homepage": "https://github.com/974794055/CGXVerticalMenuView-OC",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/974794055/CGXVerticalMenuView-OC.git",
-    "tag": "1.2.0"
+    "tag": "1.2.1"
   },
   "requires_arc": true,
   "frameworks": "UIKit",
@@ -61,8 +61,8 @@
       }
     },
     {
-      "name": "MenuCategoryMoreView",
-      "source_files": "CGXVerticalMenuView/MenuCategoryMoreView/**/*.{h,m}",
+      "name": "MenuMoreView",
+      "source_files": "CGXVerticalMenuView/MenuMoreView/**/*.{h,m}",
       "dependencies": {
         "CGXVerticalMenuView-OC/MenuCustom": [
 

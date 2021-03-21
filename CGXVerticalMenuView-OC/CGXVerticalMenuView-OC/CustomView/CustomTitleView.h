@@ -2,7 +2,7 @@
 //  CustomTitleView.h
 //  CGXHotBrandView-OC
 //
-//  Created by CGX on 2020/12/12.
+//  Created by CGX on 2018/05/01.
 //  Copyright © 2020 CGX. All rights reserved.
 //
 

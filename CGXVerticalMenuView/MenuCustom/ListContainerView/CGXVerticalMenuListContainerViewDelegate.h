@@ -1,9 +1,9 @@
 //
 //  CGXVerticalMenuListContainerViewDelegate.h
-//  App
+//  CGXVerticalMenuView-OC
 //
-//  Created by MacMini-1 on 2021/3/8.
-//  Copyright © 2021 CGX. All rights reserved.
+//  Created by CGX on 2018/05/01.
+//  Copyright © 2019 CGX. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

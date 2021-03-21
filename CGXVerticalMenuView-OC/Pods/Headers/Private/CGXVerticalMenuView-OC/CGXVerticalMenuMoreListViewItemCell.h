@@ -1,1 +1,1 @@
-../../../../../CGXVerticalMenuView/MenuCategoryMoreView/ListView/CGXVerticalMenuMoreListViewItemCell.h
+../../../../../CGXVerticalMenuView/MenuMoreView/ListView/CGXVerticalMenuMoreListViewItemCell.h

@@ -2,7 +2,7 @@
 //  PrefixHeader.pch
 //  CGXVerticalMenuView-OC
 //
-//  Created by CGX on 2019/9/12.
+//  Created by CGX on 2018/05/01.
 //  Copyright © 2019 CGX. All rights reserved.
 //
 
@@ -33,16 +33,10 @@
 #define kVCHeight (SCREEN_HEIGHT-kTopHeight-kTabBarHeight)
 #define kSafeVCHeight (kStatusBarHeight>20?(SCREEN_HEIGHT-kTopHeight-34):(SCREEN_HEIGHT-kTopHeight))
 
-
-
-#import <MJExtension/MJExtension.h>
-
 // 系统库
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-// 布局
-#import <Masonry/Masonry.h>
 
 #import <MJRefresh/MJRefresh.h>
 

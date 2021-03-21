@@ -4,7 +4,7 @@
 
 - 下载链接：https://github.com/974794055/CGXVerticalMenuView-OC.git
 -  pod名称 ：CGXVerticalMenuView-OC
-- 最新版本号： 1.2.0
+- 最新版本号： 1.2.1
 
 ## 支持效果：
 - 1、左侧自定义标签view
@@ -190,7 +190,6 @@ for (int i = 0; i<titleArr.count; i++) {
 QQ  群：227219165</br>
 QQ  号：974794055</br>
 
-<img src="https://github.com/974794055/CGXVerticalMenuView-OC/blob/master/CGXVerticalMenuViewOCGif/authorQQ.png" width="300" height="411">
 <img src="https://github.com/974794055/CGXVerticalMenuView-OC/blob/master/CGXVerticalMenuViewOCGif/authorGroup.png" width="300" height="411">
 
 喜欢就star❤️一下吧

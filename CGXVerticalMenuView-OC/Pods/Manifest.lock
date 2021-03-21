@@ -1,25 +1,23 @@
 PODS:
-  - CGXVerticalMenuView-OC (1.2.0):
-    - CGXVerticalMenuView-OC/MenuCategoryMoreView (= 1.2.0)
-    - CGXVerticalMenuView-OC/MenuCategoryView (= 1.2.0)
-    - CGXVerticalMenuView-OC/MenuCollectionView (= 1.2.0)
-    - CGXVerticalMenuView-OC/MenuCustom (= 1.2.0)
-    - CGXVerticalMenuView-OC/MenuTitleView (= 1.2.0)
-  - CGXVerticalMenuView-OC/MenuCategoryMoreView (1.2.0):
+  - CGXVerticalMenuView-OC (1.2.1):
+    - CGXVerticalMenuView-OC/MenuCategoryView (= 1.2.1)
+    - CGXVerticalMenuView-OC/MenuCollectionView (= 1.2.1)
+    - CGXVerticalMenuView-OC/MenuCustom (= 1.2.1)
+    - CGXVerticalMenuView-OC/MenuMoreView (= 1.2.1)
+    - CGXVerticalMenuView-OC/MenuTitleView (= 1.2.1)
+  - CGXVerticalMenuView-OC/MenuCategoryView (1.2.1):
     - CGXVerticalMenuView-OC/MenuCollectionView
     - CGXVerticalMenuView-OC/MenuCustom
     - CGXVerticalMenuView-OC/MenuTitleView
-  - CGXVerticalMenuView-OC/MenuCategoryView (1.2.0):
+  - CGXVerticalMenuView-OC/MenuCollectionView (1.2.1):
+    - CGXVerticalMenuView-OC/MenuCustom
+  - CGXVerticalMenuView-OC/MenuCustom (1.2.1)
+  - CGXVerticalMenuView-OC/MenuMoreView (1.2.1):
     - CGXVerticalMenuView-OC/MenuCollectionView
     - CGXVerticalMenuView-OC/MenuCustom
     - CGXVerticalMenuView-OC/MenuTitleView
-  - CGXVerticalMenuView-OC/MenuCollectionView (1.2.0):
+  - CGXVerticalMenuView-OC/MenuTitleView (1.2.1):
     - CGXVerticalMenuView-OC/MenuCustom
-  - CGXVerticalMenuView-OC/MenuCustom (1.2.0)
-  - CGXVerticalMenuView-OC/MenuTitleView (1.2.0):
-    - CGXVerticalMenuView-OC/MenuCustom
-  - Masonry (1.1.0)
-  - MJExtension (3.2.4)
   - MJRefresh (3.5.0)
   - SDWebImage (5.9.5):
     - SDWebImage/Core (= 5.9.5)
@@ -27,15 +25,11 @@ PODS:
 
 DEPENDENCIES:
   - CGXVerticalMenuView-OC (from `../`)
-  - Masonry
-  - MJExtension
   - MJRefresh
   - SDWebImage
 
 SPEC REPOS:
   https://cdn.cocoapods.org/:
-    - Masonry
-    - MJExtension
     - MJRefresh
     - SDWebImage
 
@@ -44,12 +38,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXVerticalMenuView-OC: 4e3d3d49fb6001a7070f00b122071d54a7b5c1a6
-  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MJExtension: 88e0900751b6cac8de1cf724ca9838a0b28d5acb
+  CGXVerticalMenuView-OC: ca9a8c6144f867dd24360bebd8a764a972740ea1
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SDWebImage: 0b2ba0d56479bf6a45ecddbfd5558bea93150d25
 
-PODFILE CHECKSUM: 7123c057ee7d4e23ca50bb4010464dfd1dd1807b
+PODFILE CHECKSUM: ea99aa0122ccbcad368e3fb071202328598ac4ae
 
 COCOAPODS: 1.10.1
