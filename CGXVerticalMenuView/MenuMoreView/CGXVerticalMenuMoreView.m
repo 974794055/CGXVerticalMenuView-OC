@@ -52,10 +52,10 @@
     
     self.listContainerView = [[CGXVerticalMenuListContainerView alloc] initWithDelegate:self];
     self.listContainerView.backgroundColor = self.rightBgColor;
-    self.listContainerView.isHorizontal = YES;
+    self.listContainerView.isHorizontal = NO;
     self.listContainerView.collectionView.scrollEnabled = NO;
     [self addSubview:self.listContainerView];
-
+    
 }
 - (void)layoutSubviews
 {
@@ -87,6 +87,10 @@
 - (void)verticalMenuTitleView:(CGXVerticalMenuTitleView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index
 {
     self.currentInteger = index;
+    if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuMoreView:didSelectedItemAtIndex:)]) {
+        [self.delegate verticalMenuMoreView:self didSelectedItemAtIndex:index];
+    }
+    [self.listContainerView scrollSelectedItemAtIndex:index];
 }
 - (void)verticalMenuTitleView:(CGXVerticalMenuTitleView *)categoryView didScrollerSelectedItemAtIndex:(NSInteger)index
 {
@@ -95,24 +99,6 @@
 - (void)verticalMenuTitleView:(CGXVerticalMenuTitleView *)categoryView didSelectedItemAtIndex:(NSInteger)index
 {
     self.currentInteger = index;
-    if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuMoreView:didSelectedItemAtIndex:)]) {
-        [self.delegate verticalMenuMoreView:self didSelectedItemAtIndex:index];
-    }
-    [self.listContainerView scrollSelectedItemAtIndex:index];
-}
-/**
- 正在滚动中的回调
- @param categoryView categoryView对象
- @param leftIndex 正在滚动中，相对位置处于左边的index
- @param rightIndex 正在滚动中，相对位置处于右边的index
- @param ratio 从左往右计算的百分比
- */
-- (void)verticalMenuTitleView:(CGXVerticalMenuTitleView *)categoryView
-       scrollingFromLeftIndex:(NSInteger)leftIndex
-                 toRightIndex:(NSInteger)rightIndex
-                        ratio:(CGFloat)ratio
-{
-    
 }
 - (NSInteger)numberOfListsInlistContainerView:(CGXVerticalMenuListContainerView *)listContainerView
 {
@@ -130,6 +116,9 @@
             listModel.menu_ImageCallback(hotImageView, hotImageURL);
         };
     };
+    if (self.delegate && [self.delegate respondsToSelector:@selector(verticalMenuMoreView:RefreshScrollView:listViewInRow:)]) {
+        [self.delegate verticalMenuMoreView:self RefreshScrollView:pageScrollView listViewInRow:index];
+    }
     return pageScrollView;
 }
 /** 如果你需要自定义cell样式，请在实现此代理方法返回你的自定义cell的class。 */
@@ -195,7 +184,39 @@
         [self.delegate verticalMenuMoreView:self AtIndex:index didSelectedItemDetailsAtIndexPath:indexPath];
     }
 }
+- (void)verticalMenuMoreListView:(CGXVerticalMenuMoreListView *)listView
+             scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuMoreView:scrollViewDidScroll:listViewInRow:)]) {
+        [self.delegate verticalMenuMoreView:self scrollViewDidScroll:listView listViewInRow:listView.selectedIndex];
+    }
+}
 
+- (void)verticalMenuMoreListView:(CGXVerticalMenuMoreListView *)listView scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuMoreView:scrollViewDidEndDragging:willDecelerate:listViewInRow:)]) {
+        [self.delegate verticalMenuMoreView:self scrollViewDidEndDragging:listView willDecelerate:decelerate listViewInRow:listView.selectedIndex];
+    }
+}
+- (void)verticalMenuMoreListView:(CGXVerticalMenuMoreListView *)listView scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuMoreView:scrollViewWillBeginDragging:listViewInRow:)]) {
+        [self.delegate verticalMenuMoreView:self scrollViewWillBeginDragging:listView listViewInRow:listView.selectedIndex];
+    }
+}
+- (void)verticalMenuMoreListView:(CGXVerticalMenuMoreListView *)listView scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuMoreView:scrollViewDidEndDecelerating:listViewInRow:)]) {
+        [self.delegate verticalMenuMoreView:self scrollViewDidEndDecelerating:listView listViewInRow:listView.selectedIndex];
+    }
+}
+- (void)verticalMenuMoreListView:(CGXVerticalMenuMoreListView *)listView scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    if (self.delegate && [self.delegate  respondsToSelector:@selector(verticalMenuMoreView:scrollViewDidEndScrollingAnimation:listViewInRow:)]) {
+        [self.delegate verticalMenuMoreView:self scrollViewDidEndScrollingAnimation:listView listViewInRow:listView.selectedIndex];
+    }
+    
+}
 /*
  数据源
  */
@@ -212,8 +233,8 @@
     [self.listContainerView reloadData];
 }
 /*
-  更新某个下标数据使用
-*/
+ 更新某个下标数据使用
+ */
 - (void)updateListWistAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuMoreListModel  *)itemModel
 {
     if (self.dataArray.count==0 || index<0) {
@@ -230,12 +251,51 @@
     [self.leftView.collectionView reloadData];
     [self.listContainerView reloadData];
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+/**
+ 选中目标index的item
+ @param index 目标index
+ */
+- (void)selectItemAtIndex:(NSInteger)index
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.dataArray.count==0 || index<0) {
+            return;
+        }
+        if (index>self.dataArray.count-1) {
+            return;
+        }
+        [self.leftView scrollerItemAtIndex:index];
+        [self.listContainerView scrollSelectedItemAtIndex:index];
+    });
 }
-*/
+- (void)refreshLoadData
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.currentInteger > 0) {
+            self.currentInteger = self.currentInteger-1;
+        }
+        self.currentInteger = self.currentInteger;
+        [self.leftView scrollerItemAtIndex:self.currentInteger];
+        [self.listContainerView scrollSelectedItemAtIndex:self.currentInteger];
+    });
+}
+- (void)refreshMoreLoadData
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.currentInteger < self.dataArray.count-1) {
+            self.currentInteger = self.currentInteger+1;
+        }
+        self.currentInteger = self.currentInteger;
+        [self.leftView scrollerItemAtIndex:self.currentInteger];
+        [self.listContainerView scrollSelectedItemAtIndex:self.currentInteger];
+    });
+}
+/*
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end

@@ -481,11 +481,16 @@
 
 - (void)scrollSelectedItemAtIndex:(NSInteger)index
 {
+    if (![self checkIndexValid:index]) {
+        return;
+    }
+    [self.collectionView setContentOffset:CGPointMake(0, 0) animated:NO];
     if (self.isHorizontal) {
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
     }else{
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
     }
+    self.currentIndex = index;
     [self.collectionView reloadData];
 }
 - (void)reloadData {

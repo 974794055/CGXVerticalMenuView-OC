@@ -12,9 +12,11 @@
 #import "CGXVerticalMenuIndicatorBackgroundView.h"
 #import "CGXVerticalMenuMoreListView.h"
 #import "CGXVerticalMenuMoreListModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class CGXVerticalMenuMoreView;
+@class CGXVerticalMenuMoreListView;
 
 @protocol CGXVerticalMenuMoreViewDelegate <NSObject>
 
@@ -58,6 +60,37 @@ NS_ASSUME_NONNULL_BEGIN
  @param indexPath 选中的indexPath
  */
 - (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView AtIndex:(NSInteger)index didSelectedItemDetailsAtIndexPath:(NSIndexPath *)indexPath;
+
+/**  右侧自定义下拉view
+ @param moreView categoryView description
+ @param listView 右侧滚动的view
+ @param row 选中的row 左侧选中的下标
+ */
+- (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView
+           RefreshScrollView:(CGXVerticalMenuMoreListView *)listView
+               listViewInRow:(NSInteger)row;
+/*
+ 子类滚到代理
+ */
+- (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView
+         scrollViewDidScroll:(CGXVerticalMenuMoreListView *)listView
+               listViewInRow:(NSInteger)row;
+
+- (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView scrollViewDidEndDragging:(CGXVerticalMenuMoreListView *)listView
+              willDecelerate:(BOOL)decelerate
+               listViewInRow:(NSInteger)row;
+
+- (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView
+ scrollViewWillBeginDragging:(CGXVerticalMenuMoreListView *)listView
+                   listViewInRow:(NSInteger)row;
+
+- (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView scrollViewDidEndDecelerating:(CGXVerticalMenuMoreListView *)listView
+                   listViewInRow:(NSInteger)row;
+
+- (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView scrollViewDidEndScrollingAnimation:(CGXVerticalMenuMoreListView *)listView
+                   listViewInRow:(NSInteger)row;
+
+
 @end
 
 @interface CGXVerticalMenuMoreView : CGXVerticalMenuCustomBaseView
@@ -72,18 +105,30 @@ NS_ASSUME_NONNULL_BEGIN
 /* 选中目标index */
 @property (nonatomic , assign,readonly) NSInteger currentInteger;
 
+
 @property (nonatomic , strong,readonly) NSMutableArray <CGXVerticalMenuMoreListModel *> *dataArray;
 
-/*
- 数据源
- */
+/*数据源*/
 - (void)updateListWithDataArray:(NSMutableArray<CGXVerticalMenuMoreListModel *> *)dataArray;
-/*
-  更新某个下标数据使用
-*/
-- (void)updateListWistAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuMoreListModel  *)itemModel;
+/*更新某个下标数据使用*/
+- (void)updateListWistAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuMoreListModel *)itemModel;
 // 刷新数据
 - (void)reloadData;
+
+/**
+ 选中目标index的item
+ @param index 目标index
+ */
+- (void)selectItemAtIndex:(NSInteger)index;
+/**
+ 上一页
+ */
+- (void)refreshLoadData;
+/**
+ 下一页
+ */
+- (void)refreshMoreLoadData;
+
 
 @end
 

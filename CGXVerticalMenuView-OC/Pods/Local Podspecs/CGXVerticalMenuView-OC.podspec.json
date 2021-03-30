@@ -1,6 +1,6 @@
 {
   "name": "CGXVerticalMenuView-OC",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "summary": "仿京东、淘宝等主流APP分类切换滚动视图",
   "description": "仿京东、淘宝等主流APP分类切换的滚动视图的封装库",
   "homepage": "https://github.com/974794055/CGXVerticalMenuView-OC",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/974794055/CGXVerticalMenuView-OC.git",
-    "tag": "1.2.1"
+    "tag": "1.2.2"
   },
   "requires_arc": true,
   "frameworks": "UIKit",
@@ -25,7 +25,24 @@
   "subspecs": [
     {
       "name": "MenuCustom",
-      "source_files": "CGXVerticalMenuView/MenuCustom/**/*.{h,m}"
+      "subspecs": [
+        {
+          "name": "Custom",
+          "source_files": "CGXVerticalMenuView/MenuCustom/Custom/**/*.{h,m}"
+        },
+        {
+          "name": "RoundLayout",
+          "source_files": "CGXVerticalMenuView/MenuCustom/RoundLayout/**/*.{h,m}"
+        },
+        {
+          "name": "ContainerView",
+          "source_files": "CGXVerticalMenuView/MenuCustom/ContainerView/**/*.{h,m}"
+        },
+        {
+          "name": "ListContainerView",
+          "source_files": "CGXVerticalMenuView/MenuCustom/ListContainerView/**/*.{h,m}"
+        }
+      ]
     },
     {
       "name": "MenuTitleView",
@@ -37,8 +54,8 @@
       }
     },
     {
-      "name": "MenuCollectionView",
-      "source_files": "CGXVerticalMenuView/MenuCollectionView/**/*.{h,m}",
+      "name": "CustomCollectionView",
+      "source_files": "CGXVerticalMenuView/CustomCollectionView/**/*.{h,m}",
       "dependencies": {
         "CGXVerticalMenuView-OC/MenuCustom": [
 
@@ -55,7 +72,7 @@
         "CGXVerticalMenuView-OC/MenuTitleView": [
 
         ],
-        "CGXVerticalMenuView-OC/MenuCollectionView": [
+        "CGXVerticalMenuView-OC/CustomCollectionView": [
 
         ]
       }
@@ -63,17 +80,23 @@
     {
       "name": "MenuMoreView",
       "source_files": "CGXVerticalMenuView/MenuMoreView/**/*.{h,m}",
-      "dependencies": {
-        "CGXVerticalMenuView-OC/MenuCustom": [
+      "subspecs": [
+        {
+          "name": "ListView",
+          "source_files": "CGXVerticalMenuView/MenuMoreView/ListView/**/*.{h,m}",
+          "dependencies": {
+            "CGXVerticalMenuView-OC/MenuCustom": [
 
-        ],
-        "CGXVerticalMenuView-OC/MenuTitleView": [
+            ],
+            "CGXVerticalMenuView-OC/MenuTitleView": [
 
-        ],
-        "CGXVerticalMenuView-OC/MenuCollectionView": [
+            ],
+            "CGXVerticalMenuView-OC/CustomCollectionView": [
 
-        ]
-      }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

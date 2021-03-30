@@ -33,7 +33,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"是否自定义" style:UIBarButtonItemStyleDone target:self action:@selector(update)];
     self.moreView = [[CGXVerticalMenuMoreView alloc] init];
     self.moreView.delegate = self;
-    self.moreView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-kTopHeight);;;
+    self.moreView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-kTopHeight-kSafeHeight);;;
     [self.view addSubview:self.moreView];
     
     NSMutableArray *titleArr = [NSMutableArray arrayWithObjects:@"推荐",@"要闻",@"河北",@"财经",@"娱乐",@"体育",@"社会",@"NBA",@"视频",@"汽车",@"图片",@"科技",@"军事",@"国际",@"数码",@"星座",@"电影",@"时尚",@"文化",@"游戏",@"教育",@"动漫",@"政务",@"纪录片",@"房产",@"佛学",@"股票",@"理财", nil];
@@ -144,11 +144,14 @@
  */
 - (UIView *)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView FootAtIndex:(NSInteger)index
 {
-    if (self.selectBO) {
+    if (index<moreView.dataArray.count-1) {
         MoreSectionFootView *view = [[MoreSectionFootView alloc] init];
         view.backgroundColor  = [UIColor orangeColor];
         view.frame = CGRectMake(0, 0, moreView.frame.size.width, 50);
-        view.titleLabel.text = [NSString stringWithFormat:@"自定义脚-%ld" , index];
+        
+        CGXVerticalMenuMoreListModel *listModel = moreView.dataArray[index+1];
+        view.titleLabel.text = [NSString stringWithFormat:@"上拉继续浏览 %@",listModel.leftModel.title];;
+        view.titleLabel.textColor = [UIColor orangeColor];
         return view;
     }
     return nil;
@@ -215,7 +218,33 @@
 {
     NSLog(@"didSelectedItemAtIndex--:%ld--%@",index,indexPath);
 }
-
+- (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView
+           RefreshScrollView:(CGXVerticalMenuMoreListView *)listView
+               listViewInRow:(NSInteger)row
+{
+    CGXRefreshHeader *header =  [CGXRefreshHeader headerWithRefreshingBlock:^{
+        [moreView refreshLoadData];
+        [listView.mainTable.mj_header endRefreshing];
+    }];
+    if (row>0) {
+        CGXVerticalMenuMoreListModel *listModel = moreView.dataArray[row-1];
+        header.title = [NSString stringWithFormat:@"下拉继续浏览 %@",listModel.leftModel.title];
+    }
+    listView.mainTable.mj_header = header;
+    if (row==0) {
+        listView.mainTable.mj_header.hidden = YES;
+    } else{
+        listView.mainTable.mj_header.hidden = NO;
+    }
+}
+- (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView scrollViewDidEndDragging:(CGXVerticalMenuMoreListView *)listView
+              willDecelerate:(BOOL)decelerate
+               listViewInRow:(NSInteger)row
+{
+    if (listView.mainTable.contentOffset.y>listView.mainTable.contentSize.height-listView.frame.size.height+20) {
+        [moreView refreshMoreLoadData];
+    }
+}
 /*
  #pragma mark - Navigation
  

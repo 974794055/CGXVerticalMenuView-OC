@@ -1,1 +1,1 @@
-../../../../../CGXVerticalMenuView/MenuCollectionView/CGXVerticalMenuCollectionSectionModel.h
+../../../../../CGXVerticalMenuView/CustomCollectionView/CGXVerticalMenuCollectionSectionModel.h

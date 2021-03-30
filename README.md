@@ -4,7 +4,7 @@
 
 - 下载链接：https://github.com/974794055/CGXVerticalMenuView-OC.git
 -  pod名称 ：CGXVerticalMenuView-OC
-- 最新版本号： 1.2.1
+- 最新版本号： 1.2.2
 
 ## 支持效果：
 - 1、左侧自定义标签view

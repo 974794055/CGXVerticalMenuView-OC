@@ -15,14 +15,13 @@
 {
     CGSize imageSize;
 }
-@property (strong ,nonatomic) UITableView *mainTable;
+@property (strong ,nonatomic,readwrite) UITableView *mainTable;
 @property (strong ,nonatomic) UIView *headerView;
 @property (strong ,nonatomic) UIImageView *ppImageView;
 @property (strong ,nonatomic) CGXVerticalMenuMoreListTitleView *titleView;
-@property (nonatomic , assign) NSInteger selectedIndex;
+@property (nonatomic , assign,readwrite) NSInteger selectedIndex;
 @property (nonatomic , assign) NSInteger selectedTitleIndex;
 @property (nonatomic , strong) CGXVerticalMenuMoreListModel *listModel;
-
 @end
 
 @implementation CGXVerticalMenuMoreListView
@@ -49,6 +48,7 @@
         [_mainTable registerClass:[CGXVerticalMenuMoreListViewCell class] forCellReuseIdentifier:NSStringFromClass([CGXVerticalMenuMoreListViewCell class])];
         [self addSubview:_mainTable];
         [_mainTable reloadData];
+
 
     }
     return self;
@@ -93,25 +93,11 @@
 
     if ([self.listModel.headUrl hasPrefix:@"http:"] || [self.listModel.headUrl hasPrefix:@"https:"]) {
         NSURL *url = [NSURL URLWithString:self.listModel.headUrl];
-       __block BOOL open = NO;
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-        [request setHTTPMethod:@"HEAD"];
-        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            if (error) {
-                open = NO;
-            }else{
-                open = YES;
-            }
-        }];
-        [task resume];
-        if (open) {
-            NSData *data = [NSData dataWithContentsOfURL:url];
-            UIImage *image = [UIImage imageWithData:data];
-            imageSize = image.size;
-            if (self.menu_ImageCallback) {
-                self.menu_ImageCallback(self.ppImageView, url);
-            }
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *image = [UIImage imageWithData:data];
+        imageSize = image.size;
+        if (self.menu_ImageCallback) {
+            self.menu_ImageCallback(self.ppImageView, url);
         }
     } else{
         UIImage *image = [UIImage imageNamed:self.listModel.headUrl];
@@ -281,6 +267,9 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    if ([self.listDelegate respondsToSelector:@selector(verticalMenuMoreListView:scrollViewDidScroll:)]) {
+        [self.listDelegate verticalMenuMoreListView:self scrollViewDidScroll:scrollView];
+    }
     if (self.listModel.haveTitleView) {
         if (!(scrollView.isTracking || scrollView.isDecelerating)) {
             //不是用户滚动的，比如setContentOffset等方法，引起的滚动不需要处理。
@@ -298,6 +287,26 @@
                 [self.titleView scrollAtIndex:topSection];
             }
         }
+    }
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    if ([self.listDelegate respondsToSelector:@selector(verticalMenuMoreListView:scrollViewDidEndDragging:willDecelerate:)]) {
+        [self.listDelegate verticalMenuMoreListView:self scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+    }
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    if ([self.listDelegate respondsToSelector:@selector(verticalMenuMoreListView:scrollViewWillBeginDragging:)]) {
+        [self.listDelegate verticalMenuMoreListView:self scrollViewWillBeginDragging:scrollView];
+    }
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if ([self.listDelegate respondsToSelector:@selector(verticalMenuMoreListView:scrollViewDidEndDecelerating:)]) {
+        [self.listDelegate verticalMenuMoreListView:self scrollViewDidEndDecelerating:scrollView];
+    }
+}
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    if ([self.listDelegate respondsToSelector:@selector(verticalMenuMoreListView:scrollViewDidEndScrollingAnimation:)]) {
+        [self.listDelegate verticalMenuMoreListView:self scrollViewDidEndScrollingAnimation:scrollView];
     }
 }
 

@@ -1,22 +1,32 @@
 PODS:
-  - CGXVerticalMenuView-OC (1.2.1):
-    - CGXVerticalMenuView-OC/MenuCategoryView (= 1.2.1)
-    - CGXVerticalMenuView-OC/MenuCollectionView (= 1.2.1)
-    - CGXVerticalMenuView-OC/MenuCustom (= 1.2.1)
-    - CGXVerticalMenuView-OC/MenuMoreView (= 1.2.1)
-    - CGXVerticalMenuView-OC/MenuTitleView (= 1.2.1)
-  - CGXVerticalMenuView-OC/MenuCategoryView (1.2.1):
-    - CGXVerticalMenuView-OC/MenuCollectionView
+  - CGXVerticalMenuView-OC (1.2.2):
+    - CGXVerticalMenuView-OC/CustomCollectionView (= 1.2.2)
+    - CGXVerticalMenuView-OC/MenuCategoryView (= 1.2.2)
+    - CGXVerticalMenuView-OC/MenuCustom (= 1.2.2)
+    - CGXVerticalMenuView-OC/MenuMoreView (= 1.2.2)
+    - CGXVerticalMenuView-OC/MenuTitleView (= 1.2.2)
+  - CGXVerticalMenuView-OC/CustomCollectionView (1.2.2):
+    - CGXVerticalMenuView-OC/MenuCustom
+  - CGXVerticalMenuView-OC/MenuCategoryView (1.2.2):
+    - CGXVerticalMenuView-OC/CustomCollectionView
     - CGXVerticalMenuView-OC/MenuCustom
     - CGXVerticalMenuView-OC/MenuTitleView
-  - CGXVerticalMenuView-OC/MenuCollectionView (1.2.1):
-    - CGXVerticalMenuView-OC/MenuCustom
-  - CGXVerticalMenuView-OC/MenuCustom (1.2.1)
-  - CGXVerticalMenuView-OC/MenuMoreView (1.2.1):
-    - CGXVerticalMenuView-OC/MenuCollectionView
+  - CGXVerticalMenuView-OC/MenuCustom (1.2.2):
+    - CGXVerticalMenuView-OC/MenuCustom/ContainerView (= 1.2.2)
+    - CGXVerticalMenuView-OC/MenuCustom/Custom (= 1.2.2)
+    - CGXVerticalMenuView-OC/MenuCustom/ListContainerView (= 1.2.2)
+    - CGXVerticalMenuView-OC/MenuCustom/RoundLayout (= 1.2.2)
+  - CGXVerticalMenuView-OC/MenuCustom/ContainerView (1.2.2)
+  - CGXVerticalMenuView-OC/MenuCustom/Custom (1.2.2)
+  - CGXVerticalMenuView-OC/MenuCustom/ListContainerView (1.2.2)
+  - CGXVerticalMenuView-OC/MenuCustom/RoundLayout (1.2.2)
+  - CGXVerticalMenuView-OC/MenuMoreView (1.2.2):
+    - CGXVerticalMenuView-OC/MenuMoreView/ListView (= 1.2.2)
+  - CGXVerticalMenuView-OC/MenuMoreView/ListView (1.2.2):
+    - CGXVerticalMenuView-OC/CustomCollectionView
     - CGXVerticalMenuView-OC/MenuCustom
     - CGXVerticalMenuView-OC/MenuTitleView
-  - CGXVerticalMenuView-OC/MenuTitleView (1.2.1):
+  - CGXVerticalMenuView-OC/MenuTitleView (1.2.2):
     - CGXVerticalMenuView-OC/MenuCustom
   - MJRefresh (3.5.0)
   - SDWebImage (5.9.5):
@@ -38,7 +48,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXVerticalMenuView-OC: ca9a8c6144f867dd24360bebd8a764a972740ea1
+  CGXVerticalMenuView-OC: 0831ded62385ca73f3bbcef08d74affc5d89b5eb
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SDWebImage: 0b2ba0d56479bf6a45ecddbfd5558bea93150d25
 
