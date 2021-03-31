@@ -28,7 +28,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    
     self.selectBO = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"是否自定义" style:UIBarButtonItemStyleDone target:self action:@selector(update)];
     self.moreView = [[CGXVerticalMenuMoreView alloc] init];

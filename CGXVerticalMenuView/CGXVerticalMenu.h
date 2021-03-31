@@ -48,6 +48,4 @@
 #import "CGXVerticalMenuMoreView.h"
 #import "CGXVerticalMenuListContainerView.h"
 
-
-
 #endif /* CGXVerticalMenu_h */

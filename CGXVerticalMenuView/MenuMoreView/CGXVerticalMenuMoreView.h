@@ -90,7 +90,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)verticalMenuMoreView:(CGXVerticalMenuMoreView *)moreView scrollViewDidEndScrollingAnimation:(CGXVerticalMenuMoreListView *)listView
                    listViewInRow:(NSInteger)row;
 
-
 @end
 
 @interface CGXVerticalMenuMoreView : CGXVerticalMenuCustomBaseView
