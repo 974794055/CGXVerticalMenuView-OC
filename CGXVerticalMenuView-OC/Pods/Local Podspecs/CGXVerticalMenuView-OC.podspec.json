@@ -83,7 +83,7 @@
       "subspecs": [
         {
           "name": "ListView",
-          "source_files": "CGXVerticalMenuView/MenuMoreView/ListView/**/*.{h,m}",
+          "source_files": "CGXVerticalMenuView-OC/MenuMoreView/ListView/**/*.{h,m}",
           "dependencies": {
             "CGXVerticalMenuView-OC/MenuCustom": [
 

@@ -47,7 +47,6 @@
         itemModel.titleFont = [UIFont systemFontOfSize:14];
         itemModel.titleSelectedFont = [UIFont systemFontOfSize:18];
         listModel.leftModel = itemModel;
-        
 //        listModel.haveTitleView = NO;
         listModel.headEdgeInsets = UIEdgeInsetsMake(10, 10, 0, 10);
         listModel.headUrl = [NSString stringWithFormat:@"HotIcon%d",i % 5];

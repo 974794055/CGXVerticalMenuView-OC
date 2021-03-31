@@ -37,7 +37,6 @@
                       @"UICollectionView多列联动",
                       nil];
     [self.tableView reloadData];
-    
 }
 - (void)creatTableView
 {

@@ -48,7 +48,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXVerticalMenuView-OC: 0831ded62385ca73f3bbcef08d74affc5d89b5eb
+  CGXVerticalMenuView-OC: d5f1788e8a017f782f18035e7c4f85c548e698d6
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SDWebImage: 0b2ba0d56479bf6a45ecddbfd5558bea93150d25
 
