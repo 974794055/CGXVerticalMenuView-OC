@@ -33,7 +33,6 @@ UICollectionView多行联动  |  <img src="https://github.com/974794055/CGXVerti
 ## 安装
 ### 手动
 Clone代码，把CGXVerticalMenuView文件夹拖入项目，#import "CGXVerticalMenu.h"，就可以使用了；
-
 ### CocoaPods
 ```ruby
 target '<Your Target Name>' do
@@ -41,7 +40,6 @@ target '<Your Target Name>' do
 end
 ```
 先执行`pod repo update`，再执行`pod install`
-
 ## 结构图
 <img src="https://github.com/974794055/CGXPageCollectionView-OC/blob/master/CGXPageCollectionViewImageGif/main0..png" width="933" height="482">
 
