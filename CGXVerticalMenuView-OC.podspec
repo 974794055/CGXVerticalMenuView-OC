@@ -46,9 +46,9 @@ Pod::Spec.new do |s|
     end
     s.subspec 'MenuMoreView' do |ss|
         ss.source_files = 'CGXVerticalMenuView/MenuMoreView/**/*.{h,m}'
-        ss.subspec 'ListView' do |sss|
-            sss.source_files = 'CGXVerticalMenuView-OC/MenuMoreView/ListView/**/*.{h,m}'
-        end
+#        ss.subspec 'ListView' do |sss|
+#            sss.source_files = 'CGXVerticalMenuView-OC/MenuMoreView/ListView/**/*.{h,m}'
+#        end
         ss.dependency 'CGXVerticalMenuView-OC/MenuCustom'
         ss.dependency 'CGXVerticalMenuView-OC/MenuTitleView'
         ss.dependency 'CGXVerticalMenuView-OC/CustomCollectionView'

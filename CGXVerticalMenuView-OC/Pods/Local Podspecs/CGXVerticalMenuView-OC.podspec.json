@@ -90,13 +90,7 @@
         "CGXVerticalMenuView-OC/CustomCollectionView": [
 
         ]
-      },
-      "subspecs": [
-        {
-          "name": "ListView",
-          "source_files": "CGXVerticalMenuView-OC/MenuMoreView/ListView/**/*.{h,m}"
-        }
-      ]
+      }
     }
   ]
 }

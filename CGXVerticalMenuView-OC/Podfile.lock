@@ -23,11 +23,6 @@ PODS:
   - CGXVerticalMenuView-OC/MenuMoreView (1.2.2):
     - CGXVerticalMenuView-OC/CustomCollectionView
     - CGXVerticalMenuView-OC/MenuCustom
-    - CGXVerticalMenuView-OC/MenuMoreView/ListView (= 1.2.2)
-    - CGXVerticalMenuView-OC/MenuTitleView
-  - CGXVerticalMenuView-OC/MenuMoreView/ListView (1.2.2):
-    - CGXVerticalMenuView-OC/CustomCollectionView
-    - CGXVerticalMenuView-OC/MenuCustom
     - CGXVerticalMenuView-OC/MenuTitleView
   - CGXVerticalMenuView-OC/MenuTitleView (1.2.2):
     - CGXVerticalMenuView-OC/MenuCustom
@@ -51,7 +46,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CGXVerticalMenuView-OC: e77c75ac8cafec3d1b5ccf48b54bd0aee1734a22
+  CGXVerticalMenuView-OC: 1f743edca2b085953dd64aaf154d6baa45125c38
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SDWebImage: 0b2ba0d56479bf6a45ecddbfd5558bea93150d25
 
