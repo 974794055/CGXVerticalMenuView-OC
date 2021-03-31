@@ -80,21 +80,21 @@
     {
       "name": "MenuMoreView",
       "source_files": "CGXVerticalMenuView/MenuMoreView/**/*.{h,m}",
+      "dependencies": {
+        "CGXVerticalMenuView-OC/MenuCustom": [
+
+        ],
+        "CGXVerticalMenuView-OC/MenuTitleView": [
+
+        ],
+        "CGXVerticalMenuView-OC/CustomCollectionView": [
+
+        ]
+      },
       "subspecs": [
         {
           "name": "ListView",
-          "source_files": "CGXVerticalMenuView/MenuMoreView/ListView/**/*.{h,m}",
-          "dependencies": {
-            "CGXVerticalMenuView-OC/MenuCustom": [
-
-            ],
-            "CGXVerticalMenuView-OC/MenuTitleView": [
-
-            ],
-            "CGXVerticalMenuView-OC/CustomCollectionView": [
-
-            ]
-          }
+          "source_files": "CGXVerticalMenuView/MenuMoreView/ListView/**/*.{h,m}"
         }
       ]
     }
