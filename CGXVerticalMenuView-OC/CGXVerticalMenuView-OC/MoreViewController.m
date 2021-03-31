@@ -55,7 +55,6 @@
             [hotImageView sd_setImageWithURL:hotImageURL];
             hotImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"HotIcon%d",i % 5]];
         };
-        
         CGXVerticalMenuMoreListTitleModel *titleModel = [[CGXVerticalMenuMoreListTitleModel alloc] init];
         titleModel.textNormalColor = [UIColor blackColor];
         titleModel.textSelectColor = [UIColor redColor];
