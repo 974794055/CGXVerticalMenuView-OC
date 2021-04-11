@@ -78,6 +78,11 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
     self.leftView.frame = CGRectMake(0, 0, self.titleWidth, CGRectGetHeight(self.bounds));
     self.containerView.frame = CGRectMake(self.titleWidth, 0, CGRectGetWidth(self.bounds)-self.titleWidth, CGRectGetHeight(self.bounds));
 }
+- (void)setTitleWidth:(CGFloat)titleWidth {
+    _titleWidth = titleWidth;
+    self.leftView.frame = CGRectMake(0, 0, self.titleWidth, CGRectGetHeight(self.bounds));
+    self.containerView.frame = CGRectMake(self.titleWidth, 0, CGRectGetWidth(self.bounds)-self.titleWidth, CGRectGetHeight(self.bounds));
+}
 - (void)setSpaceLeft:(CGFloat)spaceLeft
 {
     _spaceLeft = spaceLeft;
