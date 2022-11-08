@@ -43,8 +43,6 @@
 - (void)initializeData
 {
     self.dataArray = [NSMutableArray array];
-    
-    self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
 }
 - (CGXVerticalMenuRoundFlowLayout *)preferredLayout
 {
@@ -58,7 +56,7 @@
 - (void)initializeViews
 {
     self.collectionView = [[CGXVerticalMenuCustomCollectionView alloc] initWithFrame:self.bounds collectionViewLayout:[self preferredLayout]];
-    self.collectionView.backgroundColor = self.backgroundColor;
+    self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.scrollsToTop = NO;
@@ -209,7 +207,7 @@
     if (self.dataSouce && [self.dataSouce respondsToSelector:@selector(categoryRightView:BackgroundColorForSection:)]) {
         return [self.dataSouce categoryRightView:self BackgroundColorForSection:section];
     }
-    return self.collectionView.backgroundColor;
+    return self.backgroundColor;
 }
 /// 设置底色参数
 /// @param collectionView collectionView description

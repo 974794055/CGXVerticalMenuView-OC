@@ -30,7 +30,7 @@
         layout.isCalculateFooter = YES;
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         self.collectionView= [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
-        self.collectionView.backgroundColor = [UIColor whiteColor];
+        self.collectionView.backgroundColor = [UIColor clearColor];
         self.collectionView.showsHorizontalScrollIndicator = NO;
         self.collectionView.showsVerticalScrollIndicator = NO;
         self.collectionView.dataSource = self;
@@ -75,7 +75,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.collectionView.backgroundColor =self.contentView.backgroundColor;
     self.collectionView.frame = self.contentView.bounds;
     [self.collectionView reloadData];
 }

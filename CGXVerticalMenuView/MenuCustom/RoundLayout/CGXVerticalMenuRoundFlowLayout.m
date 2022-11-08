@@ -28,159 +28,148 @@ static NSString *const CGXVerticalMenuRoundFlowLayoutRoundSection = @"com.CGXVer
     }
     return self;
 }
-
-- (void)awakeFromNib{
-    [super awakeFromNib];
-    _isRoundEnabled = YES;
-}
-
 - (void)prepareLayout{
     [super prepareLayout];
     
     if (!self.isRoundEnabled) {
         return;
     }
-    
     NSInteger sections = [self.collectionView numberOfSections];
     id <CGXVerticalMenuRoundFlowLayoutDelegate> delegate  = (id <CGXVerticalMenuRoundFlowLayoutDelegate>)self.collectionView.delegate;
-//    id delegate  = self.collectionView.delegate;
-    
     //检测是否实现了背景样式模块代理
     if ([delegate respondsToSelector:@selector(collectionView:configModelForSectionAtIndex:)]) {
-    }else{
-        return ;
-    }
-    
-    //1.初始化
-    [self registerClass:[CGXVerticalMenuRoundReusableView class] forDecorationViewOfKind:CGXVerticalMenuRoundFlowLayoutRoundSection];
-    [self.decorationViewAttrs removeAllObjects];
-    
-    for (NSInteger section = 0; section < sections; section++) {
-        NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:section];
-        if (numberOfItems > 0) {
-            UICollectionViewLayoutAttributes *firstAttr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-            CGRect firstFrame = firstAttr.frame;
-            
-            //headerView
-            UICollectionViewLayoutAttributes *headerAttr = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-            
-            //footerView
-            UICollectionViewLayoutAttributes *footerAttr = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter atIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-            
-            // 最后一个item
-            UICollectionViewLayoutAttributes *lastAttr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:(numberOfItems - 1) inSection:section]];
-            CGRect lastFrame = lastAttr.frame;
-            
-            BOOL isHeaderAttr = (headerAttr &&
-                                          (headerAttr.frame.size.width != 0  && headerAttr.frame.size.height != 0));
-            BOOL isFooterAttr = (footerAttr &&
-                                          (footerAttr.frame.size.width != 0  && footerAttr.frame.size.height != 0));
-            
-            //判断是否计算headerview
-            BOOL isCalculateHeaderView = [self isCalculateHeaderViewSection:section] && isHeaderAttr;
-            //判断是否计算footerView
-            BOOL isCalculateFooterView = [self isCalculateFooterViewSection:section] && isFooterAttr;
-            
-
-            firstFrame = [self calculateDefaultFrameWithFirstHeader:isCalculateHeaderView Section:section NumberOfItems:numberOfItems IsOpen:self.isCalculateOpenIrregularCell];
-            lastFrame = [self calculateDefaultFrameWithFirstFooter:isCalculateFooterView Section:section NumberOfItems:numberOfItems IsOpen:self.isCalculateOpenIrregularCell];
-            
-            
-            //获取sectionInset
-            UIEdgeInsets sectionInset = [CGXVerticalMenuRoundFlowLayoutUtils evaluatedSectionInsetForItemWithCollectionLayout:self atIndex:section];
-            CGRect sectionFrame = CGRectUnion(firstFrame, lastFrame);
-            
-            if (!isCalculateHeaderView && !isCalculateFooterView) {
-                //都没有headerView&footerView
-                sectionFrame = [self calculateDefaultFrameWithSectionFrame:sectionFrame sectionInset:sectionInset];
-            }else{
+        //1.初始化
+        [self registerClass:[CGXVerticalMenuRoundReusableView class] forDecorationViewOfKind:CGXVerticalMenuRoundFlowLayoutRoundSection];
+        [self.decorationViewAttrs removeAllObjects];
+        
+        for (NSInteger section = 0; section < sections; section++) {
+            NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:section];
+            if (numberOfItems > 0) {
+                UICollectionViewLayoutAttributes *firstAttr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+                CGRect firstFrame = firstAttr.frame;
                 
-                if (isCalculateHeaderView && !isCalculateFooterView) {
-                    //判断是否有headerview
-                    if (isHeaderAttr) {
+                //headerView
+                UICollectionViewLayoutAttributes *headerAttr = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+                
+                //footerView
+                UICollectionViewLayoutAttributes *footerAttr = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter atIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+                
+                // 最后一个item
+                UICollectionViewLayoutAttributes *lastAttr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:(numberOfItems - 1) inSection:section]];
+                CGRect lastFrame = lastAttr.frame;
+                
+                BOOL isHeaderAttr = (headerAttr &&
+                                     (headerAttr.frame.size.width != 0  && headerAttr.frame.size.height != 0));
+                BOOL isFooterAttr = (footerAttr &&
+                                     (footerAttr.frame.size.width != 0  && footerAttr.frame.size.height != 0));
+                
+                //判断是否计算headerview
+                BOOL isCalculateHeaderView = [self isCalculateHeaderViewSection:section] && isHeaderAttr;
+                //判断是否计算footerView
+                BOOL isCalculateFooterView = [self isCalculateFooterViewSection:section] && isFooterAttr;
+                
+                
+                firstFrame = [self calculateDefaultFrameWithFirstHeader:isCalculateHeaderView Section:section NumberOfItems:numberOfItems IsOpen:self.isCalculateOpenIrregularCell];
+                lastFrame = [self calculateDefaultFrameWithFirstFooter:isCalculateFooterView Section:section NumberOfItems:numberOfItems IsOpen:self.isCalculateOpenIrregularCell];
+                
+                
+                //获取sectionInset
+                UIEdgeInsets sectionInset = [CGXVerticalMenuRoundFlowLayoutUtils evaluatedSectionInsetForItemWithCollectionLayout:self atIndex:section];
+                CGRect sectionFrame = CGRectUnion(firstFrame, lastFrame);
+                
+                if (!isCalculateHeaderView && !isCalculateFooterView) {
+                    //都没有headerView&footerView
+                    sectionFrame = [self calculateDefaultFrameWithSectionFrame:sectionFrame sectionInset:sectionInset];
+                }else{
+                    
+                    if (isCalculateHeaderView && !isCalculateFooterView) {
+                        //判断是否有headerview
+                        if (isHeaderAttr) {
                             //判断包含headerview, top位置已经计算在内，不需要补偏移
                             sectionFrame.size.height += sectionInset.bottom;
-                    }else{
-                        sectionFrame = [self calculateDefaultFrameWithSectionFrame:sectionFrame sectionInset:sectionInset];
-                    }
-                }else if (!isCalculateHeaderView && isCalculateFooterView) {
-                    if (isFooterAttr) {
+                        }else{
+                            sectionFrame = [self calculateDefaultFrameWithSectionFrame:sectionFrame sectionInset:sectionInset];
+                        }
+                    }else if (!isCalculateHeaderView && isCalculateFooterView) {
+                        if (isFooterAttr) {
                             //判断包含footerView, bottom位置已经计算在内，不需要补偏移
                             //(需要补充y偏移)
                             sectionFrame.origin.y -= sectionInset.top;
                             sectionFrame.size.width = self.collectionView.frame.size.width;
                             sectionFrame.size.height += sectionInset.top;
+                        }else{
+                            sectionFrame = [self calculateDefaultFrameWithSectionFrame:sectionFrame sectionInset:sectionInset];
+                        }
                     }else{
-                        sectionFrame = [self calculateDefaultFrameWithSectionFrame:sectionFrame sectionInset:sectionInset];
+                        if (isHeaderAttr && isFooterAttr) {
+                            //都有headerview和footerview就不用计算了
+                        }else{
+                            sectionFrame = [self calculateDefaultFrameWithSectionFrame:sectionFrame sectionInset:sectionInset];
+                            
+                        }
                     }
+                }
+                
+                UIEdgeInsets userCustomSectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+                if ([delegate respondsToSelector:@selector(collectionView:borderEdgeInsertsForSectionAtIndex:)]) {
+                    //检测是否实现了该方法，进行赋值
+                    userCustomSectionInset = [delegate collectionView:self.collectionView borderEdgeInsertsForSectionAtIndex:section];
+                }
+                sectionFrame.origin.x += userCustomSectionInset.left;
+                sectionFrame.origin.y += userCustomSectionInset.top;
+                if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+                    sectionFrame.size.width -= (userCustomSectionInset.left + userCustomSectionInset.right);
+                    sectionFrame.size.height -= (userCustomSectionInset.top + userCustomSectionInset.bottom);
                 }else{
-                    if (isHeaderAttr && isFooterAttr) {
-                        //都有headerview和footerview就不用计算了
-                    }else{
-                        sectionFrame = [self calculateDefaultFrameWithSectionFrame:sectionFrame sectionInset:sectionInset];
-
+                    sectionFrame.size.width -= (userCustomSectionInset.left + userCustomSectionInset.right);
+                    sectionFrame.size.height -= (userCustomSectionInset.top + userCustomSectionInset.bottom);
+                }
+                
+                //2. 定义
+                CGXVerticalMenuRoundLayoutAttributes *attr = [CGXVerticalMenuRoundLayoutAttributes layoutAttributesForDecorationViewOfKind:CGXVerticalMenuRoundFlowLayoutRoundSection withIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+                attr.frame = sectionFrame;
+                attr.zIndex = -1;
+                attr.borderEdgeInsets = userCustomSectionInset;
+                if ([delegate respondsToSelector:@selector(collectionView:configModelForSectionAtIndex:)]) {
+                    attr.myConfigModel = [delegate collectionView:self.collectionView configModelForSectionAtIndex:section];
+                }
+                [self.decorationViewAttrs addObject:attr];
+            }else{
+                continue ;
+            }
+        }
+        
+        
+        if (sections>0) {
+            if (self.sectionHeaderAttributes == nil) {
+                //获取到所有的sectionHeaderAtrributes，用于后续的点击，滚动到指定contentOffset.y使用
+                NSMutableArray *attributes = [NSMutableArray array];
+                UICollectionViewLayoutAttributes *lastHeaderAttri = nil;
+                for (int i = 0; i < sections; i++) {
+                    UICollectionViewLayoutAttributes *attri = [self.collectionView.collectionViewLayout layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForItem:0 inSection:i]];
+                    if (attri) {
+                        [attributes addObject:attri];
+                    }
+                    if (i == sections - 1) {
+                        lastHeaderAttri = attri;
                     }
                 }
-            }
-            
-            UIEdgeInsets userCustomSectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-            if ([delegate respondsToSelector:@selector(collectionView:borderEdgeInsertsForSectionAtIndex:)]) {
-                //检测是否实现了该方法，进行赋值
-                userCustomSectionInset = [delegate collectionView:self.collectionView borderEdgeInsertsForSectionAtIndex:section];
-            }
-            sectionFrame.origin.x += userCustomSectionInset.left;
-            sectionFrame.origin.y += userCustomSectionInset.top;
-            if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
-                sectionFrame.size.width -= (userCustomSectionInset.left + userCustomSectionInset.right);
-                sectionFrame.size.height -= (userCustomSectionInset.top + userCustomSectionInset.bottom);
-            }else{
-                sectionFrame.size.width -= (userCustomSectionInset.left + userCustomSectionInset.right);
-                sectionFrame.size.height -= (userCustomSectionInset.top + userCustomSectionInset.bottom);
-            }
-            
-            //2. 定义
-            CGXVerticalMenuRoundLayoutAttributes *attr = [CGXVerticalMenuRoundLayoutAttributes layoutAttributesForDecorationViewOfKind:CGXVerticalMenuRoundFlowLayoutRoundSection withIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-            attr.frame = sectionFrame;
-            attr.zIndex = -1;
-            attr.borderEdgeInsets = userCustomSectionInset;
-            if ([delegate respondsToSelector:@selector(collectionView:configModelForSectionAtIndex:)]) {
-                attr.myConfigModel = [delegate collectionView:self.collectionView configModelForSectionAtIndex:section];
-            }
-            [self.decorationViewAttrs addObject:attr];
-        }else{
-            continue ;
-        }
-    }
-    
-    
-    if (sections>0) {
-        if (self.sectionHeaderAttributes == nil) {
-            //获取到所有的sectionHeaderAtrributes，用于后续的点击，滚动到指定contentOffset.y使用
-            NSMutableArray *attributes = [NSMutableArray array];
-            UICollectionViewLayoutAttributes *lastHeaderAttri = nil;
-            for (int i = 0; i < sections; i++) {
-                UICollectionViewLayoutAttributes *attri = [self.collectionView.collectionViewLayout layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForItem:0 inSection:i]];
-                if (attri) {
-                    [attributes addObject:attri];
+                if (attributes.count == 0) {
+                    return;
                 }
-                if (i == sections - 1) {
-                    lastHeaderAttri = attri;
-                }
+                self.sectionHeaderAttributes = attributes;
+                
+                //            NSInteger rowCount = [self.collectionView numberOfItemsInSection:sections-1];
+                //            //如果最后一个section条目太少了，会导致滚动最底部，但是却不能触发categoryView选中最后一个item。而且点击最后一个滚动的contentOffset.y也不好弄。所以添加contentInset，让最后一个section滚到最下面能显示完整个屏幕。
+                //            UICollectionViewLayoutAttributes *lastCellAttri = [self.collectionView.collectionViewLayout layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:rowCount inSection:sections-1]];
+                //            CGFloat lastSectionHeight = CGRectGetMaxY(lastCellAttri.frame) - CGRectGetMinY(lastHeaderAttri.frame);
+                //            CGFloat value = self.collectionView.bounds.size.height - lastSectionHeight;
+                //            if (value > 0) {
+                //                self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, value+20, 0);
+                //            }
             }
-            if (attributes.count == 0) {
-                return;
-            }
-            self.sectionHeaderAttributes = attributes;
-
-//            NSInteger rowCount = [self.collectionView numberOfItemsInSection:sections-1];
-//            //如果最后一个section条目太少了，会导致滚动最底部，但是却不能触发categoryView选中最后一个item。而且点击最后一个滚动的contentOffset.y也不好弄。所以添加contentInset，让最后一个section滚到最下面能显示完整个屏幕。
-//            UICollectionViewLayoutAttributes *lastCellAttri = [self.collectionView.collectionViewLayout layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:rowCount inSection:sections-1]];
-//            CGFloat lastSectionHeight = CGRectGetMaxY(lastCellAttri.frame) - CGRectGetMinY(lastHeaderAttri.frame);
-//            CGFloat value = self.collectionView.bounds.size.height - lastSectionHeight;
-//            if (value > 0) {
-//                self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, value+20, 0);
-//            }
         }
+        
     }
 }
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect{
@@ -213,7 +202,7 @@ static NSString *const CGXVerticalMenuRoundFlowLayoutRoundSection = @"com.CGXVer
         if ([attributes.representedElementKind isEqualToString:UICollectionElementKindSectionHeader])
         {
             [noneHeaderSections removeIndex:attributes.indexPath.section];
-
+            
         }
     }
     [noneHeaderSections enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop){
@@ -221,7 +210,7 @@ static NSString *const CGXVerticalMenuRoundFlowLayoutRoundSection = @"com.CGXVer
         UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:indexPath];
         if (attributes)
         {
-
+            
             [superAttributes addObject:attributes];
         }
     }];
@@ -298,19 +287,19 @@ static NSString *const CGXVerticalMenuRoundFlowLayoutRoundSection = @"com.CGXVer
 - (CGRect)calculateDefaultFrameWithSectionFrame:(CGRect)frame sectionInset:(UIEdgeInsets)sectionInset{
     CGRect sectionFrame = frame;
     sectionFrame.origin.x -= sectionInset.left;
-      sectionFrame.origin.y -= sectionInset.top;
-      if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
-          sectionFrame.size.width += sectionInset.left + sectionInset.right;
-          //减去系统adjustInset的top
-          if (@available(iOS 11.0, *)) {
-              sectionFrame.size.height = self.collectionView.frame.size.height - self.collectionView.adjustedContentInset.top;
-          } else {
-              sectionFrame.size.height = self.collectionView.frame.size.height - fabs(self.collectionView.contentOffset.y)/*适配iOS11以下*/;
-          }
-      }else{
-          sectionFrame.size.width = self.collectionView.frame.size.width;
-          sectionFrame.size.height += sectionInset.top + sectionInset.bottom;
-      }
+    sectionFrame.origin.y -= sectionInset.top;
+    if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+        sectionFrame.size.width += sectionInset.left + sectionInset.right;
+        //减去系统adjustInset的top
+        if (@available(iOS 11.0, *)) {
+            sectionFrame.size.height = self.collectionView.frame.size.height - self.collectionView.adjustedContentInset.top;
+        } else {
+            sectionFrame.size.height = self.collectionView.frame.size.height - fabs(self.collectionView.contentOffset.y)/*适配iOS11以下*/;
+        }
+    }else{
+        sectionFrame.size.width = self.collectionView.frame.size.width;
+        sectionFrame.size.height += sectionInset.top + sectionInset.bottom;
+    }
     return sectionFrame;
 }
 /// 计算headerview背景大小
@@ -319,8 +308,8 @@ static NSString *const CGXVerticalMenuRoundFlowLayoutRoundSection = @"com.CGXVer
 /// @param numberOfItems 第几个
 /// @param isOpen 是否打开不规则运算
 - (CGRect)calculateDefaultFrameWithFirstHeader:(BOOL)isCalculateHeaderView
-                                      Section:(NSInteger)section
-                                NumberOfItems:(NSInteger)numberOfItems
+                                       Section:(NSInteger)section
+                                 NumberOfItems:(NSInteger)numberOfItems
                                         IsOpen:(BOOL)isOpen
 {
     BOOL isCalculateOpenIrregularCell = isOpen;
@@ -328,7 +317,7 @@ static NSString *const CGXVerticalMenuRoundFlowLayoutRoundSection = @"com.CGXVer
     UICollectionViewLayoutAttributes *firstAttr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
     //headerView
     UICollectionViewLayoutAttributes *headerAttr = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-
+    
     
     CGRect firstFrame = firstAttr.frame;
     if (isCalculateHeaderView) {
@@ -358,8 +347,8 @@ static NSString *const CGXVerticalMenuRoundFlowLayoutRoundSection = @"com.CGXVer
 /// @param numberOfItems 第几个
 /// @param isOpen 是否打开不规则运算
 - (CGRect)calculateDefaultFrameWithFirstFooter:(BOOL)isCalculateFooterView
-                                      Section:(NSInteger)section
-                                NumberOfItems:(NSInteger)numberOfItems
+                                       Section:(NSInteger)section
+                                 NumberOfItems:(NSInteger)numberOfItems
                                         IsOpen:(BOOL)isOpen
 {
     BOOL isCalculateOpenIrregularCell = isOpen;

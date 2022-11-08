@@ -14,7 +14,6 @@
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        self.borderEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         self.myConfigModel = [[CGXVerticalMenuRoundModel alloc] init];
     }
     return self;

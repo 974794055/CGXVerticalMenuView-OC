@@ -29,13 +29,12 @@
 {
     [super initializeViews];
     CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
-    backgroundView.backgroundViewColor = [UIColor orangeColor];
+    backgroundView.backgroundViewColor = [UIColor redColor];
     backgroundView.backgroundViewCornerRadius = 0;
     CGXVerticalMenuIndicatorLineView *lineView = [[CGXVerticalMenuIndicatorLineView alloc] init];
     lineView.backgroundColor = [UIColor redColor];
     lineView.positionType = CGXVerticalMenuIndicatorLinePosition_Left;
     self.indicators = @[lineView,backgroundView];
-    
 }
 - (Class)preferredCellClass
 {
@@ -43,18 +42,17 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self selectCellAtIndex:indexPath.section selectedType:CGXCategoryListCellSelectedTypeClick];
+    [self selectItemAtIndex:indexPath.section];
 }
 - (void)updateMenuWithDataArray:(NSMutableArray<CGXVerticalMenuBaseModel *> *)dataArray
 {
     [super updateMenuWithDataArray:dataArray];
-
+    self.isFirstClick = YES;
     for (UIView<CGXCategoryListIndicatorProtocol> *indicator in self.indicators) {
         if (self.dataArray.count <= 0) {
             indicator.hidden = YES;
         }else {
             indicator.hidden = NO;
-
             CGXVerticalMenuTitleModel *model = (CGXVerticalMenuTitleModel *)self.dataArray[self.selectedIndex];
             NSInteger lastSelectedIndex = self.selectedIndex;
             CGRect clickedCellFrame = CGRectMake(0, self.selectedIndex *model.rowHeight , self.frame.size.width, model.rowHeight);
@@ -74,15 +72,11 @@
         }
     }
     [self selectItemAtIndex:self.selectedIndex];
-    
 }
-
-
 - (void)refreshCellModel:(CGXVerticalMenuBaseModel *)cellModel index:(NSInteger)index
 {
     [super refreshCellModel:cellModel index:index];
 //    CGXVerticalMenuTitleModel *model = (CGXVerticalMenuTitleModel *)cellModel;
-  
 }
 - (void)refreshSelectedCellModel:(CGXVerticalMenuBaseModel *)selectedCellModel unselectedCellModel:(CGXVerticalMenuBaseModel *)unselectedCellModel
 {
@@ -114,17 +108,19 @@
     }
     if (self.selectedIndex == index) {
         if (self.isFirstClick) {
-            self.isFirstClick = !self.isFirstClick;
-            [self updateIndicatorAtIndex:index selectedType:selectedType]; //更新指示器
+            self.isFirstClick = NO;
+            [self updateIndicatorAtIndex:index selectedType:selectedType];
+            [self updateCellAtIndex:index selectedType:selectedType];
+            [self updateDelegateAtIndex:index selectedType:selectedType];
         } else{
             CGXVerticalMenuTitleModel *newModel = (CGXVerticalMenuTitleModel *)self.dataArray[index];
             if (newModel.isMoreClick) {
+                [self updateDelegateAtIndex:index selectedType:selectedType];
+                [self updateIndicatorAtIndex:index selectedType:selectedType];
                 [self updateCellAtIndex:index selectedType:selectedType];
             }
         }
         return;
-    } else{
-        [self updateIndicatorAtIndex:index selectedType:selectedType]; //更新指示器
     }
     
     //通知子类刷新当前选中的和将要选中的cellModel
@@ -132,29 +128,16 @@
     CGXVerticalMenuTitleModel *newModel = (CGXVerticalMenuTitleModel *)self.dataArray[index];
     [self refreshSelectedCellModel:newModel unselectedCellModel:oldModel];
     
-    
     //刷新当前选中的和将要选中的cell
     CGXVerticalMenuTitleCell *lastCell = (CGXVerticalMenuTitleCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:self.selectedIndex]];
     [lastCell reloadData:oldModel];
     CGXVerticalMenuTitleCell *selectedCell = (CGXVerticalMenuTitleCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:index]];
     [selectedCell reloadData:newModel];
     
+    [self updateIndicatorAtIndex:index selectedType:selectedType];
+    [self updateCellAtIndex:index selectedType:selectedType];
+    [self updateDelegateAtIndex:index selectedType:selectedType];
     
-    if (self.selectedIndex == index) {
-        if (self.isFirstClick) {
-            [self updateCellAtIndex:index selectedType:selectedType];
-            [self updateDelegateAtIndex:index selectedType:selectedType];
-            self.isFirstClick = NO;
-        } else{
-            if (newModel.isMoreClick) {
-                [self updateCellAtIndex:index selectedType:selectedType];
-                [self updateDelegateAtIndex:index selectedType:selectedType];
-            }
-        }
-    } else{
-        [self updateCellAtIndex:index selectedType:selectedType];
-        [self updateDelegateAtIndex:index selectedType:selectedType];
-    }
     self.isFirstClick = NO;
     self.selectedIndex = index;
 }
@@ -187,9 +170,9 @@
     [CATransaction setDisableActions:YES];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.collectionView reloadData];
+        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:index] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
     });
     [CATransaction commit];
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:index] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
     
 }
 #pragma mark - 更新代理

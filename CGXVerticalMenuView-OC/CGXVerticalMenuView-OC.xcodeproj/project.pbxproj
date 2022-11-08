@@ -22,15 +22,15 @@
 		9E4337B3233679F800F4DEB4 /* CGXRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4337A7233679F800F4DEB4 /* CGXRefreshHeader.m */; };
 		9E4337B4233679F800F4DEB4 /* CGXRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4337A8233679F800F4DEB4 /* CGXRefreshFooter.m */; };
 		9EB89E802337060300A58483 /* CGXRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB89E7F2337060300A58483 /* CGXRefreshBackFooter.m */; };
-		B57FDE48250FB5EF0054A11E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B57FDE45250FB5EF0054A11E /* LICENSE */; };
-		B57FDE49250FB5EF0054A11E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B57FDE46250FB5EF0054A11E /* README.md */; };
-		B57FDE4D250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B57FDE4C250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec */; };
 		B5892EA025EB585400FB677D /* CustomTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5892E9E25EB585400FB677D /* CustomTitleView.m */; };
 		B589A99B25F1143C0008B6EA /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B589A99A25F1143C0008B6EA /* MoreViewController.m */; };
 		B58CBD9E2603817600269679 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B58CBD9D2603817600269679 /* CustomCollectionViewCell.m */; };
 		B5F6AE982600E53800BFF1D4 /* MoreViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F6AE972600E53800BFF1D4 /* MoreViewCell.m */; };
 		B5F6AEB02600F3E900BFF1D4 /* MoreSectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F6AEAF2600F3E900BFF1D4 /* MoreSectionHeadView.m */; };
 		B5F6AEB42600F3F700BFF1D4 /* MoreSectionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F6AEB32600F3F700BFF1D4 /* MoreSectionFootView.m */; };
+		E0ECE4A526B197F700A72797 /* CGXVerticalMenuView-OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E0ECE4A226B197F600A72797 /* CGXVerticalMenuView-OC.podspec */; };
+		E0ECE4A626B197F700A72797 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E0ECE4A326B197F600A72797 /* README.md */; };
+		E0ECE4A726B197F700A72797 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E0ECE4A426B197F600A72797 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,9 +62,6 @@
 		9E4337AF233679F800F4DEB4 /* CGXRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXRefreshHeader.h; sourceTree = "<group>"; };
 		9EB89E7E2337060200A58483 /* CGXRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXRefreshBackFooter.h; sourceTree = "<group>"; };
 		9EB89E7F2337060300A58483 /* CGXRefreshBackFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXRefreshBackFooter.m; sourceTree = "<group>"; };
-		B57FDE45250FB5EF0054A11E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
-		B57FDE46250FB5EF0054A11E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
-		B57FDE4C250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "CGXVerticalMenuView-OC.podspec"; path = "../../../CGXVerticalMenuView-OC.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B5892E9E25EB585400FB677D /* CustomTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTitleView.m; sourceTree = "<group>"; };
 		B5892E9F25EB585400FB677D /* CustomTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTitleView.h; sourceTree = "<group>"; };
 		B589A99925F1143C0008B6EA /* MoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
@@ -79,6 +76,9 @@
 		B5F6AEB32600F3F700BFF1D4 /* MoreSectionFootView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreSectionFootView.m; sourceTree = "<group>"; };
 		C8BA017C439F6CD87DB48131 /* Pods-CGXVerticalMenuView-OC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGXVerticalMenuView-OC.release.xcconfig"; path = "Target Support Files/Pods-CGXVerticalMenuView-OC/Pods-CGXVerticalMenuView-OC.release.xcconfig"; sourceTree = "<group>"; };
 		E0ABF96421F52E90CC5073D4 /* Pods-CGXVerticalMenuView-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGXVerticalMenuView-OC.debug.xcconfig"; path = "Target Support Files/Pods-CGXVerticalMenuView-OC/Pods-CGXVerticalMenuView-OC.debug.xcconfig"; sourceTree = "<group>"; };
+		E0ECE4A226B197F600A72797 /* CGXVerticalMenuView-OC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "CGXVerticalMenuView-OC.podspec"; path = "../../../CGXVerticalMenuView-OC.podspec"; sourceTree = "<group>"; };
+		E0ECE4A326B197F600A72797 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
+		E0ECE4A426B197F600A72797 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,7 @@
 		04B370CA232A27D700DDB62F /* CGXVerticalMenuView-OC */ = {
 			isa = PBXGroup;
 			children = (
-				B57FDE43250FB5D80054A11E /* Podspec Metadata */,
+				E0ECE4A126B197EA00A72797 /* Podspec Metadata */,
 				04B370CB232A27D700DDB62F /* AppDelegate.h */,
 				04B370CC232A27D700DDB62F /* AppDelegate.m */,
 				0440E2A2232F1BF500E93144 /* ViewController.h */,
@@ -190,12 +190,12 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
-		B57FDE43250FB5D80054A11E /* Podspec Metadata */ = {
+		E0ECE4A126B197EA00A72797 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				B57FDE4C250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec */,
-				B57FDE45250FB5EF0054A11E /* LICENSE */,
-				B57FDE46250FB5EF0054A11E /* README.md */,
+				E0ECE4A226B197F600A72797 /* CGXVerticalMenuView-OC.podspec */,
+				E0ECE4A426B197F600A72797 /* LICENSE */,
+				E0ECE4A326B197F600A72797 /* README.md */,
 			);
 			path = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -259,12 +259,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B57FDE49250FB5EF0054A11E /* README.md in Resources */,
+				E0ECE4A726B197F700A72797 /* LICENSE in Resources */,
 				04B370D8232A27D800DDB62F /* LaunchScreen.storyboard in Resources */,
+				E0ECE4A526B197F700A72797 /* CGXVerticalMenuView-OC.podspec in Resources */,
+				E0ECE4A626B197F700A72797 /* README.md in Resources */,
 				04B370D5232A27D800DDB62F /* Assets.xcassets in Resources */,
 				04B370D3232A27D700DDB62F /* Main.storyboard in Resources */,
-				B57FDE48250FB5EF0054A11E /* LICENSE in Resources */,
-				B57FDE4D250FB8EF0054A11E /* CGXVerticalMenuView-OC.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

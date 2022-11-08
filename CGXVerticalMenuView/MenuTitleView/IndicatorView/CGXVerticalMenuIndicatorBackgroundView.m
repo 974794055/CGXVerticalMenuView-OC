@@ -72,7 +72,7 @@
 
 - (void)updateIndicatorModel:(CGXVerticalMenuIndicatorParamsModel *)model
 {
-    
+    self.backgroundColor = self.backgroundViewColor;
     CGRect backframe = model.backgroundViewMaskFrame;
     if (self.backgroundViewWidth != CGXVerticalMenuViewAutomaticDimension) {
         backframe.origin.x = (backframe.size.width - self.backgroundViewWidth)/2.0;

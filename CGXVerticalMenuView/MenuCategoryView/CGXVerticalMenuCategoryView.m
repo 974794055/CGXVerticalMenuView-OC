@@ -130,7 +130,9 @@ typedef NS_ENUM(NSUInteger, CGXVerticalMenuCategoryViewDropUpDownType) {
 }
 - (void)reloadData
 {
-    [self.containerView reloadData];
+    self.leftView.backgroundColor = self.leftBgColor;
+    self.containerView.backgroundColor = self.rightBgColor;
+    [self.containerView reloadDataToItemAtIndex:self.currentInteger];
 }
 /**
  选中目标index的item

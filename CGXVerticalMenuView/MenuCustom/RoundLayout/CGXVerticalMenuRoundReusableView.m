@@ -73,22 +73,17 @@
     if (attr.myConfigModel) {
         CGXVerticalMenuRoundModel *model = attr.myConfigModel;
         UIImage *bgImage = [self gx_pageImageWithColor:model.backgroundColor];
-        self.bgImageView.image = bgImage;
-        if ([model.hotStr hasPrefix:@"http:"] || [model.hotStr hasPrefix:@"https:"]) {
-            if (model.menu_ImageCallback) {
-                model.menu_ImageCallback(weakSelf.bgImageView,[NSURL URLWithString:model.hotStr]);
+        if (model.hotStr && model.hotStr.length>0) {
+            bgImage = [UIImage imageNamed:model.hotStr];
+            if (!bgImage) {
+                bgImage = [UIImage imageWithContentsOfFile:model.hotStr];
             }
-        } else{
-            UIImage *bgImage = [self gx_pageImageWithColor:model.backgroundColor];
-            if (model.hotStr && model.hotStr.length>0) {
-                bgImage = [UIImage imageNamed:model.hotStr];
-                if (!bgImage) {
-                    bgImage = [UIImage imageWithContentsOfFile:model.hotStr];
-                }
-            }
-            self.bgImageView.image = bgImage;
         }
+        self.bgImageView.image = bgImage;
         
+        if (model.menu_ImageCallback) {
+            model.menu_ImageCallback(weakSelf.bgImageView,[NSURL URLWithString:model.hotStr]);
+        }
         if (@available(iOS 13.0, *)) {
             self.bgImageView.layer.borderColor = [model.borderColor resolvedColorWithTraitCollection:self.traitCollection].CGColor;
         } else {

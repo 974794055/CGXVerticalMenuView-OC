@@ -33,13 +33,12 @@
     self.currentInteger = 0;
     self.spaceLeft = 0;
     self.spaceRight = 0;
-    self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
-    _collectionView = [[CGXVerticalMenuContainerCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    self.collectionView = [[CGXVerticalMenuContainerCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.pagingEnabled = YES;
@@ -48,7 +47,7 @@
     self.collectionView.bounces = NO;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    self.collectionView.backgroundColor = self.backgroundColor;
+    self.collectionView.backgroundColor = [UIColor clearColor];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     if (@available(iOS 10.0, *)) {
         self.collectionView.prefetchingEnabled = NO;

@@ -25,8 +25,12 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
       self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"上一个" style:UIBarButtonItemStyleDone target:self action:@selector(topText)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一个" style:UIBarButtonItemStyleDone target:self action:@selector(bottomText)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStyleDone target:self action:@selector(reloarText)];
+    
+    UIBarButtonItem *item2 =  [[UIBarButtonItem alloc] initWithTitle:@"上一个" style:UIBarButtonItemStyleDone target:self action:@selector(topText)];
+    UIBarButtonItem *item3 = [[UIBarButtonItem alloc] initWithTitle:@"下一个" style:UIBarButtonItemStyleDone target:self action:@selector(bottomText)];
+    
+    self.navigationItem.rightBarButtonItems = @[item2,item3];
     
     NSMutableArray *arr = [NSMutableArray arrayWithObjects:
                            [NSNumber numberWithInteger:CGXVerticalMenuIndicatorLinePosition_Left],
@@ -35,14 +39,14 @@
                            [NSNumber numberWithInteger:CGXVerticalMenuIndicatorLinePosition_Bottom],
                            nil];
     for (int i = 0; i<arr.count; i++) {
-        CGXVerticalMenuTitleView *listView = [[CGXVerticalMenuTitleView alloc] initWithFrame:CGRectMake(((SCREEN_WIDTH-50)/4.0+10)*i, 0, (SCREEN_WIDTH-50)/4.0, kVCHeight)];
+        CGXVerticalMenuTitleView *listView = [[CGXVerticalMenuTitleView alloc] initWithFrame:CGRectMake(10+((SCREEN_WIDTH-50)/4.0+10)*i, 0, (SCREEN_WIDTH-50)/4.0, kVCHeight)];
         listView.delegate = self;
-        listView.backgroundColor = [UIColor colorWithRed:29.0/255.0f green:35.0/255.0f blue:69.0/255.0f alpha:1.0];
+        listView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:listView];
         listView.tag =  10000+i;
 //        listView.showsVerticalScrollIndicator = YES;
         CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
-        backgroundView.backgroundViewColor = [UIColor orangeColor];
+        backgroundView.backgroundViewColor = [UIColor redColor];
         if (i==0) {
             backgroundView.backgroundViewHeight = 30;
             backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0-20;
@@ -56,13 +60,10 @@
             backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0;
         }else if (i==3){
             backgroundView.backgroundViewCornerRadius = 0;
-           
         }
         CGXVerticalMenuIndicatorLineView *lineView = [[CGXVerticalMenuIndicatorLineView alloc] init];
         lineView.backgroundColor = [UIColor redColor];
-        
         lineView.positionType = [arr[i] integerValue];
-        
         listView.indicators = @[lineView,backgroundView];
         
         NSMutableArray *titleArr = [NSMutableArray arrayWithObjects:@"推荐",@"要闻",@"河北",@"财经",@"娱乐",@"体育",@"社会",@"NBA",@"视频",@"汽车",@"图片",@"科技",@"军事",@"国际",@"数码",@"星座",@"电影",@"时尚",@"文化",@"游戏",@"教育",@"动漫",@"政务",@"纪录片",@"房产",@"佛学",@"股票",@"理财", nil];
@@ -71,8 +72,8 @@
             CGXVerticalMenuTitleModel *itemModel = [[CGXVerticalMenuTitleModel alloc] init];
             //            itemModel.isMoreClick = NO;
             itemModel.title = titleArr[i];
-            itemModel.titleNormalColor = [UIColor whiteColor];
-            itemModel.titleSelectedColor = [UIColor redColor];
+            itemModel.titleNormalColor = [UIColor blackColor];
+            itemModel.titleSelectedColor = [UIColor whiteColor];
             itemModel.titleFont = [UIFont systemFontOfSize:14];
             itemModel.titleSelectedFont = [UIFont systemFontOfSize:18];
             [dataArr addObject:itemModel];
@@ -81,7 +82,19 @@
     }
     
 }
-
+- (void)reloarText
+{
+    CGXVerticalMenuTitleView *listView1 = [self.view viewWithTag:10000];
+    CGXVerticalMenuIndicatorBackgroundView *backgroundView = [[CGXVerticalMenuIndicatorBackgroundView alloc] init];
+    backgroundView.backgroundViewColor = [UIColor orangeColor];
+    backgroundView.backgroundViewHeight = 30;
+    backgroundView.backgroundViewWidth = (SCREEN_WIDTH-50)/4.0-20;
+    CGXVerticalMenuIndicatorLineView *lineView = [[CGXVerticalMenuIndicatorLineView alloc] init];
+    lineView.backgroundColor = [UIColor orangeColor];
+    lineView.positionType = CGXVerticalMenuIndicatorLinePosition_Left;
+    listView1.indicators = @[lineView,backgroundView];
+    [listView1 selectItemAtIndex:listView1.selectedIndex];
+}
 - (void)topText
 {
     CGXVerticalMenuTitleView *listView1 = [self.view viewWithTag:10000];

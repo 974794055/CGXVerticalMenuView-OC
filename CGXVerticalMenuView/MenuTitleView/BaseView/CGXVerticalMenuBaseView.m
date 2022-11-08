@@ -15,7 +15,6 @@
 
 @implementation CGXVerticalMenuBaseView
 
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -25,7 +24,6 @@
     }
     return self;
 }
-
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
@@ -35,8 +33,6 @@
     }
     return self;
 }
-
-
 - (void)initializeViews
 {
     self.collectionView = [[CGXVerticalMenuIndicatoCollectionView alloc] initWithFrame:self.bounds collectionViewLayout:[self preferredFlowLayout]];
@@ -54,6 +50,7 @@
         self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     [self addSubview:self.collectionView];
+    self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
 }
 - (void)setShowsVerticalScrollIndicator:(BOOL)showsVerticalScrollIndicator
 {
@@ -63,14 +60,26 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.collectionView.frame = self.bounds;
-    [self.collectionView reloadData];
+    CGRect targetFrame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
+    self.collectionView.frame = targetFrame;
+    if (!CGRectEqualToRect(self.collectionView.frame, targetFrame)) {
+        self.collectionView.frame = targetFrame;
+        [self.collectionView.collectionViewLayout invalidateLayout];
+        [self.collectionView reloadData];
+    }
+    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.collectionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.collectionView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
+    NSLayoutConstraint *right = [NSLayoutConstraint constraintWithItem:self.collectionView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
+    NSLayoutConstraint *bottom = [NSLayoutConstraint constraintWithItem:self.collectionView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+    [self addConstraint:top];
+    [self addConstraint:left];
+    [self addConstraint:right];
+    [self addConstraint:bottom];
 }
 - (void)setIndicators:(NSArray<UIView<CGXCategoryListIndicatorProtocol> *> *)indicators {
     _indicators = indicators;
     self.collectionView.indicators = indicators;
 }
-
 - (Class)preferredHeadClass {
     return UICollectionReusableView.class;
 }
@@ -152,7 +161,6 @@
 {
     CGXVerticalMenuBaseCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([self preferredCellClass]) forIndexPath:indexPath];
     CGXVerticalMenuBaseModel *model = (CGXVerticalMenuBaseModel *)self.dataArray[indexPath.section];
-    
     [cell reloadData:model];
     return cell;
 }
@@ -193,6 +201,8 @@
         [self.dataArray replaceObjectAtIndex:i withObject:cellModel];
     }
     [self.collectionView reloadData];
+    [self.superview layoutIfNeeded];
+    [self.superview setNeedsLayout];
 }
 - (void)replaceObjectAtIndex:(NSInteger)index ItemModel:(CGXVerticalMenuBaseModel  *)itemModel
 {

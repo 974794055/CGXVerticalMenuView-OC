@@ -75,6 +75,7 @@
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
 - (instancetype)initWithDelegate:(id<CGXVerticalMenuListContainerViewDataSource>)delegate NS_DESIGNATED_INITIALIZER;
+
 - (void)didClickSelectedItemAtIndex:(NSInteger)index;
 - (void)scrollSelectedItemAtIndex:(NSInteger)index;
 - (void)reloadData;

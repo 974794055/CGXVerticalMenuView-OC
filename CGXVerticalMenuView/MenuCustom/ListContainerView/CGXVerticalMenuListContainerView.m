@@ -31,7 +31,6 @@
     self = [super initWithFrame:CGRectZero];
     if (self) {
         _delegate = delegate;
-        self.backgroundColor = [UIColor whiteColor];
         _validListDict = [NSMutableDictionary dictionary];
         _willAppearIndex = -1;
         _willDisappearIndex = -1;
@@ -88,7 +87,7 @@
     }else {
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     }
-    self.collectionView.backgroundColor = self.backgroundColor;
+    self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.pagingEnabled = YES;
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
@@ -127,7 +126,6 @@
     [super layoutSubviews];
     
     self.containerVC.view.frame = self.bounds;
-    self.collectionView.backgroundColor = self.backgroundColor;
     if (CGRectEqualToRect(self.collectionView.frame, CGRectZero) ||  !CGSizeEqualToSize(self.collectionView.bounds.size, self.bounds.size)) {
         [self.collectionView.collectionViewLayout invalidateLayout];
         [self.collectionView reloadData];
@@ -157,7 +155,6 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
-    cell.contentView.backgroundColor = self.backgroundColor;
     id<CGXVerticalMenuListContainerViewDelegate> list = _validListDict[@(indexPath.item)];
     BOOL canInitList = YES;
     if (self.delegate && [self.delegate respondsToSelector:@selector(listContainerView:canInitListAtIndex:)]) {

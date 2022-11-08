@@ -16,6 +16,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //    强制关闭暗黑模式
+#if defined(__IPHONE_13_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_0
+    if(@available(iOS 13.0,*)){
+        self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    }
+#endif
     return YES;
 }
 

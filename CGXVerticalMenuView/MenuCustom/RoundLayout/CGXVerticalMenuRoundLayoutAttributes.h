@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CGXVerticalMenuRoundLayoutAttributes : UICollectionViewLayoutAttributes
 @property (nonatomic, assign) UIColor *backgroundColor;
-@property (nonatomic, assign) UIEdgeInsets borderEdgeInsets;
 @property (nonatomic, strong) CGXVerticalMenuRoundModel *myConfigModel;
 @end
 
